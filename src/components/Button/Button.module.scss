@@ -1,0 +1,133 @@
+.button {
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 8px 16px;
+    transition: background-color 0.3s;
+    border: none;
+    color: #fff;
+    font-family: Inter, sans-serif;
+    font-weight: 600;
+}
+
+.button.disabled.disabled {
+    cursor: default;
+}
+
+.smallButton {
+    width: 88px;
+    border-radius: 100px;
+    background-color: var(--accent-500);
+
+    &:hover {
+        cursor: pointer;
+        background-color: var(--accent-600);
+    }
+
+    &:active {
+        background-color: var(--accent-700);
+    }
+
+    &.disabled {
+        background-color: var(--neutral-300, #CCD1DB);
+        color: var(--light-text);
+    }
+
+    &.loading {
+        background: var(--accent-500);
+    }
+}
+
+.largeButton {
+    width: 280px;
+    border-radius: 12px;
+    background-color: var(--primary-500);
+
+    &:hover {
+        cursor: pointer;
+        background-color: var(--primary-600);
+    }
+
+    &:active {
+        background-color: var(--primary-700);
+    }
+
+    &.disabled {
+        background-color: var(--neutral-300, #CCD1DB);
+        color: var(--light-text);
+    }
+
+    &.loading {
+        background: var(--primary-500);
+    }
+}
+
+.cardButton {
+    width: 200px;
+    border-radius: 12px;
+    background: var(--accent-500);
+
+    &:hover {
+        cursor: pointer;
+        background: var(--accent-700);
+    }
+
+    &:active {
+        background: var(--accent-800);
+    }
+
+    &.disabled {
+        color: var(--light-text);
+        background: var(--neutral-300);
+    }
+
+    &.loading {
+        background: var(--accent-500);
+    }
+}
+
+.textButton {
+    background-color: transparent;
+    color: var(--primary-500);
+
+    &:hover {
+        cursor: pointer;
+        color: var(--primary-700);
+    }
+
+    &:active {
+        color: var(--primary-800);
+    }
+
+    &.disabled {
+        color: var(--light-text);
+    }
+}
+
+.iconButton {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background-color: var(--primary-500);
+    display: flex;
+    justify-content: center;
+
+    &:hover {
+        cursor: pointer;
+        background: var(--primary-700);
+    }
+
+    &:active {
+        background: var(--primary-700);
+    }
+
+    &.disabled {
+        background-color: var(--neutral-300, #CCD1DB);
+        color: var(--light-text);
+    }
+
+    &.loading {
+        background: var(--primary-500);
+    }
+}
