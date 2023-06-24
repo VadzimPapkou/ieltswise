@@ -1,0 +1,74 @@
+.textFieldContainer {
+    width: 380px;
+}
+
+.textFieldContainer[data-validity="invalid"] {
+    .textField {
+        border: 1px solid var(--danger-500);
+    }
+
+    .helperText {
+        color: var(--danger-500);
+    }
+
+    .validationMessage {
+        color: var(--danger-500)
+    }
+}
+
+.textFieldContainer[data-validity="warning"] {
+    .textField {
+        border: 1px solid var(--warning-500);
+    }
+
+    .helperText {
+        color: var(--warning-500);
+    }
+
+    .validationMessage {
+        color: var(--warning-500)
+    }
+}
+
+.textFieldContainer[data-validity="valid"] {
+    .textField {
+        border: 1px solid var(--success-500);
+    }
+
+    .helperText {
+        color: var(--success-500);
+    }
+
+    .validationMessage {
+        color: var(--success-500)
+    }
+}
+
+.textField {
+    width: 100%;
+    height: 50px;
+    padding: 8px 16px;
+
+    border-radius: 12px;
+    border: 1px solid var(--secondary-text);
+    background: var(--light-text, #FFF);
+    color: var(--secondary-text);
+    outline: none;
+}
+
+.helperText {
+    margin-bottom: 4px;
+    margin-left: 16px;
+    font-weight: 600;
+    caret-color: var(--default-text);
+}
+
+.validationResult {
+    margin-top: 4px;
+    display: flex;
+    align-items: center;
+}
+
+.validationMessage {
+    margin-left: 4px;
+}
