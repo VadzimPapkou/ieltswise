@@ -31,7 +31,7 @@
 
     &.disabled {
         background-color: var(--neutral-300, #CCD1DB);
-        color: var(--light-text);
+        color: var(--secondary-text);
     }
 
     &.loading {
@@ -55,7 +55,7 @@
 
     &.disabled {
         background-color: var(--neutral-300, #CCD1DB);
-        color: var(--light-text);
+        color: var(--secondary-text);
     }
 
     &.loading {
@@ -78,7 +78,7 @@
     }
 
     &.disabled {
-        color: var(--light-text);
+        color: var(--secondary-text);
         background: var(--neutral-300);
     }
 
@@ -101,7 +101,7 @@
     }
 
     &.disabled {
-        color: var(--light-text);
+        color: var(--secondary-text);
     }
 }
 
@@ -124,7 +124,7 @@
 
     &.disabled {
         background-color: var(--neutral-300, #CCD1DB);
-        color: var(--light-text);
+        color: var(--secondary-text);
     }
 
     &.loading {
