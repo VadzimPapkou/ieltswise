@@ -27,6 +27,7 @@ const Button = ({
     [classes.iconButton]: variant === "icon",
     [classes.disabled]: disabled,
     [String(className)]: className,
+    p1: true,
   });
 
   return (
