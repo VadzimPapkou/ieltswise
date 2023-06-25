@@ -25,10 +25,14 @@ const TextField = ({
   helperText,
   validityState = "valid",
   validationMessage,
+  className,
   ...inputParams
 }: TextFieldProps) => {
   return (
-    <div className={classes.textFieldContainer} data-validity={validityState}>
+    <div
+      className={clsx(classes.textFieldContainer, className)}
+      data-validity={validityState}
+    >
       {helperText && (
         <div className={clsx(classes.helperText, "p2")}>{helperText}</div>
       )}

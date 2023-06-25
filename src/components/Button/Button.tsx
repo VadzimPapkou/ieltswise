@@ -15,6 +15,7 @@ const Button = ({
   children,
   loading,
   disabled,
+  className,
   ...buttonParams
 }: ButtonProps) => {
   const buttonClassName = clsx({
@@ -25,6 +26,7 @@ const Button = ({
     [classes.textButton]: variant === "text",
     [classes.iconButton]: variant === "icon",
     [classes.disabled]: disabled,
+    [String(className)]: className,
   });
 
   return (
