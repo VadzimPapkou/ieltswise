@@ -1,0 +1,69 @@
+.wrapper {
+  margin: 90px auto 0 auto;
+  max-width: 1180px;
+  width: 100%;
+}
+
+.underHeader {
+  display: flex;
+  justify-content: space-between;
+}
+
+.bookSession {
+  max-width: 500px;
+}
+
+.h1 {
+  margin-top: 86px;
+}
+
+.chooseCategory {
+  margin-top: 18px;
+}
+
+.chooseSessionButton {
+  margin-top: 68px;
+}
+
+.reviewBlock {
+  width: 100%;
+  margin-right: 36px;
+  max-width: 508px;
+  position: relative;
+}
+
+.chart {
+  position: absolute;
+  left: 128px;
+  top: 0;
+}
+
+.positiveWoman {
+  position: absolute;
+  top: 10px;
+  right: 0;
+}
+
+.focusedMan {
+  position: absolute;
+  left: 0;
+  top: 114px;
+}
+
+.review {
+  position: absolute;
+  top: 221px;
+  right: 16px;
+  width: 296px;
+  background-color: #fff;
+  border-radius: 12px;
+  padding: 8px 16px;
+}
+
+.reviewText {
+
+}
+
+.reviewAuthor {
+  margin-top: 8px;
+}

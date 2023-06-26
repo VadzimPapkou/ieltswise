@@ -9,7 +9,7 @@ const Header = () => {
   return (
     <header className={classes.header}>
       <Link href="/" className={classes.logo}>
-        <Image alt="Neil wood" src="./logo.svg" width={151} height={44}></Image>
+        <Image alt="Neil wood" src="./logo.svg" width={151} height={44} />
       </Link>
       <Link href={"/"} className={clsx(classes.link)}>
         <span className={clsx("p1", classes.whiteText)}>Tutor</span>
@@ -18,7 +18,7 @@ const Header = () => {
         <span className={clsx("p1", classes.whiteText)}>Contact</span>
       </Link>
       <Link href={"/"} className={classes.logIn}>
-        <Button type="small">Log in</Button>
+        <Button variant="small">Log in</Button>
       </Link>
     </header>
   );
