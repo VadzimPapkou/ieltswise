@@ -9,3 +9,12 @@ When committing to this repo consider reading [conventional commits docs](https:
 ## Fix project startup
 1. **Problem**: falls after log `info Using wasm build of next-swc` <br>
 **Solution**: install nodejs v18 **64x**
+
+## Generator Scripts
+
+Scripts like `npm run generate [type] [...params]`
+
+### Component
+
+### `npm run generate component [component-name]`
+
