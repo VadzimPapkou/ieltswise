@@ -1,0 +1,62 @@
+.trialDescription {
+  margin: 20px auto 0 auto;
+  max-width: 1180px;
+  width: 100%;
+  display: flex;
+  gap: 20px;
+}
+
+.description {
+  min-height: 244px;
+  padding: 24px 40px;
+  flex: 1 1 0;
+  width: calc(50% - 20px);
+  border-radius: 24px;
+  background: var(--primary-500);
+  color: #fff;
+}
+
+.header {
+}
+
+.benefits {
+  margin-top: 8px;
+  margin-left: 40px;
+  color: #fff;
+}
+
+.benefits > li {
+  margin-top: 8px;
+}
+
+.discount {
+  min-height: 244px;
+  overflow: hidden;
+  position: relative;
+  width: calc(50% - 20px);
+  border-radius: 24px;
+  background: #FFF;
+}
+
+.percent {
+  position: absolute;
+  bottom: 0;
+}
+
+.discountText {
+  max-width: 402px;
+  position: absolute;
+  bottom: 24px;
+  right: 40px;
+
+  color: #222;
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 34px;
+  letter-spacing: 0.168px;
+  text-align: end;
+}
+
+.discountValue {
+  color: var(--accent-500);
+}
