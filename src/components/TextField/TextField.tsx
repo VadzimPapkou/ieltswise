@@ -6,8 +6,6 @@ import Image from "next/image";
 export type TextFieldValidityState = "valid" | "warning" | "invalid";
 
 type TextFieldProps = {
-  value: string;
-  onChange: React.ChangeEventHandler;
   helperText?: string;
   validityState?: TextFieldValidityState;
   validationMessage?: string;
@@ -20,10 +18,8 @@ const validityIconsPaths = {
 };
 
 const TextField = ({
-  value,
-  onChange,
   helperText,
-  validityState = "valid",
+  validityState = "",
   validationMessage,
   className,
   ...inputParams
@@ -37,8 +33,6 @@ const TextField = ({
         <div className={clsx(classes.helperText, "p2")}>{helperText}</div>
       )}
       <input
-        value={value}
-        onChange={onChange}
         type="text"
         className={clsx(classes.textField, "p1")}
         {...inputParams}
