@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700;800&family=Roboto:wght@500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Roboto:wght@500;700&display=swap');
 
 * {
     margin: 0;
@@ -72,12 +72,8 @@
     --secondary-text: #5B6379;
 
     font-family: Inter, sans-serif;
+    letter-spacing: 0.1px;
     background-color: var(--neutral-100);
-}
-
-main {
-    display: flex;
-    gap: 4px;
 }
 
 .block > * {
