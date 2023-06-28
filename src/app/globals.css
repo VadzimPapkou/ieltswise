@@ -131,3 +131,7 @@
     line-height: 18px;
     letter-spacing: 0.1px;
 }
+
+button {
+    font-family: Inter, sans-serif;
+}
