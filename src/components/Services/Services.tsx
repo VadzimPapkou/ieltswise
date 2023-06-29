@@ -1,4 +1,6 @@
-import React from "react";
+"use client";
+
+import React, { useState } from "react";
 import classes from "./Services.module.scss";
 import clsx from "clsx";
 import Image from "next/image";
@@ -6,14 +8,16 @@ import Image from "next/image";
 type ServicesProps = {};
 
 const Services: React.FC = ({}: ServicesProps) => {
-  // const tabs = [
-  //   { title: "IELTS preparation", iconSrc: "/service-icon-1.svg" },
-  //   { title: "IELTS preparation", iconSrc: "/service-icon-1.svg" },
-  //   { title: "IELTS preparation", iconSrc: "/service-icon-1.svg" },
-  //   { title: "IELTS preparation", iconSrc: "/service-icon-1.svg" },
-  //   { title: "IELTS preparation", iconSrc: "/service-icon-1.svg" },
-  //   { title: "IELTS preparation", iconSrc: "/service-icon-1.svg" },
-  // ];
+  const tabs = [
+    { title: "IELTS preparation", iconSrc: "/service-icon-1.svg" },
+    { title: "Exam preparation", iconSrc: "/service-icon-2.svg" },
+    { title: "Business English", iconSrc: "/service-icon-3.svg" },
+    { title: "Functional English", iconSrc: "/service-icon-4.svg" },
+    { title: "Conversational English", iconSrc: "/service-icon-5.svg" },
+    { title: "Improve English", iconSrc: "/service-icon-6.svg" },
+  ];
+
+  const [activeTab, setActiveTab] = useState(tabs[0].title);
 
   return (
     <div className={classes.services}>
@@ -24,87 +28,39 @@ const Services: React.FC = ({}: ServicesProps) => {
         lessons will be personalised to meet your needs.
       </p>
       <div className={classes.tabs}>
-        <button className={classes.tab}>
-          <div
-            className={clsx(classes.iconDecoration, classes.iconDecoration1)}
+        {tabs.map((tab) => (
+          <button
+            className={clsx({
+              [classes.tab]: true,
+              [classes.active]: tab.title === activeTab,
+            })}
+            key={tab.title}
+            onClick={handleTabClick(tab.title)}
           >
-            <Image
-              alt="service icon"
-              src="/service-icon-1.svg"
-              width={24}
-              height={24}
-            />
-          </div>
-          <span className={classes.tabText}>IELTS preparation</span>
-        </button>
-        <button className={classes.tab}>
-          <div
-            className={clsx(classes.iconDecoration, classes.iconDecoration2)}
-          >
-            <Image
-              alt="service icon"
-              src="/service-icon-2.svg"
-              width={24}
-              height={24}
-            />
-          </div>
-          <span className={classes.tabText}>Exam preparation</span>
-        </button>
-        <button className={classes.tab}>
-          <div
-            className={clsx(classes.iconDecoration, classes.iconDecoration3)}
-          >
-            <Image
-              alt="service icon"
-              src="/service-icon-3.svg"
-              width={24}
-              height={24}
-            />
-          </div>
-          <span className={classes.tabText}>Business English</span>
-        </button>
-        <button className={classes.tab}>
-          <div
-            className={clsx(classes.iconDecoration, classes.iconDecoration4)}
-          >
-            <Image
-              alt="service icon"
-              src="/service-icon-4.svg"
-              width={24}
-              height={24}
-            />
-          </div>
-          <span className={classes.tabText}>Functional English</span>
-        </button>
-        <button className={classes.tab}>
-          <div
-            className={clsx(classes.iconDecoration, classes.iconDecoration5)}
-          >
-            <Image
-              alt="service icon"
-              src="/service-icon-5.svg"
-              width={24}
-              height={24}
-            />
-          </div>
-          <span className={classes.tabText}>Conversational English</span>
-        </button>
-        <button className={classes.tab}>
-          <div
-            className={clsx(classes.iconDecoration, classes.iconDecoration6)}
-          >
-            <Image
-              alt="service icon"
-              src="/service-icon-6.svg"
-              width={24}
-              height={24}
-            />
-          </div>
-          <span className={classes.tabText}>Improve English</span>
-        </button>
+            <div
+              className={clsx(classes.iconDecoration, classes.iconDecoration1)}
+            >
+              <Image
+                alt="service icon"
+                src={tab.iconSrc}
+                width={24}
+                height={24}
+              />
+            </div>
+            <span className={clsx(classes.tabText, "h5-like")}>
+              {tab.title}
+            </span>
+          </button>
+        ))}
       </div>
     </div>
   );
+
+  function handleTabClick(tabTitle) {
+    return function (e) {
+      setActiveTab(tabTitle);
+    };
+  }
 };
 
 export default Services;
