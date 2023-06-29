@@ -1,5 +1,6 @@
 import React from "react";
 import classes from "./__name__.module.scss";
+import clsx from "clsx";
 
 type __name__Props = {};
 
