@@ -21,7 +21,9 @@ const ContactUs: React.FC = ({}: ContactUsProps) => {
           placeholder="Enter the Session that Interests you."
           className={classes.textField}
         />
-        <Button variant="card">Leave a request</Button>
+        <Button className={classes.contactButton} variant="card">
+          Leave a request
+        </Button>
       </form>
     </div>
   );

@@ -1,7 +1,7 @@
 .contactUs {
   margin: 80px auto 0 auto;
   max-width: 1180px;
-  padding: 50px 40px;
+  padding: 50px 70px;
 
   border-radius: 24px;
   background-color: var(--primary-500);
@@ -27,4 +27,8 @@
 
 .textField {
   margin-bottom: 24px;
+}
+
+.contactButton {
+  margin: 0 auto;
 }
