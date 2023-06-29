@@ -1,0 +1,23 @@
+.footer {
+  margin: 80px auto 0 auto;
+  max-width: 1180px;
+
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 80px;
+}
+
+.textLink {
+  display: block;
+  margin-top: 4px;
+  text-decoration: none;
+}
+
+.social .links {
+  display: flex;
+  gap: 8px;
+}
+
+.links {
+  margin-top: 8px;
+}
