@@ -1,0 +1,51 @@
+.wrapper {
+  margin: 80px auto 0 auto;
+  max-width: 1180px;
+  gap: 61px;
+  display: flex;
+}
+
+.header {
+  color: var(--primary-500);
+}
+
+.headerDescription {
+  margin-top: 8px;
+}
+
+.writeReviewButton {
+  margin-top: 32px;
+}
+
+.headerColumn {
+  flex: 1 0 339px;
+}
+
+.reviewsContainer {
+  flex: 1 1 780px;
+}
+
+.reviews {
+  display: flex;
+  gap: 20px;
+}
+
+.review {
+  margin-top: 20px;
+  padding: 24px 32px;
+  background-color: #fff;
+  border-radius: 12px;
+}
+
+.reviewHeader {
+  margin-top: 12px;
+}
+
+.showAllButton {
+  margin: 16px auto 0 auto;
+}
+
+.column {
+  height: 570px;
+  overflow: hidden;
+}
