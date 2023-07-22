@@ -8,13 +8,14 @@
     color: #fff;
     font-family: Inter, sans-serif;
     font-weight: 600;
+    cursor: pointer;
 }
 
 .button.disabled.disabled {
     cursor: default;
 }
 
-.smallButton {
+.pill {
     white-space: nowrap;
     width: 88px;
     height: 44px;
@@ -22,7 +23,6 @@
     background-color: var(--accent-500);
 
     &:hover {
-        cursor: pointer;
         background-color: var(--accent-600);
     }
 
@@ -31,7 +31,7 @@
     }
 
     &.disabled {
-        background-color: var(--neutral-300, #CCD1DB);
+        background-color: var(--neutral-300);
         color: var(--secondary-text);
     }
 
@@ -40,55 +40,59 @@
     }
 }
 
-.largeButton {
-    width: 280px;
+.primary {
+    width: 250px;
+    height: 60px;
     border-radius: 12px;
-    background-color: var(--primary-500);
+    background-color: var(--primary-700);
 
     &:hover {
-        cursor: pointer;
         background-color: var(--primary-600);
     }
 
     &:active {
-        background-color: var(--primary-700);
+        background-color: var(--primary-500);
     }
 
     &.disabled {
-        background-color: var(--neutral-300, #CCD1DB);
+        background-color: var(--neutral-300);
         color: var(--secondary-text);
     }
 
     &.loading {
-        background: var(--primary-500);
+        background: var(--primary-700);
     }
 }
 
-.cardButton {
-    width: 200px;
+.secondary {
+    width: 250px;
+    height: 60px;
     border-radius: 12px;
-    background: var(--accent-500);
+    background: var(--primary-100);
+    color: var(--primary-600);
+    cursor: pointer;
 
     &:hover {
-        cursor: pointer;
-        background: var(--accent-700);
+        background: var(primary-200);
+        color: var(--primary-600);
     }
 
     &:active {
-        background: var(--accent-800);
+        background: var(primary-300);
+        color: var(--primary-600);
     }
 
     &.disabled {
-        color: var(--secondary-text);
         background: var(--neutral-300);
+        color: var(--secondary-text);
     }
 
     &.loading {
-        background: var(--accent-500);
+        background: var(--primary-200);
     }
 }
 
-.textButton {
+.text {
     display: inline;
     height: auto;
     padding: 0;
@@ -109,7 +113,7 @@
     }
 }
 
-.iconButton {
+.icon {
     width: 44px;
     height: 44px;
     border-radius: 50%;
@@ -127,7 +131,7 @@
     }
 
     &.disabled {
-        background-color: var(--neutral-300, #CCD1DB);
+        background-color: var(--neutral-300);
         color: var(--secondary-text);
     }
 

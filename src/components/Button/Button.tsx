@@ -4,7 +4,7 @@ import clsx from "clsx";
 import Loader from "../Loader/Loader";
 
 type ButtonProps = {
-  variant: "small" | "large" | "card" | "text" | "icon";
+  variant: "pill" | "primary" | "secondary" | "text" | "icon";
   children?: JSX.Element[] | JSX.Element | string | string[];
   loading?: boolean;
   disabled?: boolean;
@@ -20,11 +20,7 @@ const Button = ({
 }: ButtonProps) => {
   const buttonClassName = clsx({
     [classes.button]: true,
-    [classes.smallButton]: variant === "small",
-    [classes.largeButton]: variant === "large",
-    [classes.cardButton]: variant === "card",
-    [classes.textButton]: variant === "text",
-    [classes.iconButton]: variant === "icon",
+    [classes[variant]]: true,
     [classes.disabled]: disabled,
     [String(className)]: className,
     p1: true,
