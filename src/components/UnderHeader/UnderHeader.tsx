@@ -8,54 +8,58 @@ const UnderHeader = () => {
   return (
     <div className={classes.wrapper}>
       <div className={classes.underHeader}>
-        <div className={classes.bookSession}>
-          <h1 className={clsx(classes.h1, "h2-like")}>
-            Online English Tutoring from the IELTS Preparation to Conversational
-            English
+        <div className={classes.textBlock}>
+          <p className={classes.upperTitle}>IELTSWISE EDUCATION</p>
+          <h1 className={clsx("h1-like", classes.title)}>
+            Online English Tutor to Fit{" "}
+            <span className={classes.accent}>YOUR Schedule.</span>
           </h1>
-          <p className={clsx("p1", classes.chooseCategory)}>
-            Choose your category
+          <p className={clsx("p1", classes.underTitle)}>
+            The lessons take place online and are personalised to fit your
+            needs. Lessons can be arranged to fit into your daily schedule:
+            before work; after work; evenings and weekend slots are all
+            available.
           </p>
-          <Button variant="large" className={classes.chooseSessionButton}>
-            Choose a session
-          </Button>
+          <div className={classes.textBlockButtons}>
+            <Button variant="primary">Choose a Lessons</Button>
+            <Button variant="secondary">See Tutor</Button>
+          </div>
         </div>
-        <div className={classes.reviewBlock}>
+        <div className={classes.imagesBlock}>
           <Image
-            className={classes.chart}
-            alt="chart"
-            src="/chart.svg"
-            width={84}
-            height={98}
-          />
-          <Image
-            className={classes.positiveWoman}
+            className={clsx(classes.image, classes.woman)}
             alt="positive woman"
             src="/positive-woman.png"
-            width={280}
-            height={170}
+            width={260}
+            height={260}
+            quality={100}
           />
           <Image
-            className={classes.focusedMan}
+            className={clsx(classes.image, classes.man)}
             alt="focused man"
             src="/focused-man.png"
-            width={280}
-            height={178}
+            width={305}
+            height={244}
+            quality={100}
           />
-          <div className={classes.review}>
-            <p className={clsx(classes.reviewText, "p2")}>
-              <i>
-                “You can talk with Neil about anything and nothing. He has vast
-                amounts of knowledge, great sense of humour and can make you
-                feel at ease quite easily. But more importantly, he makes you
-                use your…
-              </i>
-              &nbsp;
-              <Button variant="text">read all</Button>
-            </p>
-            <h2 className={clsx(classes.reviewAuthor, "p2")}>
-              <b>Katarzyna: November 3, 2022</b>
-            </h2>
+          <Image
+            className={clsx(classes.image, classes.chart)}
+            alt="chart"
+            src="/chart.svg"
+            width={89}
+            height={89}
+          />
+          <div className={clsx("p2", classes.flyingText, classes.ft1)}>
+            IELTS preparation
+          </div>
+          <div className={clsx("p2", classes.flyingText, classes.ft2)}>
+            Functional English
+          </div>
+          <div className={clsx("p2", classes.flyingText, classes.ft3)}>
+            Business English
+          </div>
+          <div className={clsx("p2", classes.flyingText, classes.ft4)}>
+            Conversational English
           </div>
         </div>
       </div>

@@ -25,7 +25,7 @@ const Header = () => {
           <Arrow2 color={"var(--primary-500)"} className={classes.logInArrow} />
         </Link>
         <Link href={"/"} className={classes.signUp}>
-          <Button variant="small">Sign Up</Button>
+          <Button variant="pill">Sign Up</Button>
         </Link>
       </header>
     </div>

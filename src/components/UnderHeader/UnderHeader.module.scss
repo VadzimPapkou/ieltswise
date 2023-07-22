@@ -1,69 +1,105 @@
 .wrapper {
-  margin: 90px auto 0 auto;
+  margin: 80px auto 0 auto;
   max-width: 1180px;
   width: 100%;
 }
 
 .underHeader {
+  min-height: 464px;
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 
-.bookSession {
-  max-width: 500px;
+.textBlock {
+  flex: 0 1 540px;
 }
 
-.h1 {
-  margin-top: 86px;
+.image {
+  object-fit: cover;
+  border-radius: 12px;
 }
 
-.chooseCategory {
-  margin-top: 18px;
-}
-
-.chooseSessionButton {
-  margin-top: 68px;
-}
-
-.reviewBlock {
-  width: 100%;
-  margin-right: 36px;
-  max-width: 508px;
+.imagesBlock {
+  height: 464px;
+  flex: 0 0 515px;
   position: relative;
+}
+
+.woman {
+  position: absolute;
+  top: 29px;
+  left: 79px;
 }
 
 .chart {
   position: absolute;
-  left: 128px;
   top: 0;
+  left: 40px;
 }
 
-.positiveWoman {
+.man {
   position: absolute;
-  top: 10px;
+  bottom: 0;
   right: 0;
 }
 
-.focusedMan {
-  position: absolute;
-  left: 0;
-  top: 114px;
-}
-
-.review {
-  position: absolute;
-  top: 221px;
-  right: 16px;
-  width: 296px;
+.flyingText {
+  color: var(--primary-600);
   background-color: #fff;
-  border-radius: 12px;
-  padding: 8px 16px;
+  font-style: italic;
+  font-weight: 600;
+  position: absolute;
+  padding: 12px 16px;
+  border-radius: 100px;
 }
 
-.reviewText {
+.ft1 {
+  top: 61px;
+  right: 91px;
+}
+
+.ft2 {
+  top: 113px;
+  right: 2px;
+}
+
+.ft3 {
+  top: 322px;
+  right: 274px;
+}
+
+.ft4 {
+  top: 374px;
+  left: 0;
+}
+
+/* ================================================= */
+
+.textBlock {
 
 }
 
-.reviewAuthor {
+.textBlockButtons {
+  margin-top: 64px;
+  display: flex;
+  gap: 11px;
+}
+
+.upperTitle {
+  font-size: 22px;
+  font-weight: 500;
+  color: var(--primary-700);
+}
+
+.underTitle {
+  margin-top: 16px;
+}
+
+.title {
   margin-top: 8px;
+}
+
+.accent {
+  color: var(--accent-500);
 }
