@@ -3,7 +3,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 8px 16px;
     transition: background-color 0.3s;
     border: none;
     color: #fff;
@@ -16,7 +15,9 @@
 }
 
 .smallButton {
+    white-space: nowrap;
     width: 88px;
+    height: 44px;
     border-radius: 100px;
     background-color: var(--accent-500);
 
