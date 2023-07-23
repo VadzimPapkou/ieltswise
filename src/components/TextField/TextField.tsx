@@ -3,7 +3,11 @@ import classes from "./TextField.module.scss";
 import clsx from "clsx";
 import Image from "next/image";
 
-export type TextFieldValidityState = "valid" | "warning" | "invalid";
+export type TextFieldValidityState =
+  | "valid"
+  | "warning"
+  | "invalid"
+  | "default";
 
 type TextFieldProps = {
   helperText?: string;
@@ -19,7 +23,7 @@ const validityIconsPaths = {
 
 const TextField = ({
   helperText,
-  validityState = "",
+  validityState = "default",
   validationMessage,
   className,
   ...inputParams
@@ -37,7 +41,7 @@ const TextField = ({
         className={clsx(classes.textField, "p1")}
         {...inputParams}
       />
-      {validityState && (
+      {validityState !== "default" && (
         <div className={classes.validationResult}>
           <Image
             alt=""
