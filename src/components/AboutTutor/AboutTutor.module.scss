@@ -4,32 +4,26 @@
   margin: 80px auto 0 auto;
 }
 
-.header {
-  color: var(--primary-500);
+.title {
+  color: var(--primary-700);
+  text-align: center;
 }
 
 .content {
   display: flex;
-  margin-top: 32px;
-  gap: 54px;
-}
+  margin-top: 24px;
+  gap: 20px;
 
-.tutorCard {
-  flex: 0 0 380px;
-  min-height: 458px;
-  position: relative;
-  border-radius: 16px;
-  overflow: hidden;
-}
-
-.tutorCard > * {
-  position: relative;
+  background-color: #fff;
+  border-radius: 24px;
+  padding: 40px;
 }
 
 .tutorPhoto {
-  position: absolute;
-  top: 0;
-  left: 0;
+  flex: 0 0 184px;
+  border-radius: 100px;
+  height: 184px;
+  object-fit: cover;
 }
 
 .experience, .who {
@@ -82,12 +76,11 @@
 }
 
 .interestsHeader {
-  margin-top: 24px;
+  margin-top: 16px;
 }
 
 .interests {
-  max-width: 650px;
-  margin-top: 16px;
+  margin-top: 8px;
   display: flex;
   align-items: flex-start;
   flex-wrap: wrap;
@@ -95,12 +88,11 @@
 }
 
 .interest {
-  padding: 8px 16px;
+  padding: 12px 16px;
   font-size: 16px;
   font-weight: 500;
   line-height: 24px;
   letter-spacing: 0.096px;
-  text-transform: uppercase;
 
   border-radius: 24px;
   border: 0.5px solid var(--neutral-300);
@@ -109,4 +101,29 @@
 
 .readAll {
   margin-top: auto;
+  margin-right: 24px;
+}
+
+/* ==================================== */
+
+.tutorWho {
+  margin-top: 4px;
+}
+
+.tutorDescriptionTitle {
+  margin-top: 16px;
+}
+
+.tutorDescription {
+  margin-top: 8px;
+}
+
+.buttons {
+  margin-top: 24px;
+  display: flex;
+  align-items: center;
+}
+
+.uk {
+  margin-left: 8px;
 }

@@ -7,10 +7,23 @@
   padding-bottom: 80px;
 }
 
+.logo {
+  width: 171px;
+  height: 52px;
+}
+
 .textLink {
   display: block;
   margin-top: 4px;
   text-decoration: none;
+}
+
+.textLink, .copyright {
+  color: var(--secondary-text);
+}
+
+.copyright {
+  margin-top: 96px;
 }
 
 .social .links {

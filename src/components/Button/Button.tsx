@@ -33,6 +33,7 @@ const Button = ({
     primary: PrimaryButton,
     secondary: SecondaryButton,
     text: TextButton,
+    icon: IconButton,
   };
 
   const ButtonComponent = buttonComponents[variant];
@@ -75,6 +76,12 @@ const SecondaryButton = ({ children, buttonClassName, buttonParams }) => (
 );
 
 const TextButton = ({ children, buttonClassName, buttonParams }) => (
+  <button className={buttonClassName} {...buttonParams}>
+    {children}
+  </button>
+);
+
+const IconButton = ({ children, buttonClassName, buttonParams }) => (
   <button className={buttonClassName} {...buttonParams}>
     {children}
   </button>

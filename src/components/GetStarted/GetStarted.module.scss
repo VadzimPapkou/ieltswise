@@ -1,0 +1,24 @@
+.getStarted {
+  margin: 80px auto 0 auto;
+  max-width: 1180px;
+  padding: 71px 40px;
+
+  border-radius: 24px;
+  background-color: var(--primary-500);
+}
+
+.title {
+  text-align: center;
+  color: #fff;
+  flex: 1 1 568px;
+}
+
+.description {
+  margin-top: 4px;
+  text-align: center;
+  color: #fff;
+}
+
+.getStartedButton {
+  margin: 48px auto 0 auto;
+}

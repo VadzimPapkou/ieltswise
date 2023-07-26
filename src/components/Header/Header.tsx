@@ -4,7 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import Button from "../Button/Button";
 import clsx from "clsx";
-import Arrow2 from "../../image-components/Arrow2/Arrow2";
+import Arrow2 from "../../icon-components/Arrow2/Arrow2";
 
 const Header = () => {
   return (

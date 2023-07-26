@@ -9,25 +9,23 @@ type FooterProps = {};
 const Footer: React.FC = ({}: FooterProps) => {
   return (
     <footer className={classes.footer}>
-      <Link href="/" className={classes.column}>
-        <Image
-          src="/logo-black.svg"
-          alt="neil wood english tutor"
-          width={150}
-          height={44}
-        />
-      </Link>
-      <div className={clsx(classes.column, classes.services)}>
+      <div>
+        <Link href="/">
+          <Image
+            className={classes.logo}
+            src="/logo.svg"
+            alt="neil wood english tutor"
+            width={171}
+            height={52}
+          />
+        </Link>
+        <p className={classes.copyright}>© 2023 IELTSWISE Education</p>
+      </div>
+      <div>
         <p className="h5-like">Services</p>
         <div className={classes.links}>
           <Link href="/" className={clsx(classes.textLink, "p1")}>
             IELTS preparation
-          </Link>
-          <Link href="/" className={clsx(classes.textLink, "p1")}>
-            Exam preparation
-          </Link>
-          <Link href="/" className={clsx(classes.textLink, "p1")}>
-            Business English
           </Link>
           <Link href="/" className={clsx(classes.textLink, "p1")}>
             Functional English
@@ -36,11 +34,14 @@ const Footer: React.FC = ({}: FooterProps) => {
             Conversational English
           </Link>
           <Link href="/" className={clsx(classes.textLink, "p1")}>
+            Business English
+          </Link>
+          <Link href="/" className={clsx(classes.textLink, "p1")}>
             Improve English
           </Link>
         </div>
       </div>
-      <div className={clsx(classes.column, classes.info)}>
+      <div>
         <p className="h5-like">Info</p>
         <div className={classes.links}>
           <Link href="/" className={clsx(classes.textLink, "p1")}>
@@ -57,7 +58,7 @@ const Footer: React.FC = ({}: FooterProps) => {
           </Link>
         </div>
       </div>
-      <div className={clsx(classes.column, classes.legal)}>
+      <div>
         <p className="h5-like">Legal</p>
         <div className={classes.links}>
           <Link href="/" className={clsx(classes.textLink, "p1")}>
@@ -68,7 +69,7 @@ const Footer: React.FC = ({}: FooterProps) => {
           </Link>
         </div>
       </div>
-      <div className={clsx(classes.column, classes.social)}>
+      <div>
         <p className="h5-like">Social</p>
         <div className={classes.links}>
           <Link href="/" className={clsx(classes.textLink, "p1")}>

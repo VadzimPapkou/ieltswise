@@ -3,23 +3,24 @@
   max-width: 1180px;
 }
 
-.header {
-  color: var(--primary-500);
+.title {
+  text-align: center;
+  color: var(--primary-700);
 }
 
 .description {
-  max-width: 920px;
-  margin-top: 8px;
+  text-align: center;
+  margin-top: 4px;
 }
 
-.tabs {
+.tabSwitchers {
   margin-top: 24px;
   display: flex;
   flex-wrap: wrap;
-  gap: 16px;
+  gap: 8px;
 }
 
-.tab {
+.tabSwitch {
   display: flex;
   align-items: center;
   padding: 12px 16px;
@@ -30,13 +31,13 @@
   transition: background-color 0.3s, color 0.3s;
 }
 
-.tab.active {
+.tabSwitch.active {
   background-color: var(--primary-500);
   color: #fff;
 }
 
 .tabText {
-  margin-left: 8px;
+  margin-left: 16px;
   font-weight: bold;
 }
 
@@ -73,3 +74,42 @@
   background-color: #FFF8E5;
 }
 
+/* ===================================== */
+
+.tab {
+  margin-top: 8px;
+  width: 100%;
+  border-radius: 24px;
+  background-color: #fff;
+  padding: 40px 24px 40px 40px;
+}
+
+.tabTitleInfo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.tabDescription {
+  margin-top: 16px;
+}
+
+.tabBookButton {
+  margin-top: 24px;
+}
+
+.tabInfo {
+  padding: 8px 12px;
+  max-width: 295px;
+  width: 100%;
+  justify-content: space-between;
+  display: grid;
+  grid-template-columns: repeat(3, max-content);
+  grid-template-rows: repeat(2, 1fr);
+  background-color: var(--accent-500);
+  border-radius: 12px;
+}
+
+.tabInfo * {
+  color: #fff;
+}

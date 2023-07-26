@@ -1,19 +1,19 @@
 .header {
-  color: var(--accent-500, #F66958);
+  color: var(--primary-700);
 }
 
 .freeTrial {
   border-radius: 24px;
   max-width: 1180px;
-  padding: 45px 40px;
+  padding: 50px 40px;
   margin: 85px auto 0 auto;
   background: #fff;
 }
 
 .bookTrialForm {
-  margin-top: 12px;
+  margin-top: 32px;
   display: flex;
-  align-items: end;
+  align-items: center;
 }
 
 .bookTrialForm > * {
@@ -25,4 +25,9 @@
   color: var(--default-text, #222);
   font-size: 14px;
   line-height: 20px;
+}
+
+.personalData {
+  text-decoration: underline;
+  color: var(--primary-500);
 }

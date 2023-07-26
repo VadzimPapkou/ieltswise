@@ -4,38 +4,68 @@ import React, { useState } from "react";
 import classes from "./Services.module.scss";
 import clsx from "clsx";
 import Image from "next/image";
+import IeltsPreparation from "./IeltsPreparation";
+import FunctionalEnglish from "./FunctionalEnglish";
+import ConversationalEnglish from "./ConversationalEnglish";
+import BusinessEnglish from "./BusinessEnglish";
+import ImproveEnglish from "./ImproveEnglish";
 
 type ServicesProps = {};
 
-const Services: React.FC = ({}: ServicesProps) => {
-  const tabs = [
-    { title: "IELTS preparation", iconSrc: "/service-icon-1.svg" },
-    { title: "Exam preparation", iconSrc: "/service-icon-2.svg" },
-    { title: "Business English", iconSrc: "/service-icon-3.svg" },
-    { title: "Functional English", iconSrc: "/service-icon-4.svg" },
-    { title: "Conversational English", iconSrc: "/service-icon-5.svg" },
-    { title: "Improve English", iconSrc: "/service-icon-6.svg" },
-  ];
+interface ITab {
+  title: string;
+  iconSrc: string;
+  component: React.FC;
+}
 
-  const [activeTab, setActiveTab] = useState(tabs[0].title);
+const tabs: ITab[] = [
+  {
+    title: "IELTS preparation",
+    iconSrc: "/service-icon-1.svg",
+    component: IeltsPreparation,
+  },
+  {
+    title: "Functional English",
+    iconSrc: "/service-icon-4.svg",
+    component: FunctionalEnglish,
+  },
+  {
+    title: "Conversational English",
+    iconSrc: "/service-icon-5.svg",
+    component: ConversationalEnglish,
+  },
+  {
+    title: "Business English",
+    iconSrc: "/service-icon-3.svg",
+    component: BusinessEnglish,
+  },
+  {
+    title: "Improve English",
+    iconSrc: "/service-icon-6.svg",
+    component: ImproveEnglish,
+  },
+];
+
+const Services: React.FC = ({}: ServicesProps) => {
+  const [activeTab, setActiveTab] = useState(tabs[0]);
+  const ActiveComponent = activeTab.component;
 
   return (
     <div className={classes.services}>
-      <h2 className={clsx(classes.header, "h2-like")}>Services</h2>
+      <h2 className={clsx(classes.title, "h2-like")}>Services</h2>
       <p className={clsx(classes.description, "p1")}>
-        The first step to improving your English. My teaching approach is one
-        which will empower you to learn and use English with confidence. Your
-        lessons will be personalised to meet your needs.
+        Choose a training program that suits your goals, or create your own
+        individual plan.
       </p>
-      <div className={classes.tabs}>
+      <div className={classes.tabSwitchers}>
         {tabs.map((tab) => (
           <button
             className={clsx({
-              [classes.tab]: true,
-              [classes.active]: tab.title === activeTab,
+              [classes.tabSwitch]: true,
+              [classes.active]: tab.title === activeTab.title,
             })}
             key={tab.title}
-            onClick={handleTabClick(tab.title)}
+            onClick={handleTabClick(tab)}
           >
             <div
               className={clsx(classes.iconDecoration, classes.iconDecoration1)}
@@ -53,12 +83,13 @@ const Services: React.FC = ({}: ServicesProps) => {
           </button>
         ))}
       </div>
+      <ActiveComponent />
     </div>
   );
 
-  function handleTabClick(tabTitle) {
-    return function (e) {
-      setActiveTab(tabTitle);
+  function handleTabClick(tab) {
+    return function () {
+      setActiveTab(tab);
     };
   }
 };

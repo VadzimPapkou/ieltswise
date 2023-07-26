@@ -1,8 +1,16 @@
 .wrapper {
   margin: 80px auto 0 auto;
   max-width: 1180px;
-  gap: 61px;
-  display: flex;
+}
+
+.title {
+  text-align: center;
+  color: var(--primary-700);
+}
+
+.titleDescription {
+  text-align: center;
+  margin-top: 8px;
 }
 
 .header {
@@ -26,12 +34,13 @@
 }
 
 .reviews {
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   gap: 20px;
+  margin-top: 24px;
 }
 
 .review {
-  margin-top: 20px;
   padding: 24px 32px;
   background-color: #fff;
   border-radius: 12px;
@@ -42,10 +51,25 @@
 }
 
 .showAllButton {
-  margin: 16px auto 0 auto;
+  margin-top: 24px;
 }
 
 .column {
   height: 570px;
   overflow: hidden;
+}
+
+.reviewTextArea {
+  padding: 16px;
+  border-radius: 12px;
+  border: 1px solid var(--neutral-400);
+  background: var(--neutral-200);
+
+  font-family: Inter, sans-serif;
+  outline: none;
+  resize: vertical;
+}
+
+.reviewTextArea::placeholder {
+  color: var(--neutral-400);
 }

@@ -117,7 +117,7 @@
     line-height: 26px;
 }
 
-.p1 {
+.p1, p {
     color: #333238;
     font-size: 16px;
     line-height: 24px;

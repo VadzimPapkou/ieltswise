@@ -4,8 +4,9 @@ import TrialDescription from "../components/TrialDescription";
 import AboutTutor from "../components/AboutTutor";
 import Services from "../components/Services";
 import Reviews from "../components/Reviews";
-import ContactUs from "../components/ContactUs";
+import GetStarted from "../components/GetStarted";
 import Footer from "../components/Footer";
+import SeveralLessons from "../components/SeveralLessons";
 
 export default function Home() {
   return (
@@ -14,10 +15,11 @@ export default function Home() {
         <UnderHeader />
         <FreeTrial />
         <TrialDescription />
-        <AboutTutor />
         <Services />
+        <SeveralLessons />
+        <AboutTutor />
         <Reviews />
-        <ContactUs />
+        <GetStarted />
       </main>
       <Footer />
     </>

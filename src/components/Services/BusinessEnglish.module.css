@@ -1,0 +1,12 @@
+.list {
+    margin-top: 16px;
+    margin-left: 32px;
+}
+
+.list > li:not(:first-child) {
+    margin-top: 8px;
+}
+
+.description {
+    margin-top: 16px;
+}

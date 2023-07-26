@@ -1,0 +1,49 @@
+.ieltsList {
+    margin-top: 16px;
+    margin-left: 32px;
+}
+
+.ieltsList > li:not(:first-child) {
+    margin-top: 8px;
+}
+
+.ieltsDescription {
+    margin-top: 16px;
+}
+
+.ieltsTest {
+    margin: 24px auto 0 auto;
+    padding: 24px 32px;
+    border-radius: 12px;
+    border: 0.5px solid var(--primary-100);
+    box-shadow: 2px 2px 20px 0 rgba(66, 114, 224, 0.16);
+    background-color: #fff;
+    cursor: pointer;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.ieltsTestDescription {
+    max-width: 924px;
+    margin-top: 8px;
+    text-align: start;
+    color: var(--secondary-text);
+}
+
+.ieltsTestTitle {
+    text-align: start;
+}
+
+.ieltsTestButton {
+    flex: 0 0 auto;
+    width: 44px;
+    height: 44px;
+    background-color: var(--primary-500);
+    border-radius: 100px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
