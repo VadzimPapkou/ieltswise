@@ -69,7 +69,7 @@ const Footer: React.FC = ({}: FooterProps) => {
           </Link>
         </div>
       </div>
-      <div>
+      <div className={classes.social}>
         <p className="h5-like">Social</p>
         <div className={classes.links}>
           <Link href="/" className={clsx(classes.textLink, "p1")}>
