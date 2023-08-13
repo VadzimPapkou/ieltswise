@@ -1,8 +1,6 @@
 "use client";
-
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import classes from "./ModalFade.module.scss";
-import clsx from "clsx";
 import { createPortal } from "react-dom";
 
 function lockScroll() {
@@ -13,17 +11,23 @@ function lockScroll() {
 }
 
 const ModalFade = ({ children, onClickOutside }) => {
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+
+    return () => setMounted(false);
+  }, []);
   useEffect(lockScroll);
-  return (
-    <>
-      {createPortal(
+
+  return mounted
+    ? createPortal(
         <div className={classes.modalFade} onClick={handleClick}>
           {children}
         </div>,
         document.body
-      )}
-    </>
-  );
+      )
+    : null;
 
   function handleClick(e) {
     if (e.target.classList.contains(classes.modalFade)) onClickOutside();
