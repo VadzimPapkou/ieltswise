@@ -1,12 +1,19 @@
-import React from "react";
+"use client";
+
+import React, { useState } from "react";
 import classes from "./UnderHeader.module.scss";
 import clsx from "clsx";
 import Button from "../Button/Button";
 import Image from "next/image";
+import ChooseLessonsModal from "../ChooseLessonsModal";
+import Link from "next/link";
 
 const UnderHeader = () => {
+  const [showModal, setShowModal] = useState(true);
+
   return (
     <div className={classes.wrapper}>
+      {showModal && <ChooseLessonsModal setShowModal={setShowModal} />}
       <div className={classes.underHeader}>
         <div className={classes.textBlock}>
           <p className={classes.upperTitle}>IELTSWISE EDUCATION</p>
@@ -21,8 +28,12 @@ const UnderHeader = () => {
             available.
           </p>
           <div className={classes.textBlockButtons}>
-            <Button variant="primary">Choose a Lessons</Button>
-            <Button variant="secondary">See Tutor</Button>
+            <Button variant="primary" onClick={handleChooseLessonsClick}>
+              Choose a Lessons
+            </Button>
+            <Link href="#aboutTutor" style={{ textDecoration: "none" }}>
+              <Button variant="secondary">See Tutor</Button>
+            </Link>
           </div>
         </div>
         <div className={classes.imagesBlock}>
@@ -65,6 +76,10 @@ const UnderHeader = () => {
       </div>
     </div>
   );
+
+  function handleChooseLessonsClick() {
+    setShowModal(!showModal);
+  }
 };
 
 export default UnderHeader;

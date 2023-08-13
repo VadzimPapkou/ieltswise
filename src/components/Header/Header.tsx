@@ -13,20 +13,20 @@ const Header = () => {
         <Link href="/" className={classes.logo}>
           <Image alt="Neil wood" src="/logo.svg" width={171} height={52} />
         </Link>
-        <Link href={"/"} className={clsx(classes.link)}>
+        <Link href={"/#aboutTutor"} className={clsx(classes.link)}>
           <span className={clsx("p1")}>Tutor</span>
         </Link>
         <Link href={"/"} className={clsx(classes.link)}>
           <span className={clsx("p1")}>Contacts</span>
         </Link>
-        <div className={classes.verticalDivider} />
-        <Link href={"/"} className={clsx(classes.link, classes.logIn)}>
-          <Button variant="text">Login</Button>
-          <Arrow2 color={"var(--primary-500)"} className={classes.logInArrow} />
-        </Link>
-        <Link href={"/"} className={classes.signUp}>
-          <Button variant="pill">Sign Up</Button>
-        </Link>
+        {/*<div className={classes.verticalDivider} />*/}
+        {/*<Link href={"/"} className={clsx(classes.link, classes.logIn)}>*/}
+        {/*  <Button variant="text">Login</Button>*/}
+        {/*  <Arrow2 color={"var(--primary-500)"} className={classes.logInArrow} />*/}
+        {/*</Link>*/}
+        {/*<Link href={"/"} className={classes.signUp}>*/}
+        {/*  <Button variant="pill">Sign Up</Button>*/}
+        {/*</Link>*/}
       </header>
     </div>
   );

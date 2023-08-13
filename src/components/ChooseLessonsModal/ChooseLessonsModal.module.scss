@@ -1,0 +1,23 @@
+.modal {
+  overflow-y: auto;
+  position: relative;
+  width: 100%;
+  max-width: 985px;
+  padding: 50px;
+}
+
+.modal.date {
+  width: 554px;
+  padding: 32px;
+}
+
+.closeModal {
+  width: 44px;
+  height: 44px;
+  border-radius: 100px;
+  position: absolute;
+  display: none;
+  background-color: #fff;
+  border: none;
+  cursor: pointer;
+}

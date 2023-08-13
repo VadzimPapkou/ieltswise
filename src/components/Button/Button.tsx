@@ -1,8 +1,8 @@
 import React from "react";
 import classes from "./Button.module.scss";
 import clsx from "clsx";
-import Loader from "../Loader/Loader";
-import ArrowOutward from "../../icon-components/ArrowOutward";
+import ArrowRight from "../../icon-components/ArrowRight";
+import { secondaryText } from "../../colors";
 
 type ButtonProps = {
   variant: "pill" | "primary" | "secondary" | "text" | "icon";
@@ -50,10 +50,13 @@ const Button = ({
   );
 };
 
-const LinkButton = ({ children, buttonClassName, buttonParams }) => (
+const LinkButton = ({ children, buttonClassName, buttonParams, disabled }) => (
   <button className={buttonClassName} {...buttonParams}>
     {children}
-    <ArrowOutward color="#fff" className={classes.linkArrow} />
+    <ArrowRight
+      color={disabled ? secondaryText : "#fff"}
+      className={classes.linkArrow}
+    />
   </button>
 );
 

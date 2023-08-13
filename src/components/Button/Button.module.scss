@@ -141,7 +141,8 @@
 }
 
 .link {
-    border-radius: 100px;
+    min-width: 130px;
+    border-radius: 12px;
     padding: 0 10px;
     color: #fff;
     background-color: var(--primary-500);
@@ -152,6 +153,11 @@
 
     &:active {
         background-color: var(--primary-400);
+    }
+
+    &.disabled {
+        background-color: var(--neutral-300);
+        color: var(--secondary-text);
     }
 }
 

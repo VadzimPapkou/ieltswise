@@ -1,7 +1,7 @@
 import React, { SVGProps } from "react";
 
 type Arrow2Props = {
-  color: string;
+  color?: string;
 } & SVGProps<SVGElement>;
 
 const Arrow2 = ({ color = "#0C0507", className }: Arrow2Props) => {
