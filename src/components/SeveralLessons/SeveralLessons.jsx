@@ -4,9 +4,7 @@ import clsx from "clsx";
 import Button from "../Button/Button";
 import CheckMark from "../../icon-components/CheckMark";
 
-type SeveralLessonsProps = {};
-
-const SeveralLessons: React.FC = ({}: SeveralLessonsProps) => {
+const SeveralLessons = ({}) => {
   return (
     <div className={classes.severalLessons}>
       <h2 className={clsx(classes.title, "h3-like")}>

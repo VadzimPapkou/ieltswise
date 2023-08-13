@@ -1,4 +1,4 @@
-@use "src/app/global" as c;
+@use "src/app/mixins" as c;
 
 .header {
   color: var(--default-text);

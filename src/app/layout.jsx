@@ -7,11 +7,7 @@ export const metadata = {
   description: "English for international opportunity",
 };
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body>

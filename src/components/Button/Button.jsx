@@ -4,13 +4,6 @@ import clsx from "clsx";
 import ArrowRight from "../../icon-components/ArrowRight";
 import { secondaryText } from "../../colors";
 
-type ButtonProps = {
-  variant: "pill" | "primary" | "secondary" | "text" | "icon";
-  children?: JSX.Element[] | JSX.Element | string | string[];
-  loading?: boolean;
-  disabled?: boolean;
-} & React.ButtonHTMLAttributes<any>;
-
 const Button = ({
   variant,
   children,
@@ -18,7 +11,7 @@ const Button = ({
   disabled,
   className,
   ...buttonParams
-}: ButtonProps) => {
+}) => {
   const buttonClassName = clsx({
     [classes.button]: true,
     [classes[variant]]: true,
@@ -50,7 +43,13 @@ const Button = ({
   );
 };
 
-const LinkButton = ({ children, buttonClassName, buttonParams, disabled }) => (
+const LinkButton = ({
+  children,
+  buttonClassName,
+  buttonParams,
+  disabled,
+  loading,
+}) => (
   <button className={buttonClassName} {...buttonParams}>
     {children}
     <ArrowRight
@@ -60,31 +59,61 @@ const LinkButton = ({ children, buttonClassName, buttonParams, disabled }) => (
   </button>
 );
 
-const PillButton = ({ children, buttonClassName, buttonParams }) => (
+const PillButton = ({
+  children,
+  buttonClassName,
+  buttonParams,
+  disabled,
+  loading,
+}) => (
   <button className={buttonClassName} {...buttonParams}>
     {children}
   </button>
 );
 
-const PrimaryButton = ({ children, buttonClassName, buttonParams }) => (
+const PrimaryButton = ({
+  children,
+  buttonClassName,
+  buttonParams,
+  disabled,
+  loading,
+}) => (
   <button className={buttonClassName} {...buttonParams}>
     {children}
   </button>
 );
 
-const SecondaryButton = ({ children, buttonClassName, buttonParams }) => (
+const SecondaryButton = ({
+  children,
+  buttonClassName,
+  buttonParams,
+  disabled,
+  loading,
+}) => (
   <button className={buttonClassName} {...buttonParams}>
     {children}
   </button>
 );
 
-const TextButton = ({ children, buttonClassName, buttonParams }) => (
+const TextButton = ({
+  children,
+  buttonClassName,
+  buttonParams,
+  disabled,
+  loading,
+}) => (
   <button className={buttonClassName} {...buttonParams}>
     {children}
   </button>
 );
 
-const IconButton = ({ children, buttonClassName, buttonParams }) => (
+const IconButton = ({
+  children,
+  buttonClassName,
+  buttonParams,
+  disabled,
+  loading,
+}) => (
   <button className={buttonClassName} {...buttonParams}>
     {children}
   </button>

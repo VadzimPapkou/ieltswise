@@ -4,9 +4,7 @@ import clsx from "clsx";
 import Image from "next/image";
 import Button from "../Button/Button";
 
-type TrialDescriptionProps = {};
-
-const TrialDescription: React.FC = ({}: TrialDescriptionProps) => {
+const TrialDescription = ({}) => {
   return (
     <div className={classes.trialDescription}>
       <div className={classes.description}>

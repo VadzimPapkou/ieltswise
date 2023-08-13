@@ -7,9 +7,7 @@ import clsx from "clsx";
 import Button from "../Button/Button";
 import Link from "next/link";
 
-type FreeTrialProps = {};
-
-const FreeTrial: React.FC = ({}: FreeTrialProps) => {
+const FreeTrial = ({}) => {
   return (
     <div className={classes.freeTrial}>
       <h2 className={clsx(classes.header, "h2-like")}>
@@ -31,7 +29,7 @@ const FreeTrial: React.FC = ({}: FreeTrialProps) => {
     </div>
   );
 
-  function handleSubmit(e: any) {
+  function handleSubmit(e) {
     e.preventDefault();
   }
 };

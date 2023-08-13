@@ -1,10 +1,4 @@
-import React, { SVGProps } from "react";
-
-type ArrowOutwardProps = {
-  color?: string;
-} & SVGProps<SVGElement>;
-
-const ArrowOutward = ({ className, color = "#222222" }: ArrowOutwardProps) => {
+const ArrowOutward = ({ className, color = "#222222" }) => {
   return (
     <svg
       width="24"

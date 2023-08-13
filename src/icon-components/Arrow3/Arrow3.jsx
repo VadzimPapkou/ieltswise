@@ -1,8 +1,6 @@
 import React, { SVGProps } from "react";
 
-type Arrow3Props = {} & SVGProps<SVGElement>;
-
-const Arrow3 = ({ className, color = "#fff" }: Arrow3Props) => {
+const Arrow3 = ({ className, color = "#fff" }) => {
   return (
     <svg
       className={className}

@@ -6,9 +6,7 @@ import Image from "next/image";
 import Button from "../Button/Button";
 import moment from "moment";
 
-type AboutTutorProps = {};
-
-const AboutTutor: React.FC = ({}: AboutTutorProps) => {
+const AboutTutor = ({}) => {
   return (
     <div className={classes.about} id="aboutTutor">
       <h2 className={clsx(classes.title, "h2-like")}>About tutor</h2>

@@ -1,13 +1,8 @@
 "use client";
 import React from "react";
-import { Oval } from  "react-loader-spinner";
+import { Oval } from "react-loader-spinner";
 
-type LoaderProps = {
-  primaryColor?: string,
-  secondaryColor?: string,
-}
-
-const Loader = ({primaryColor = "#fff", secondaryColor = "transparent"}: LoaderProps) => {
+const Loader = ({ primaryColor = "#fff", secondaryColor = "transparent" }) => {
   return (
     <Oval
       height={24}
@@ -16,7 +11,7 @@ const Loader = ({primaryColor = "#fff", secondaryColor = "transparent"}: LoaderP
       wrapperStyle={{}}
       wrapperClass=""
       visible={true}
-      ariaLabel='oval-loading'
+      ariaLabel="oval-loading"
       secondaryColor={secondaryColor}
       strokeWidth={2}
       strokeWidthSecondary={2}

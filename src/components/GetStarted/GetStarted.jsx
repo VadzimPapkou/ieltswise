@@ -5,9 +5,7 @@ import clsx from "clsx";
 import TextField from "../TextField/TextField";
 import Button from "../Button/Button";
 
-type ContactUsProps = {};
-
-const GetStarted: React.FC = ({}: ContactUsProps) => {
+const GetStarted = ({}) => {
   return (
     <div className={classes.getStarted}>
       <h2 className={clsx(classes.title, "h2-like")}>

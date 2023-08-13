@@ -4,9 +4,7 @@ import clsx from "clsx";
 import Image from "next/image";
 import Link from "next/link";
 
-type FooterProps = {};
-
-const Footer: React.FC = ({}: FooterProps) => {
+const Footer = ({}) => {
   return (
     <footer className={classes.footer}>
       <div>

@@ -3,18 +3,6 @@ import classes from "./TextField.module.scss";
 import clsx from "clsx";
 import Image from "next/image";
 
-export type TextFieldValidityState =
-  | "valid"
-  | "warning"
-  | "invalid"
-  | "default";
-
-type TextFieldProps = {
-  helperText?: string;
-  validityState?: TextFieldValidityState;
-  validationMessage?: string;
-} & React.InputHTMLAttributes<any>;
-
 const validityIconsPaths = {
   valid: "./valid.svg",
   warning: "./warning.svg",
@@ -27,7 +15,7 @@ const TextField = ({
   validationMessage,
   className,
   ...inputParams
-}: TextFieldProps) => {
+}) => {
   return (
     <div
       className={clsx(classes.textFieldContainer, className)}

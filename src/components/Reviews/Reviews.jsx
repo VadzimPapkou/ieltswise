@@ -3,9 +3,7 @@ import classes from "./Reviews.module.scss";
 import clsx from "clsx";
 import Button from "../Button/Button";
 
-type ReviewsProps = {};
-
-const Reviews: React.FC = ({}: ReviewsProps) => {
+const Reviews = ({}) => {
   return (
     <div className={classes.wrapper}>
       <h2 className={clsx("h2-like", classes.title)}>Reviews</h2>

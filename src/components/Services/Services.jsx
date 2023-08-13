@@ -10,15 +10,7 @@ import ConversationalEnglish from "./ConversationalEnglish";
 import BusinessEnglish from "./BusinessEnglish";
 import ImproveEnglish from "./ImproveEnglish";
 
-type ServicesProps = {};
-
-interface ITab {
-  title: string;
-  iconSrc: string;
-  component: React.FC;
-}
-
-const tabs: ITab[] = [
+const tabs = [
   {
     title: "IELTS preparation",
     iconSrc: "/service-icon-1.svg",
@@ -46,7 +38,7 @@ const tabs: ITab[] = [
   },
 ];
 
-const Services: React.FC = ({}: ServicesProps) => {
+const Services = ({}) => {
   const [activeTab, setActiveTab] = useState(tabs[0]);
   const ActiveComponent = activeTab.component;
 

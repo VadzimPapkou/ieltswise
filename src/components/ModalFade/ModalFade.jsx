@@ -5,8 +5,6 @@ import classes from "./ModalFade.module.scss";
 import clsx from "clsx";
 import { createPortal } from "react-dom";
 
-type ModalFadeProps = {};
-
 function lockScroll() {
   document.body.style.overflow = "hidden";
   return () => {
@@ -14,7 +12,7 @@ function lockScroll() {
   };
 }
 
-const ModalFade: React.FC = ({ children, onClickOutside }: ModalFadeProps) => {
+const ModalFade = ({ children, onClickOutside }) => {
   useEffect(lockScroll);
   return (
     <>

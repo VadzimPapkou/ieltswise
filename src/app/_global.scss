@@ -1,60 +1,5 @@
+@use "mixins" as m;
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Roboto:wght@500;700&display=swap');
-
-@mixin p1 {
-  color: #333238;
-  font-size: 16px;
-  line-height: 24px;
-  letter-spacing: 0.1px;
-}
-
-@mixin h1-like {
-  font-weight: 800;
-  font-size: 48px;
-  line-height: 58px;
-}
-
-@mixin h2-like {
-  font-weight: 800;
-  font-size: 36px;
-  line-height: 46px;
-}
-
-@mixin h3-like {
-  font-weight: bold;
-  font-size: 28px;
-  line-height: 34px;
-}
-
-@mixin h4-like {
-  font-weight: bold;
-  font-size: 22px;
-  line-height: 28px;
-}
-
-@mixin h5-like {
-  font-weight: bold;
-  font-size: 18px;
-  line-height: 26px;
-}
-
-@mixin p2 {
-  color: #333238;
-  font-size: 14px;
-  line-height: 20px;
-  letter-spacing: 0.1px;
-}
-
-@mixin caption {
-  color: #333238;
-  font-size: 12px;
-  font-weight: 500;
-  line-height: 18px;
-  letter-spacing: 0.1px;
-}
-
-@mixin rotate180 {
-  transform: rotate(180deg);
-}
 
 * {
   margin: 0;
@@ -144,35 +89,35 @@
 }
 
 .p1, p {
-  @include p1();
+  @include m.p1();
 }
 
 .h1-like {
-  @include h1-like();
+  @include m.h1-like();
 }
 
 .h2-like {
-  @include h2-like();
+  @include m.h2-like();
 }
 
 .h3-like {
-  @include h3-like();
+  @include m.h3-like();
 }
 
 .h4-like {
-  @include h4-like();
+  @include m.h4-like();
 }
 
 .h5-like {
-  @include h5-like();
+  @include m.h5-like();
 }
 
 .p2 {
-  @include p2();
+  @include m.p2();
 }
 
 .caption {
-  @include caption();
+  @include m.caption();
 }
 
 button {
@@ -184,5 +129,5 @@ main {
 }
 
 .rotate180 {
-  @include rotate180;
+  @include m.rotate180;
 }

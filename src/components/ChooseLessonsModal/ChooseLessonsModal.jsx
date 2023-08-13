@@ -6,17 +6,10 @@ import ChooseSessionType from "./ChooseSessionType";
 import ChooseDate from "./ChooseDate";
 import clsx from "clsx";
 
-type ChooseLessonsModalProps = {
-  setShowModal: Function;
-};
+const ChooseLessonsModal = ({ setShowModal }) => {
+  const [step, setStep] = useState("sessionType");
 
-type Step = "sessionType" | "date";
-type StepToComponent = { [key: Step]: React.FC };
-
-const ChooseLessonsModal = ({ setShowModal }: ChooseLessonsModalProps) => {
-  const [step, setStep] = useState<Step>("sessionType");
-
-  const stepToComponent: StepToComponent = {
+  const stepToComponent = {
     sessionType: ChooseSessionType,
     date: ChooseDate,
   };

@@ -1,10 +1,4 @@
-import React, { SVGProps } from "react";
-
-type CheckMarkProps = {
-  color?: string;
-} & SVGProps<SVGElement>;
-
-const CheckMark = ({ className, color = "#fff" }: CheckMarkProps) => {
+const CheckMark = ({ className, color = "#fff" }) => {
   return (
     <svg
       className={className}
