@@ -1,3 +1,5 @@
+@use "src/app/mixins" as m;
+
 .getStarted {
   margin: 80px auto 0 auto;
   max-width: 1180px;
@@ -11,6 +13,7 @@
   text-align: center;
   color: #fff;
   flex: 1 1 568px;
+  @include m.h2-like;
 }
 
 .description {
@@ -21,4 +24,10 @@
 
 .getStartedButton {
   margin: 48px auto 0 auto;
+}
+
+@media screen and (max-width: 600px) {
+  .title {
+    @include m.h3-like
+  }
 }

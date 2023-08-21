@@ -8,7 +8,7 @@ const TrialDescription = ({}) => {
   return (
     <div className={classes.trialDescription}>
       <div className={classes.description}>
-        <h3 className={clsx(classes.header, "h4-like")}>
+        <h3 className={clsx(classes.header)}>
           What will a FREE TRIAL SESSION give you?
         </h3>
         <ol className={clsx(classes.benefits, "p1")}>

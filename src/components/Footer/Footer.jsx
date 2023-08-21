@@ -7,7 +7,7 @@ import Link from "next/link";
 const Footer = ({}) => {
   return (
     <footer className={classes.footer}>
-      <div>
+      <div className={classes.logoColumn}>
         <Link href="/">
           <Image
             className={classes.logo}

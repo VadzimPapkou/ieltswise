@@ -8,7 +8,7 @@ import Button from "../Button/Button";
 const GetStarted = ({}) => {
   return (
     <div className={classes.getStarted}>
-      <h2 className={clsx(classes.title, "h2-like")}>
+      <h2 className={clsx(classes.title)}>
         Let me help you reach your goal!
       </h2>
       <p className={classes.description}>

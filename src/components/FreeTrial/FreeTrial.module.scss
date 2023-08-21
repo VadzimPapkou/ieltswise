@@ -1,5 +1,8 @@
+@use "src/app/mixins" as m;
+
 .header {
   color: var(--primary-700);
+  @include m.h2-like;
 }
 
 .freeTrial {
@@ -30,4 +33,20 @@
 .personalData {
   text-decoration: underline;
   color: var(--primary-500);
+}
+
+@media screen and (max-width: 800px) {
+  .header {
+    @include m.h3-like;
+  }
+
+  .freeTrial {
+    padding: 16px;
+    margin: 0 16px;
+  }
+
+  .bookTrialForm {
+    flex-wrap: wrap;
+    gap: 16px;
+  }
 }

@@ -10,7 +10,7 @@ import Link from "next/link";
 const FreeTrial = ({}) => {
   return (
     <div className={classes.freeTrial}>
-      <h2 className={clsx(classes.header, "h2-like")}>
+      <h2 className={clsx(classes.header)}>
         Book for a FREE 30 min trial session
       </h2>
       <form className={classes.bookTrialForm} onSubmit={handleSubmit}>

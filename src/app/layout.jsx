@@ -4,18 +4,23 @@ import Header from "../components/Header/Header";
 
 export const metadata = {
   title: "Ielts",
-  description: "English for international opportunity",
+  description: "English for international opportunity"
 };
 
-export default function RootLayout({ children }) {
+export default function RootLayout ({ children }) {
   return (
     <html lang="en">
-      <body>
-        <div className={classes.wrapper}>
-          <Header />
-          {children}
-        </div>
-      </body>
+    <head>
+      <meta name="viewport"
+            content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+      <title>Ielts</title>
+    </head>
+    <body>
+    <div className={classes.wrapper}>
+      <Header />
+      {children}
+    </div>
+    </body>
     </html>
   );
 }

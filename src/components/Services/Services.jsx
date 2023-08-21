@@ -69,7 +69,7 @@ const Services = ({}) => {
                 height={24}
               />
             </div>
-            <span className={clsx(classes.tabText, "h5-like")}>
+            <span className={clsx(classes.tabText)}>
               {tab.title}
             </span>
           </button>

@@ -46,3 +46,24 @@
 .logInArrow {
     margin-left: 4px;
 }
+
+.menu {
+    display: none;
+    border: none;
+    font-size: 32px;
+    background-color: transparent;
+}
+
+@media screen and (max-width: 600px) {
+    .logoImg {
+        width: 140px;
+    }
+
+    .menu {
+        display: block;
+    }
+
+    .links {
+        display: none;
+    }
+}

@@ -1,3 +1,5 @@
+@use "src/app/mixins" as m;
+
 .wrapper {
   margin: 80px auto 0 auto;
   max-width: 1180px;
@@ -76,10 +78,6 @@
 
 /* ================================================= */
 
-.textBlock {
-
-}
-
 .textBlockButtons {
   margin-top: 64px;
   display: flex;
@@ -102,4 +100,61 @@
 
 .accent {
   color: var(--accent-500);
+}
+
+@media screen and (max-width: 1200px) {
+  .imagesBlock {
+    transform: scale(0.75);
+  }
+
+  .title {
+    @include m.h2-like
+  }
+
+  .wrapper {
+    padding: 0 16px;
+    box-sizing: border-box;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .imagesBlock {
+    display: none;
+  }
+
+  .underHeader {
+    justify-content: center;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .underHeader {
+    justify-content: start;
+  }
+
+  .title {
+    @include m.h4-like
+  }
+
+  .textBlock {
+    flex: unset;
+    width: 100%;
+  }
+
+  .underTitle {
+    text-align: justify;
+  }
+
+  .textBlockButtons {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .seeTutor {
+    display: none;
+  }
+
+  .wrapper {
+    margin: 20px auto 0 auto;
+  }
 }

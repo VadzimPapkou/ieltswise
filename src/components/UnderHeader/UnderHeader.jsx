@@ -9,7 +9,7 @@ import ChooseLessonsModal from "../ChooseLessonsModal";
 import Link from "next/link";
 
 const UnderHeader = () => {
-  const [showModal, setShowModal] = useState(true);
+  const [showModal, setShowModal] = useState(false);
 
   return (
     <div className={classes.wrapper}>
@@ -31,7 +31,7 @@ const UnderHeader = () => {
             <Button variant="primary" onClick={handleChooseLessonsClick}>
               Choose a Lessons
             </Button>
-            <Link href="#aboutTutor" style={{ textDecoration: "none" }}>
+            <Link href="#aboutTutor" style={{ textDecoration: "none" }} className={classes.seeTutor}>
               <Button variant="secondary">See Tutor</Button>
             </Link>
           </div>
