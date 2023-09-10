@@ -26,7 +26,7 @@ const ChooseLessonsModal = ({ setShowModal }) => {
       <button className={classes.closeModal} onClick={closeModal}>
         &#x2715;
       </button>
-      <Modal className={className}>
+      <Modal className={className} onCloseClick={closeModal}>
         <CurrentStep setStep={setStep} setShowModal={setShowModal} />
       </Modal>
     </ModalFade>

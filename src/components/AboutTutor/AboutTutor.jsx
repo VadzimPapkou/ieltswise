@@ -5,6 +5,7 @@ import clsx from "clsx";
 import Image from "next/image";
 import Button from "../Button/Button";
 import moment from "moment";
+import Link from "next/link";
 
 const AboutTutor = ({}) => {
   return (
@@ -56,9 +57,11 @@ const AboutTutor = ({}) => {
             <p className={classes.interest}>Travel</p>
           </div>
           <div className={classes.buttons}>
-            <Button className={classes.readAll} variant="primary">
-              Read all bio
-            </Button>
+            <Link href="/tutors/neil-wood" style={{textDecoration: "none"}}>
+              <Button className={classes.readAll} variant="primary">
+                Read all bio
+              </Button>
+            </Link>
             <Button variant="text">Show certifications</Button>
           </div>
         </div>

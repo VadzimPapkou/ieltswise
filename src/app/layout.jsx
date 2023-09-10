@@ -1,6 +1,7 @@
 import "./_global.scss";
 import classes from "./layout.module.css";
 import Header from "../components/Header/Header";
+import Footer from "../components/Footer";
 
 export const metadata = {
   title: "Ielts",
@@ -19,6 +20,7 @@ export default function RootLayout ({ children }) {
     <div className={classes.wrapper}>
       <Header />
       {children}
+      <Footer />
     </div>
     </body>
     </html>

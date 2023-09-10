@@ -28,8 +28,8 @@ const ChooseDate = ({ setStep }) => {
           <Arrow3 color="#fff" />
         </Button>
         <p className={classes.date}>{dateRef.current.format("MMMM YYYY")}</p>
-        <Button variant="icon" onClick={setNextMonth}>
-          <Arrow3 className={classes.buttonRight} color="#fff" />
+        <Button variant="icon" onClick={setNextMonth} className={classes.buttonRight}>
+          <Arrow3 color="#fff" />
         </Button>
       </div>
       <div className={classes.calendar}>

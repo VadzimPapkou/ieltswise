@@ -23,7 +23,6 @@ export default function Home() {
         <Reviews />
         <GetStarted />
       </main>
-      <Footer />
     </>
   );
 }

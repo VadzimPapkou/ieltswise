@@ -10,6 +10,11 @@
   @include c.h3-like;
 }
 
+.buttonLeft, .buttonRight {
+  flex: 0 0 44px;
+  height: 44px;
+}
+
 .buttonLeft {
   margin-left: auto;
 }
@@ -88,4 +93,14 @@
 .selectedDateArrow {
   margin-top: -7px;
   transform: rotate(-90deg) scale(0.7);
+}
+
+@media screen and (max-width: 600px) {
+  .title {
+    @include c.h4-like
+  }
+
+  .date {
+    flex: 0 1 100px;
+  }
 }

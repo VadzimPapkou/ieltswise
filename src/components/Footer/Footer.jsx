@@ -74,10 +74,10 @@ const Footer = ({}) => {
             <Image alt="google" src="/google.svg" width={32} height={32} />
           </Link>
           <Link href="/" className={clsx(classes.textLink, "p1")}>
-            <Image alt="linkedin" src="linkedin.svg" width={32} height={32} />
+            <Image alt="linkedin" src="/linkedin.svg" width={32} height={32} />
           </Link>
           <Link href="/" className={clsx(classes.textLink, "p1")}>
-            <Image alt="facebook" src="facebook.svg" width={32} height={32} />
+            <Image alt="facebook" src="/facebook.svg" width={32} height={32} />
           </Link>
         </div>
       </div>
