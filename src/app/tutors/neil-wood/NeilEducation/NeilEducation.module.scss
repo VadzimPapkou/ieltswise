@@ -1,0 +1,34 @@
+@use "src/app/mixins" as m;
+
+.header {
+  @include m.h2-like;
+  color: var(--primary-700);
+}
+
+.text {
+  flex: 0 1 426px;
+}
+
+.paragraph {
+  @include m.p1();
+}
+
+.neilEducation {
+  margin-top: 80px;
+}
+
+.content {
+  margin-top: 34px;
+  display: flex;
+}
+
+.certificates {
+  flex: 0 1 686px;
+  margin-left: auto;
+}
+
+.certificate {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
