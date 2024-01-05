@@ -15,26 +15,31 @@ const tabs = [
     title: "IELTS preparation",
     iconSrc: "/service-icon-1.svg",
     component: IeltsPreparation,
+    class: classes.ieltsPreparation
   },
   {
     title: "Functional English",
     iconSrc: "/service-icon-4.svg",
     component: FunctionalEnglish,
+    class: classes.functionalEnglish
   },
   {
     title: "Conversational English",
     iconSrc: "/service-icon-5.svg",
     component: ConversationalEnglish,
+    class: classes.conversationalEnglish
   },
   {
     title: "Business English",
     iconSrc: "/service-icon-3.svg",
     component: BusinessEnglish,
+    class: classes.businessEnglish
   },
   {
     title: "Improve English",
     iconSrc: "/service-icon-6.svg",
     component: ImproveEnglish,
+    class: classes.improveEnglish
   },
 ];
 
@@ -54,7 +59,8 @@ const Services = ({}) => {
           <button
             className={clsx({
               [classes.tabSwitch]: true,
-              [classes.active]: tab.title === activeTab.title,
+              [tab.class]: true,
+              [classes.active]: tab.title === activeTab.title
             })}
             key={tab.title}
             onClick={handleTabClick(tab)}

@@ -1,29 +1,14 @@
 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-<g id="icon" clip-path="url(#clip0_523_1505)">
-<g id="Rectangle 9">
-<mask id="path-1-inside-1_523_1505" fill="white">
-<rect x="1.39917" y="14.1545" width="5.33333" height="9.84534" rx="1"/>
-</mask>
-<rect x="1.39917" y="14.1545" width="5.33333" height="9.84534" rx="1" stroke="#FF8C00" stroke-width="3" mask="url(#path-1-inside-1_523_1505)"/>
-</g>
-<g id="Rectangle 10">
-<mask id="path-2-inside-2_523_1505" fill="white">
-<rect x="9.01819" y="11.8826" width="5.71429" height="12.1173" rx="1"/>
-</mask>
-<rect x="9.01819" y="11.8826" width="5.71429" height="12.1173" rx="1" stroke="#FF8C00" stroke-width="3" mask="url(#path-2-inside-2_523_1505)"/>
-</g>
-<g id="Rectangle 11">
-<mask id="path-3-inside-3_523_1505" fill="white">
-<rect x="17.0183" y="6.95996" width="5.33333" height="17.04" rx="1"/>
-</mask>
-<rect x="17.0183" y="6.95996" width="5.33333" height="17.04" rx="1" stroke="#FF8C00" stroke-width="3" mask="url(#path-3-inside-3_523_1505)"/>
-</g>
-<path id="Vector 30" d="M1 23H23" stroke="#FF8C00" stroke-width="2" stroke-linecap="round"/>
-<path id="Vector" d="M11 2.59521L15.353 1.64821L16.7093 5.89148" stroke="#FF8C00" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
-<path id="Vector 31" d="M15 2L12.0359 7.92829C11.7568 8.48632 11.0406 8.65541 10.5414 8.28107L8.2903 6.59273C7.85228 6.26421 7.23151 6.34903 6.89768 6.78302L2.5 12.5" stroke="#FF8C00" stroke-width="2" stroke-linecap="round"/>
+<g clip-path="url(#clip0_1427_3788)">
+<rect x="2.89941" y="14.6543" width="4.33333" height="8.84534" rx="0.5" stroke="#FF8C00"/>
+<rect x="9.51807" y="12.3828" width="4.71429" height="11.1173" rx="0.5" stroke="#FF8C00"/>
+<rect x="16.5181" y="7.45996" width="4.33333" height="16.04" rx="0.5" stroke="#FF8C00"/>
+<path d="M11.7454 2.14648L15.9913 1.46198L16.7988 5.68622" stroke="#FF8C00" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M15.7822 1.90213L12.3117 7.54892C11.985 8.08046 11.2567 8.18636 10.7922 7.76986L8.69707 5.89138C8.28941 5.52586 7.6636 5.55615 7.29315 5.95933L2.41302 11.2704" stroke="#FF8C00" stroke-linecap="round"/>
+<rect y="23" width="24" height="1" rx="0.5" fill="#FF8C00"/>
 </g>
 <defs>
-<clipPath id="clip0_523_1505">
+<clipPath id="clip0_1427_3788">
 <rect width="24" height="24" fill="white"/>
 </clipPath>
 </defs>
