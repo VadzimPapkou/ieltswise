@@ -1,6 +1,7 @@
 import clsx from "clsx";
 import classes from "./ChooseSessionType.module.scss";
 import Button from "../Button/Button";
+import Radio from "./Radio";
 
 const ChooseSessionType = ({ setStep }) => {
   return (
@@ -13,30 +14,12 @@ const ChooseSessionType = ({ setStep }) => {
         like to receive consultation.
       </p>
       <div className={classes.sessions}>
-        <label className={classes.session}>
-          <input type="radio" name="sessionType" value="" />
-          <p>IELTS Academic test</p>
-        </label>
-        <label className={classes.session}>
-          <input type="radio" name="sessionType" value="" />
-          <p>IELTS General test</p>
-        </label>
-        <label className={classes.session}>
-          <input type="radio" name="sessionType" value="" />
-          <p>Conversational English</p>
-        </label>
-        <label className={classes.session}>
-          <input type="radio" name="sessionType" value="" />
-          <p>Functional English</p>
-        </label>
-        <label className={classes.session}>
-          <input type="radio" name="sessionType" value="" />
-          <p>Business English</p>
-        </label>
-        <label className={classes.session}>
-          <input type="radio" name="sessionType" value="" />
-          <p>Improve English </p>
-        </label>
+        <Radio label="IELTS Academic test" name="session" />
+        <Radio label="IELTS General test" name="session" />
+        <Radio label="Conversational English" name="session" />
+        <Radio label="Functional English" name="session" />
+        <Radio label="Business English" name="session" />
+        <Radio label="Improve English" name="session" />
       </div>
       <Button
         className={classes.nextButton}
@@ -48,7 +31,7 @@ const ChooseSessionType = ({ setStep }) => {
     </>
   );
 
-  function handleNextClick() {
+  function handleNextClick () {
     setStep("date");
   }
 };
