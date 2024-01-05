@@ -31,7 +31,11 @@ const UnderHeader = () => {
             <Button variant="primary" onClick={handleChooseLessonsClick}>
               Choose a Lessons
             </Button>
-            <Link href="#aboutTutor" style={{ textDecoration: "none" }} className={classes.seeTutor}>
+            <Link
+              href="#aboutTutor"
+              style={{ textDecoration: "none" }}
+              className={classes.seeTutor}
+            >
               <Button variant="secondary">See Tutor</Button>
             </Link>
           </div>

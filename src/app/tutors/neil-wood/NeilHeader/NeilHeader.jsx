@@ -7,7 +7,7 @@ import Button from "../../../../components/Button/Button";
 
 const NeilHeader = ({}) => {
   return <div className={classes.header}>
-    <img className={classes.neilPhoto} src="/neil.png" alt="neil wood" />
+    <img className={classes.neilPhoto} src="/neil-big.png" alt="neil wood" />
     <div className={classes.headerText}>
       <h1 className="h3-like">
         <b>Neil Wood</b>

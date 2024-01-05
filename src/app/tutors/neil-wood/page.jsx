@@ -1,9 +1,9 @@
-import classes from "./NeilWood.module.scss"
+import classes from "./NeilWood.module.scss";
 import React from "react";
 import NeilHeader from "./NeilHeader";
 import NeilInfo from "./NeilInfo";
 import Reviews from "../../../components/Reviews";
-import NeilEducation from "../../../components/NeilEducation";
+import NeilEducation from "./NeilEducation";
 
 export default function NeilWood() {
   return (
@@ -13,5 +13,5 @@ export default function NeilWood() {
       <NeilEducation />
       <Reviews />
     </main>
-  )
+  );
 }
