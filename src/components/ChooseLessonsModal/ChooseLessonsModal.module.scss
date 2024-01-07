@@ -3,12 +3,12 @@
   position: relative;
   width: 100%;
   max-width: 985px;
-  padding: 50px;
+  padding: clamp(10px, 3vh, 50px);
 }
 
 .modal.date {
   width: 554px;
-  padding: 32px;
+  padding: clamp(10px, 3vh, 32px);
 }
 
 .closeModal {
@@ -20,4 +20,11 @@
   background-color: #fff;
   border: none;
   cursor: pointer;
+}
+
+@media screen and (max-width: 600px) {
+  .modal.date {
+    width: auto;
+    padding: 24px;
+  }
 }

@@ -83,6 +83,11 @@
   padding: 10px;
   border: none;
   cursor: pointer;
+
+  .occupied {
+    cursor: default;
+    background: var(--accent-100);
+  }
 }
 
 .selectedDate {
@@ -102,5 +107,14 @@
 
   .date {
     flex: 0 1 100px;
+  }
+
+  .day {
+    width: 44px;
+    height: 44px;
+  }
+
+  .header {
+    gap: 12px;
   }
 }
