@@ -10,13 +10,10 @@ import _ from "lodash";
 const days = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
 
 const ChooseDate = ({ setStep }) => {
-  const forceUpdate = useForceUpdate();
-
   const [month, setMonth] = useState(moment(new Date()));
   useEffect(() => {
     axiosClient.get("/tutor/events/test.tutor1.ieltswise67@gmail.com/" + month.format("YYYY/MM"))
       .then(response => setWeeks(getWeeks(response.data)));
-    window.moment = moment;
   }, [month]);
   const [weeks, setWeeks] = useState([]);
 
