@@ -90,6 +90,11 @@
   }
 }
 
+.selectedTime {
+  background-color: var(--primary);
+  color: #fff;
+}
+
 .selectedDate {
   border-radius: 6px;
   background: var(--primary-50);

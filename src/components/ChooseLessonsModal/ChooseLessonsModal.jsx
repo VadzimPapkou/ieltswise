@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { createContext, useState } from "react";
 import classes from "./ChooseLessonsModal.module.scss";
 import ModalFade from "../ModalFade";
 import Modal from "../Modal";
@@ -6,18 +6,31 @@ import ChooseSessionType from "./ChooseSessionType";
 import ChooseDate from "./ChooseDate";
 import clsx from "clsx";
 
-const ChooseLessonsModal = ({ setShowModal }) => {
+export const ModalContext = createContext({})
+
+const ChooseLessonsModal = ({ setShowModal, onSubmitModal }) => {
   const [step, setStep] = useState("sessionType");
 
   const stepToComponent = {
-    sessionType: ChooseSessionType,
-    date: ChooseDate,
+    "sessionType": ChooseSessionType,
+    "date": ChooseDate,
   };
 
   const className = clsx({
     [classes.modal]: true,
     [classes[step]]: true,
   });
+
+  const [selectedDay, setSelectedDay] = useState(null);
+  const [selectedTime, setSelectedTime] = useState(null);
+
+  const modalData = {
+    selectedDay, setSelectedDay,
+    selectedTime, setSelectedTime,
+    setStep,
+    setShowModal,
+    submitModal
+  }
 
   const CurrentStep = stepToComponent[step];
 
@@ -26,14 +39,21 @@ const ChooseLessonsModal = ({ setShowModal }) => {
       <button className={classes.closeModal} onClick={closeModal}>
         &#x2715;
       </button>
-      <Modal className={className} onCloseClick={closeModal}>
-        <CurrentStep setStep={setStep} setShowModal={setShowModal} />
-      </Modal>
+      <ModalContext.Provider value={modalData}>
+        <Modal className={className} onCloseClick={closeModal}>
+          <CurrentStep />
+        </Modal>
+      </ModalContext.Provider>
     </ModalFade>
   );
 
   function closeModal() {
     setShowModal(false);
+  }
+
+  function submitModal(timeObj) {
+    onSubmitModal && onSubmitModal(timeObj);
+    closeModal();
   }
 };
 

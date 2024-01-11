@@ -1,15 +1,16 @@
 import classes from "./ChooseDate.module.scss";
 import Button from "../Button/Button";
 import Arrow3 from "../../icon-components/Arrow3";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import Week from "./Week";
 import moment from "moment";
 import axiosClient from "../../axiosClient";
 import _ from "lodash";
+import { ModalContext } from "./ChooseLessonsModal";
 
 const days = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
 
-const ChooseDate = ({ setStep }) => {
+const ChooseDate = () => {
   const [month, setMonth] = useState(moment(new Date()));
   useEffect(() => {
     axiosClient.get("/tutor/events/test.tutor1.ieltswise67@gmail.com/" + month.format("YYYY/MM"))
@@ -17,7 +18,7 @@ const ChooseDate = ({ setStep }) => {
   }, [month]);
   const [weeks, setWeeks] = useState([]);
 
-  const [selectedDate, setSelectedDate] = useState(null);
+  const {selectedTime, setStep, submitModal} = useContext(ModalContext);
 
   return (
     <div className={classes.chooseDate}>
@@ -44,41 +45,39 @@ const ChooseDate = ({ setStep }) => {
           ))}
         </div>
         {weeks.map((week, i) => (
-          <Week key={i} week={week} selectedDate={selectedDate} setSelectedDate={setSelectedDate} />
+          <Week key={i} week={week}
+          />
         ))}
       </div>
       <div className={classes.buttons}>
         <Button variant="text" onClick={handleBackClick}>
           Back
         </Button>
-        <Button variant="link" onClick={handleNextClick} disabled={true}>
+        <Button variant="link" onClick={handleNextClick} disabled={selectedTime === null}>
           Next
         </Button>
       </div>
     </div>
   );
 
-  function handleBackClick() {
+  function handleBackClick () {
     setStep("sessionType");
   }
 
-  function handleNextClick() {}
+  function handleNextClick () {
+    submitModal(selectedTime);
+  }
 
-  function setPrevMonth() {
+  function setPrevMonth () {
     setMonth(moment(month.subtract(1, "month")));
   }
 
-  function setNextMonth() {
+  function setNextMonth () {
     setMonth(moment(month.add(1, "month")));
   }
 };
 
-function useForceUpdate() {
-  const [v, sV] = useState(0);
-  return () => sV(v + 1);
-}
-
-function getWeeks(daysOfMonth) {
+function getWeeks (daysOfMonth) {
   daysOfMonth.forEach(day => day.date = moment(day.date));
   daysOfMonth = removeDuplicateDays(daysOfMonth);
 
@@ -90,16 +89,14 @@ function getWeeks(daysOfMonth) {
   weekToDays[firstWeekIndex] = padStartArray(weekToDays[firstWeekIndex], 7, null);
   weekToDays[lastWeekIndex] = padEndArray(weekToDays[lastWeekIndex], 7, null);
 
-  const result = _.values(weekToDays);
-  console.log(result);
-  return result
+  return _.values(weekToDays);
 }
 
-function removeDuplicateDays(days) {
+function removeDuplicateDays (days) {
   const passedDays = {};
   const result = [];
   days.forEach(day => {
-    if(passedDays[day.date.format("DD")]) return;
+    if (passedDays[day.date.format("DD")]) return;
 
     result.push(day);
     passedDays[day.date.format("DD")] = 1;
@@ -107,7 +104,7 @@ function removeDuplicateDays(days) {
   return result;
 }
 
-function padStartArray(array, targetLength, padValue) {
+function padStartArray (array, targetLength, padValue) {
   const currentLength = array.length;
   const padding = targetLength - currentLength;
 
@@ -118,7 +115,7 @@ function padStartArray(array, targetLength, padValue) {
   return array;
 }
 
-function padEndArray(array, targetLength, padValue) {
+function padEndArray (array, targetLength, padValue) {
   const currentLength = array.length;
   const padding = targetLength - currentLength;
 
