@@ -14,7 +14,11 @@ export default function RootLayout ({ children }) {
     <head>
       <meta name="viewport"
             content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
-      <title>Ielts</title>
+      <title>Ieltswise</title>
+      <link
+        href='https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800'
+        rel='stylesheet'
+      />
     </head>
     <body>
     <div className={classes.wrapper}>
