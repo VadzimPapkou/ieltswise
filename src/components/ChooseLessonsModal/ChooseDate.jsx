@@ -18,7 +18,7 @@ const ChooseDate = () => {
   }, [month]);
   const [weeks, setWeeks] = useState([]);
 
-  const {selectedTime, setStep, submitModal} = useContext(ModalContext);
+  const { selectedTime, setStep, submitModal } = useContext(ModalContext);
 
   return (
     <div className={classes.chooseDate}>
@@ -80,6 +80,16 @@ const ChooseDate = () => {
 function getWeeks (daysOfMonth) {
   daysOfMonth.forEach(day => day.date = moment(day.date));
   daysOfMonth = removeDuplicateDays(daysOfMonth);
+
+  const today = moment();
+  daysOfMonth.forEach(function(day) {
+    if(day.date.isBefore(today)) {
+      day.time.forEach(time => time.occupied = true);
+    }
+    if(day.time.every(time => time.occupied)) {
+      day.occupied = true;
+    }
+  });
 
   daysOfMonth.forEach(day => day.weekIndex = day.date.isoWeek());
   const weekToDays = _.groupBy(daysOfMonth, "weekIndex");

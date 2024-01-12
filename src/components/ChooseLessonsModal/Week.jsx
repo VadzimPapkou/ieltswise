@@ -17,6 +17,7 @@ const Week = ({ week }) => {
             onClick={handleDayClick(day)}
             className={clsx(classes.day, classes.dayPickable, {
               [classes.weekend]: i >= 5,
+              [classes.occupiedDay]: day?.occupied,
               [classes.selectedDate]:
               day && day === selectedDay
             })}
@@ -49,6 +50,7 @@ const Week = ({ week }) => {
 
   function handleDayClick (day) {
     return function() {
+      if(day === null || day.occupied) return;
       setSelectedTime(null);
       if (day === selectedDay) setSelectedDay(null);
       else {

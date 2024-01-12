@@ -52,12 +52,11 @@ const FreeTrial = ({}) => {
 
   async function onSubmitModal ({ time, day }) {
     time = moment(time, "HH:mm");
-    console.log(day);
     day.set({
       hour: time.hours(),
       minute: time.minutes()
     });
-    let endDate = day.add(59, "minutes")
+    let endDate = day.add(59, "minutes");
     const response = await axiosClient.post("/student/bookTrialSession", {
       tutorEmail: "test.tutor1.ieltswise67@gmail.com",
       studentEmail: email,

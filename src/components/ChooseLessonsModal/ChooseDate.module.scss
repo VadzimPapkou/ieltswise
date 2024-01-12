@@ -66,6 +66,10 @@
   color: var(--danger-500);
 }
 
+.occupiedDay {
+  color: var(--neutral-300);
+}
+
 .calendar {
   min-height: 420px;
 }
@@ -83,15 +87,16 @@
   padding: 10px;
   border: none;
   cursor: pointer;
+}
 
-  .occupied {
-    cursor: default;
-    background: var(--accent-100);
-  }
+.occupied {
+  cursor: default;
+  background: var(--neutral-200);
+  color: var(--neutral-300);
 }
 
 .selectedTime {
-  background-color: var(--primary);
+  background-color: var(--primary-700);
   color: #fff;
 }
 
