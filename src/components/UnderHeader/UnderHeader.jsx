@@ -28,7 +28,7 @@ const UnderHeader = () => {
             available.
           </p>
           <div className={classes.textBlockButtons}>
-            <Button variant="primary" onClick={handleChooseLessonsClick}>
+            <Button variant="primary" onClick={handleChooseLessonsClick} disabled={true}>
               Choose a Lessons
             </Button>
             <Link
@@ -82,6 +82,7 @@ const UnderHeader = () => {
   );
 
   function handleChooseLessonsClick() {
+    return;
     setShowModal(!showModal);
   }
 };

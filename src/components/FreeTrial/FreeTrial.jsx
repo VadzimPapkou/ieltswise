@@ -56,14 +56,14 @@ const FreeTrial = ({}) => {
       hour: time.hours(),
       minute: time.minutes()
     });
-    let endDate = day.add(59, "minutes");
+    let endDate = moment(day).add(59, "minutes");
     const response = await axiosClient.post("/student/bookTrialSession", {
       tutorEmail: "test.tutor1.ieltswise67@gmail.com",
       studentEmail: email,
-      startDate: day.toISOString(),
-      endDate: endDate.toISOString(),
+      startDate: day.toISOString(true),
+      endDate: endDate.toISOString(true),
     });
-    console.log(response);
+    alert("status " + response.status);
   }
 };
 
