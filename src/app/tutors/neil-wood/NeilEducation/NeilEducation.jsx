@@ -6,7 +6,7 @@ import BearCarousel, { BearSlideCard } from "bear-react-carousel";
 
 const NeilEducation = ({}) => {
   return (
-    <div className={classes.neilEducation}>
+    <div className={classes.neilEducation} id="certificates">
       <h2 className={classes.header}>Education and Certification</h2>
       <div className={classes.content}>
         <div className={classes.text}>

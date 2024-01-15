@@ -151,10 +151,6 @@
     height: 36px;
   }
 
-  .services {
-    padding: 20px;
-  }
-
   .tabInfo {
     display: none;
   }
@@ -163,5 +159,20 @@
 @media screen and (max-width: 400px) {
   .tabSwitch {
     width: 100%;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .tabSwitchers {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .tabSwitch {
+    width: auto;
+  }
+
+  .tab {
+    margin-top: 16px;
   }
 }

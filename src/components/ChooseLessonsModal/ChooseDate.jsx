@@ -14,7 +14,10 @@ const ChooseDate = () => {
   const [month, setMonth] = useState(moment(new Date()));
   useEffect(() => {
     axiosClient.get("/tutor/events/test.tutor1.ieltswise67@gmail.com/" + month.format("YYYY/MM"))
-      .then(response => setWeeks(getWeeks(response.data)));
+      .then(response => {
+        console.log(response.data);
+        setWeeks(getWeeks(response.data))
+      });
   }, [month]);
   const [weeks, setWeeks] = useState([]);
 
@@ -80,7 +83,6 @@ const ChooseDate = () => {
 function getWeeks (daysOfMonth) {
   daysOfMonth.forEach(day => day.date = moment(day.date));
   daysOfMonth = removeDuplicateDays(daysOfMonth);
-
   const today = moment();
   daysOfMonth.forEach(function(day) {
     if(day.date.isBefore(today)) {
@@ -98,7 +100,7 @@ function getWeeks (daysOfMonth) {
   const lastWeekIndex = Math.max(...weekIndexes);
   weekToDays[firstWeekIndex] = padStartArray(weekToDays[firstWeekIndex], 7, null);
   weekToDays[lastWeekIndex] = padEndArray(weekToDays[lastWeekIndex], 7, null);
-
+  console.log(weekToDays);
   return _.values(weekToDays);
 }
 

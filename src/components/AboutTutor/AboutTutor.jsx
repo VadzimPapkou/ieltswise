@@ -62,7 +62,9 @@ const AboutTutor = ({}) => {
                 Read all bio
               </Button>
             </Link>
-            <Button variant="text">Show certifications</Button>
+            <Link href="/tutors/neil-wood#certificates" style={{textDecoration: "none"}}>
+              <Button variant="text">Show certifications</Button>
+            </Link>
           </div>
         </div>
       </div>
