@@ -59,7 +59,6 @@ function Certificates() {
     <BearCarousel
       className={classes.certificates}
       data={bearSlideItemData}
-      height="450px"
       isEnablePagination={true}
       isEnableAutoPlay={true}
       autoPlayTime={5000}
