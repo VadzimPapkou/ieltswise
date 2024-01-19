@@ -51,8 +51,8 @@ const ChooseLessonsModal = ({ setShowModal, onSubmitModal }) => {
     setShowModal(false);
   }
 
-  function submitModal(timeObj) {
-    onSubmitModal && onSubmitModal(timeObj);
+  function submitModal(time) {
+    onSubmitModal && onSubmitModal(time);
     closeModal();
   }
 };

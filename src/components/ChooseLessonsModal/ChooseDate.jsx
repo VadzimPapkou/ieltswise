@@ -1,7 +1,7 @@
 import classes from "./ChooseDate.module.scss";
 import Button from "../Button/Button";
 import Arrow3 from "../../icon-components/Arrow3";
-import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import Week from "./Week";
 import moment from "moment";
 import axiosClient from "../../axiosClient";
@@ -12,14 +12,29 @@ const days = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
 
 const ChooseDate = () => {
   const [month, setMonth] = useState(moment(new Date()));
-  useEffect(() => {
-    axiosClient.get("/tutor/events/test.tutor1.ieltswise67@gmail.com/" + month.format("YYYY/MM"))
-      .then(response => {
-        console.log(response.data);
-        setWeeks(getWeeks(response.data))
-      });
-  }, [month]);
   const [weeks, setWeeks] = useState([]);
+  const loadedDataRef = useRef({});
+
+  useEffect(() => {
+    const fetchMonthDays = async (month) => {
+      try {
+        const cachedData = loadedDataRef.current[month.format("YYYY/MM")];
+        if (cachedData) {
+          return cachedData
+        } else {
+          const { data } = await axiosClient.get(`/tutor/events/test.tutor1.ieltswise67@gmail.com/${month.format("YYYY/MM")}`);
+          loadedDataRef.current[month.format("YYYY/MM")] = data;
+          return data;
+        }
+      } catch (error) {
+        console.error("Ошибка при загрузке данных месяца:", error);
+      }
+    };
+
+    fetchMonthDays(moment(month).add(1, "month"));
+    fetchMonthDays(moment(month).subtract(1, "month"));
+    fetchMonthDays(month).then(days => setWeeks(getWeeks(days)))
+  }, [month]);
 
   const { selectedTime, setStep, submitModal } = useContext(ModalContext);
 

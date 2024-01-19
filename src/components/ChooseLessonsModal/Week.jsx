@@ -3,6 +3,7 @@ import clsx from "clsx";
 import Arrow3 from "../../icon-components/Arrow3";
 import { useContext } from "react";
 import { ModalContext } from "./ChooseLessonsModal";
+import moment from "moment";
 
 const Week = ({ week }) => {
 
@@ -35,12 +36,19 @@ const Week = ({ week }) => {
             <button key={timeObj.time}
                     className={clsx({
                       [classes.time]: true,
-                      [classes.selectedTime]: selectedTime?.time === timeObj.time,
+                      [classes.selectedTime]:selectedTime === timeObj.time,
                       [classes.occupied]: timeObj.occupied
                     })}
                     onClick={handleTimeClick(timeObj.time)}
             >
-              {timeObj.time}
+              {(() => {
+                const time = moment(timeObj.time);
+                return time.format("h") + " "
+                  + time.format("a")
+                  .split("")
+                  .map(c => c + ".")
+                  .join(" ");
+              })()}
             </button>
           ))}
         </div>
@@ -50,7 +58,7 @@ const Week = ({ week }) => {
 
   function handleDayClick (day) {
     return function() {
-      if(day === null || day.occupied) return;
+      if (day === null || day.occupied) return;
       setSelectedTime(null);
       if (day === selectedDay) setSelectedDay(null);
       else {
@@ -64,7 +72,7 @@ const Week = ({ week }) => {
       if (selectedTime === time) {
         setSelectedTime(null);
       } else {
-        setSelectedTime({ time, day: selectedDay.date });
+        setSelectedTime(time);
       }
     };
   }
