@@ -9,12 +9,15 @@ import Link from "next/link";
 import axiosClient from "../../axiosClient";
 import ChooseLessonsModal from "../ChooseLessonsModal";
 import moment from "moment";
+import BookStatusModal from "../BookStatusModal";
 
 const FreeTrial = ({}) => {
 
   const [showChooseLessonModal, setShowChooseLessonModal] = useState(false);
+  const [showStatusModal, setShowStatusModal] = useState(false);
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
+  const [bookResponse, setBookResponse] = useState();
 
   const disabled = !email || !email.match("^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$");
 
@@ -22,6 +25,9 @@ const FreeTrial = ({}) => {
     <div className={classes.freeTrial}>
       {showChooseLessonModal &&
         <ChooseLessonsModal setShowModal={setShowChooseLessonModal} onSubmitModal={onSubmitModal} />}
+      {showStatusModal &&
+        <BookStatusModal setShow={setShowStatusModal} response={bookResponse} />
+      }
       <h2 className={clsx(classes.header)}>
         Book for a FREE 30 min trial session
       </h2>
@@ -45,7 +51,7 @@ const FreeTrial = ({}) => {
 
   function handleSubmit (e) {
     e.preventDefault();
-    if(disabled) return;
+    if (disabled) return;
 
     setShowChooseLessonModal(true);
   }
@@ -53,13 +59,20 @@ const FreeTrial = ({}) => {
   async function onSubmitModal (time) {
     const startDate = moment(time);
     let endDate = moment(startDate).add(59, "minutes");
-    const response = await axiosClient.post("/student/bookTrialSession", {
-      tutorEmail: "test.tutor1.ieltswise67@gmail.com",
-      studentEmail: email,
-      startDate: startDate.toISOString(true),
-      endDate: endDate.toISOString(true),
-    });
-    alert("status " + response.status);
+
+    try {
+      const response = await axiosClient.post("/student/bookTrialSession", {
+        tutorEmail: "test.tutor1.ieltswise67@gmail.com",
+        studentEmail: email,
+        startDate: startDate.toISOString(true),
+        endDate: endDate.toISOString(true)
+      });
+      setBookResponse(response);
+      setShowStatusModal(true);
+    } catch (e) {
+      setBookResponse(e.response);
+      setShowStatusModal(true);
+    }
   }
 };
 

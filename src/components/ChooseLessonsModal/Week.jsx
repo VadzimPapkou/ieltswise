@@ -39,7 +39,7 @@ const Week = ({ week }) => {
                       [classes.selectedTime]:selectedTime === timeObj.time,
                       [classes.occupied]: timeObj.occupied
                     })}
-                    onClick={handleTimeClick(timeObj.time)}
+                    onClick={handleTimeClick(timeObj)}
             >
               {(() => {
                 const time = moment(timeObj.time);
@@ -67,12 +67,15 @@ const Week = ({ week }) => {
     };
   }
 
-  function handleTimeClick (time) {
+  function handleTimeClick (timeObj) {
     return function() {
-      if (selectedTime === time) {
+      if(timeObj.occupied) {
+        return;
+      }
+      if (selectedTime === timeObj.time) {
         setSelectedTime(null);
       } else {
-        setSelectedTime(time);
+        setSelectedTime(timeObj.time);
       }
     };
   }

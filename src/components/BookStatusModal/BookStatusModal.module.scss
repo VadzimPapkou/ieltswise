@@ -1,0 +1,42 @@
+@use "src/app/mixins" as m;
+
+.modal {
+  padding: 62px 55px;
+  max-width: 700px;
+}
+
+.title {
+  @include m.h3-like;
+  color: var(--primary);
+}
+
+.youChoose {
+  @include m.p2;
+  font-weight: bold;
+  margin-top: 16px;
+}
+
+.dateContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 250px;
+  height: 80px;
+  padding: 12px 16px;
+
+  border-radius: 6px;
+  background-color: var(--primary-100);
+}
+
+.date {
+  @include m.h5-like;
+  color: var(--primary-600);
+}
+
+.checkMail {
+  @include m.p1;
+  margin-top: 16px;
+  color: var(--secondary-text);
+  text-align: center;
+}
