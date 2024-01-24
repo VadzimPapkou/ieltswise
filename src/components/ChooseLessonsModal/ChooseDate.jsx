@@ -36,7 +36,7 @@ const ChooseDate = () => {
     fetchMonthDays(month).then(days => setWeeks(getWeeks(days)))
   }, [month]);
 
-  const { selectedTime, setStep, submitModal } = useContext(ModalContext);
+  const { selectedTime, setStep, submitModal, withEmail } = useContext(ModalContext);
 
   return (
     <div className={classes.chooseDate}>
@@ -83,6 +83,11 @@ const ChooseDate = () => {
   }
 
   function handleNextClick () {
+    if(withEmail) {
+      setStep("email");
+      return;
+    }
+
     submitModal(selectedTime);
   }
 

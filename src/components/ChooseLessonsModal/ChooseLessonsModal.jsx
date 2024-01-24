@@ -5,15 +5,17 @@ import Modal from "../Modal";
 import ChooseSessionType from "./ChooseSessionType";
 import ChooseDate from "./ChooseDate";
 import clsx from "clsx";
+import ChooseEmailModal from "./ChooseEmail";
 
 export const ModalContext = createContext({})
 
-const ChooseLessonsModal = ({ setShowModal, onSubmitModal }) => {
+const ChooseLessonsModal = ({ setShowModal, onSubmitModal, withEmail }) => {
   const [step, setStep] = useState("sessionType");
 
   const stepToComponent = {
     "sessionType": ChooseSessionType,
     "date": ChooseDate,
+    "email": ChooseEmailModal
   };
 
   const className = clsx({
@@ -23,13 +25,16 @@ const ChooseLessonsModal = ({ setShowModal, onSubmitModal }) => {
 
   const [selectedDay, setSelectedDay] = useState(null);
   const [selectedTime, setSelectedTime] = useState(null);
+  const [email, setEmail] = useState("");
 
   const modalData = {
     selectedDay, setSelectedDay,
     selectedTime, setSelectedTime,
+    email, setEmail,
     setStep,
     setShowModal,
-    submitModal
+    submitModal,
+    withEmail
   }
 
   const CurrentStep = stepToComponent[step];

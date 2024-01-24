@@ -1,0 +1,29 @@
+@use "src/app/mixins" as m;
+
+.modalLoading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.title {
+  @include m.h3-like;
+  text-align: center;
+  color: var(--primary);
+}
+
+.enterEmail {
+  @include m.p1;
+  margin-top: 8px;
+}
+
+.email {
+  margin: 16px auto 0;
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  margin-top: 16px;
+  gap: 8px;
+}

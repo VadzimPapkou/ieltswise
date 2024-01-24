@@ -7,13 +7,14 @@ import Button from "../Button/Button";
 import Image from "next/image";
 import ChooseLessonsModal from "../ChooseLessonsModal";
 import Link from "next/link";
+import axiosClient from "../../axiosClient";
 
 const UnderHeader = () => {
-  const [showModal, setShowModal] = useState(false);
+  const [showLessonsModal, setShowLessonsModal] = useState(false);
 
   return (
     <div className={classes.wrapper}>
-      {showModal && <ChooseLessonsModal setShowModal={setShowModal} />}
+      {showLessonsModal && <ChooseLessonsModal setShowModal={setShowLessonsModal} onSubmitModal={handleSubmitLessons} withEmail={true}/>}
       <div className={classes.underHeader}>
         <div className={classes.textBlock}>
           <p className={classes.upperTitle}>IELTSWISE EDUCATION</p>
@@ -28,7 +29,7 @@ const UnderHeader = () => {
             available.
           </p>
           <div className={classes.textBlockButtons}>
-            <Button variant="primary" onClick={handleChooseLessonsClick} disabled={true}>
+            <Button variant="primary" onClick={handleChooseLessonsClick}>
               Choose a Lessons
             </Button>
             <Link
@@ -82,8 +83,11 @@ const UnderHeader = () => {
   );
 
   function handleChooseLessonsClick() {
-    return;
-    setShowModal(!showModal);
+    setShowLessonsModal(!showLessonsModal);
+  }
+
+  function handleSubmitLessons(lessonTime) {
+
   }
 };
 
