@@ -7,7 +7,7 @@ import ChooseDate from "./ChooseDate";
 import clsx from "clsx";
 import ChooseEmailModal from "./ChooseEmail";
 
-export const ModalContext = createContext({})
+export const ModalContext = createContext({});
 
 const ChooseLessonsModal = ({ setShowModal, onSubmitModal, withEmail }) => {
   const [step, setStep] = useState("sessionType");
@@ -20,7 +20,7 @@ const ChooseLessonsModal = ({ setShowModal, onSubmitModal, withEmail }) => {
 
   const className = clsx({
     [classes.modal]: true,
-    [classes[step]]: true,
+    [classes[step]]: true
   });
 
   const [selectedDay, setSelectedDay] = useState(null);
@@ -35,7 +35,7 @@ const ChooseLessonsModal = ({ setShowModal, onSubmitModal, withEmail }) => {
     setShowModal,
     submitModal,
     withEmail
-  }
+  };
 
   const CurrentStep = stepToComponent[step];
 
@@ -45,18 +45,16 @@ const ChooseLessonsModal = ({ setShowModal, onSubmitModal, withEmail }) => {
         &#x2715;
       </button>
       <ModalContext.Provider value={modalData}>
-        <Modal className={className} onCloseClick={closeModal}>
-          <CurrentStep />
-        </Modal>
+        <CurrentStep onCloseClick={closeModal} />
       </ModalContext.Provider>
     </ModalFade>
   );
 
-  function closeModal() {
+  function closeModal () {
     setShowModal(false);
   }
 
-  function submitModal(time) {
+  function submitModal (time) {
     onSubmitModal && onSubmitModal(time);
     closeModal();
   }

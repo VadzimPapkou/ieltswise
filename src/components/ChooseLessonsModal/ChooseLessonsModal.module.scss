@@ -1,16 +1,3 @@
-.modal {
-  overflow-y: auto;
-  position: relative;
-  width: 100vw;
-  max-width: 985px;
-  padding: clamp(10px, 3vw, 50px);
-}
-
-.modal.date {
-  width: 554px;
-  padding: clamp(10px, 3vh, 32px);
-}
-
 .modal.email {
   max-width: 554px;
   min-height: 300px;

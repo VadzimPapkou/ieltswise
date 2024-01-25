@@ -7,6 +7,7 @@ import moment from "moment";
 import axiosClient from "../../axiosClient";
 import _ from "lodash";
 import { ModalContext } from "./ChooseLessonsModal";
+import Modal from "../Modal";
 
 const days = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
 
@@ -39,7 +40,7 @@ const ChooseDate = () => {
   const { selectedTime, setStep, submitModal, withEmail } = useContext(ModalContext);
 
   return (
-    <div className={classes.chooseDate}>
+    <Modal className={classes.modal}>
       <div className={classes.header}>
         <p className={classes.title}>Schedule</p>
         <Button
@@ -75,7 +76,7 @@ const ChooseDate = () => {
           Next
         </Button>
       </div>
-    </div>
+    </Modal>
   );
 
   function handleBackClick () {

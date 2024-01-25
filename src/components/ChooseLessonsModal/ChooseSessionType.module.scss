@@ -1,5 +1,13 @@
 @use "src/app/mixins" as c;
 
+.modal {
+  overflow-y: auto;
+  position: relative;
+  width: 100vw;
+  max-width: 985px;
+  padding: clamp(10px, 3vw, 50px);
+}
+
 .header {
   color: var(--default-text);
   text-align: center;

@@ -6,6 +6,7 @@ import { ModalContext } from "./ChooseLessonsModal";
 import axiosClient, { apiUrl } from "../../axiosClient";
 import { ColorRing, Hourglass } from "react-loader-spinner";
 import clsx from "clsx";
+import Modal from "../Modal";
 
 const ChooseEmail = () => {
 
@@ -15,31 +16,35 @@ const ChooseEmail = () => {
 
   const nextDisabled = !email || !email.match("^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$");
 
-  if(loading) {
-    return <div className={clsx(classes.modal, classes.modalLoading)}>
-      <ColorRing
+  const modalClass = clsx({
+    [classes.modal]: true,
+    [classes.modalLoading]: loading
+  })
+
+  return (
+    <Modal className={modalClass}>
+      {loading && <ColorRing
         height="80"
         width="80"
         colors={['#e15b64', '#f47e60', '#f8b26a', '#abbd81', '#849b87']}
-      />
-    </div>
-  }
-
-  return (
-    <div className={classes.modal}>
-      <h3 className={classes.title}>Start Learning</h3>
-      <p className={classes.enterEmail}>Please enter your Email address to allow me to send you
-        an invitation to the session.</p>
-      <TextField className={classes.email}
-                 placeholder="email@example.com"
-                 value={email}
-                 onChange={e => setEmail(e.target.value)}
-      />
-      <div className={classes.buttons}>
-        <Button variant="secondary" onClick={onBackClick}>Back</Button>
-        <Button variant="primary" onClick={onNextClick} disabled={nextDisabled}>Continue</Button>
-      </div>
-    </div>
+      />}
+      {!loading && (
+        <>
+          <h3 className={classes.title}>Start Learning</h3>
+          <p className={classes.enterEmail}>Please enter your Email address to allow me to send you
+            an invitation to the session.</p>
+          <TextField className={classes.email}
+                     placeholder="email@example.com"
+                     value={email}
+                     onChange={e => setEmail(e.target.value)}
+          />
+          <div className={classes.buttons}>
+            <Button variant="secondary" onClick={onBackClick}>Back</Button>
+            <Button variant="primary" onClick={onNextClick} disabled={nextDisabled}>Continue</Button>
+          </div>
+        </>
+      )}
+    </Modal>
   );
 
   function onBackClick () {
@@ -47,7 +52,7 @@ const ChooseEmail = () => {
   }
 
   async function onNextClick () {
-    if(nextDisabled) return;
+    if (nextDisabled) return;
 
     setLoading(true);
     const successUrl = new URL(window.location.origin + "/success-payment");

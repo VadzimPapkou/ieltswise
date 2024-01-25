@@ -8,7 +8,7 @@ export default function SuccessPayment () {
 
   const [showModal, setShowModal] = useState(true);
 
-  if(typeof window === "undefined") return <div />;
+  if(typeof window === "undefined") return <Home />;
 
   return (
     <>
