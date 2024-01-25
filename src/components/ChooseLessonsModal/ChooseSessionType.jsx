@@ -6,7 +6,7 @@ import { useContext, useState } from "react";
 import { ModalContext } from "./ChooseLessonsModal";
 import Modal from "../Modal";
 
-const ChooseSessionType = () => {
+const ChooseSessionType = ({close}) => {
 
   const [sessionType, setSessionType] = useState("");
   function handleSessionType(e) {
@@ -16,7 +16,7 @@ const ChooseSessionType = () => {
   const {setStep} = useContext(ModalContext);
 
   return (
-    <Modal className={classes.modal}>
+    <Modal className={classes.modal} onCloseClick={close}>
       <p className={clsx("h4-like", classes.header)}>
         What type of session are you interested in?
       </p>

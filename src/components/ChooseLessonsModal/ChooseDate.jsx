@@ -11,7 +11,7 @@ import Modal from "../Modal";
 
 const days = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
 
-const ChooseDate = () => {
+const ChooseDate = ({close}) => {
   const [month, setMonth] = useState(moment(new Date()));
   const [weeks, setWeeks] = useState([]);
   const loadedDataRef = useRef({});
@@ -39,8 +39,10 @@ const ChooseDate = () => {
 
   const { selectedTime, setStep, submitModal, withEmail } = useContext(ModalContext);
 
+  const nextDisabled = selectedTime === null;
+
   return (
-    <Modal className={classes.modal}>
+    <Modal className={classes.modal} onCloseClick={close}>
       <div className={classes.header}>
         <p className={classes.title}>Schedule</p>
         <Button
@@ -72,7 +74,7 @@ const ChooseDate = () => {
         <Button variant="text" onClick={handleBackClick}>
           Back
         </Button>
-        <Button variant="link" onClick={handleNextClick} disabled={selectedTime === null}>
+        <Button variant="link" onClick={handleNextClick} disabled={nextDisabled}>
           Next
         </Button>
       </div>
@@ -84,6 +86,9 @@ const ChooseDate = () => {
   }
 
   function handleNextClick () {
+    if(nextDisabled) {
+      return;
+    }
     if(withEmail) {
       setStep("email");
       return;

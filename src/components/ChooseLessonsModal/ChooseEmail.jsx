@@ -4,11 +4,11 @@ import TextField from "../TextField/TextField";
 import Button from "../Button/Button";
 import { ModalContext } from "./ChooseLessonsModal";
 import axiosClient, { apiUrl } from "../../axiosClient";
-import { ColorRing, Hourglass } from "react-loader-spinner";
+import { ColorRing } from "react-loader-spinner";
 import clsx from "clsx";
 import Modal from "../Modal";
 
-const ChooseEmail = () => {
+const ChooseEmail = ({close}) => {
 
   const { setStep, email, setEmail, selectedTime } = useContext(ModalContext);
 
@@ -22,7 +22,7 @@ const ChooseEmail = () => {
   })
 
   return (
-    <Modal className={modalClass}>
+    <Modal className={modalClass} onCloseClick={close}>
       {loading && <ColorRing
         height="80"
         width="80"
