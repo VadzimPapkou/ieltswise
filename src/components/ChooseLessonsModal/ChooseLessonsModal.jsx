@@ -45,7 +45,7 @@ const ChooseLessonsModal = ({ setShowModal, onSubmitModal, withEmail }) => {
         &#x2715;
       </button>
       <ModalContext.Provider value={modalData}>
-        <CurrentStep onCloseClick={closeModal} />
+        <CurrentStep close={closeModal} />
       </ModalContext.Provider>
     </ModalFade>
   );

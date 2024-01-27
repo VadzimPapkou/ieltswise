@@ -8,7 +8,7 @@ import { ColorRing } from "react-loader-spinner";
 import clsx from "clsx";
 import Modal from "../Modal";
 
-const ChooseEmail = ({close}) => {
+const ChooseEmail = ({ close }) => {
 
   const { setStep, email, setEmail, selectedTime } = useContext(ModalContext);
 
@@ -19,14 +19,14 @@ const ChooseEmail = ({close}) => {
   const modalClass = clsx({
     [classes.modal]: true,
     [classes.modalLoading]: loading
-  })
+  });
 
   return (
     <Modal className={modalClass} onCloseClick={close}>
       {loading && <ColorRing
         height="80"
         width="80"
-        colors={['#e15b64', '#f47e60', '#f8b26a', '#abbd81', '#849b87']}
+        colors={["#e15b64", "#f47e60", "#f8b26a", "#abbd81", "#849b87"]}
       />}
       {!loading && (
         <>
@@ -65,7 +65,7 @@ const ChooseEmail = ({close}) => {
       url.searchParams.set("successUrl", successUrl.toString());
       url.searchParams.set("cancelUrl", cancelUrl.toString());
       url.searchParams.set("studentEmail", email);
-      const {data} = await axiosClient.get(url.toString());
+      const { data } = await axiosClient.get(url.toString());
       window.location.href = data;
     } finally {
       setLoading(false);

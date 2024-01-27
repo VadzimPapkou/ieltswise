@@ -6,14 +6,15 @@ import { useContext, useState } from "react";
 import { ModalContext } from "./ChooseLessonsModal";
 import Modal from "../Modal";
 
-const ChooseSessionType = ({close}) => {
+const ChooseSessionType = ({ close }) => {
 
   const [sessionType, setSessionType] = useState("");
-  function handleSessionType(e) {
+
+  function handleSessionType (e) {
     setSessionType(e.target.value);
   }
 
-  const {setStep} = useContext(ModalContext);
+  const { setStep } = useContext(ModalContext);
 
   return (
     <Modal className={classes.modal} onCloseClick={close}>
@@ -44,7 +45,7 @@ const ChooseSessionType = ({close}) => {
   );
 
   function handleNextClick () {
-    if(sessionType === "") return;
+    if (sessionType === "") return;
     setStep("date");
   }
 };

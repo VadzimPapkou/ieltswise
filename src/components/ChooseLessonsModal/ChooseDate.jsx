@@ -48,8 +48,8 @@ const ChooseDate = ({ close }) => {
   const nextDisabled = selectedTime === null;
 
   const calendarClass = clsx({
-    [classes.calendar]: true,
-  })
+    [classes.calendar]: true
+  });
 
   return (
     <Modal className={classes.modal} onCloseClick={close}>
