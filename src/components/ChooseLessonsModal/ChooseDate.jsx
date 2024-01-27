@@ -1,27 +1,31 @@
 import classes from "./ChooseDate.module.scss";
 import Button from "../Button/Button";
 import Arrow3 from "../../icon-components/Arrow3";
-import { useContext, useEffect, useRef, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import Week from "./Week";
 import moment from "moment";
 import axiosClient from "../../axiosClient";
 import _ from "lodash";
 import { ModalContext } from "./ChooseLessonsModal";
 import Modal from "../Modal";
+import { ColorRing } from "react-loader-spinner";
+import clsx from "clsx";
 
 const days = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
 
-const ChooseDate = ({close}) => {
+const ChooseDate = ({ close }) => {
   const [month, setMonth] = useState(moment(new Date()));
   const [weeks, setWeeks] = useState([]);
   const loadedDataRef = useRef({});
+
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     const fetchMonthDays = async (month) => {
       try {
         const cachedData = loadedDataRef.current[month.format("YYYY/MM")];
         if (cachedData) {
-          return cachedData
+          return cachedData;
         } else {
           const { data } = await axiosClient.get(`/tutor/events/test.tutor1.ieltswise67@gmail.com/${month.format("YYYY/MM")}`);
           loadedDataRef.current[month.format("YYYY/MM")] = data;
@@ -34,12 +38,18 @@ const ChooseDate = ({close}) => {
 
     fetchMonthDays(moment(month).add(1, "month"));
     fetchMonthDays(moment(month).subtract(1, "month"));
+    setLoading(true);
     fetchMonthDays(month).then(days => setWeeks(getWeeks(days)))
+      .finally(() => setLoading(false));
   }, [month]);
 
   const { selectedTime, setStep, submitModal, withEmail } = useContext(ModalContext);
 
   const nextDisabled = selectedTime === null;
+
+  const calendarClass = clsx({
+    [classes.calendar]: true,
+  })
 
   return (
     <Modal className={classes.modal} onCloseClick={close}>
@@ -57,7 +67,7 @@ const ChooseDate = ({close}) => {
           <Arrow3 color="#fff" />
         </Button>
       </div>
-      <div className={classes.calendar}>
+      <div className={calendarClass}>
         <div className={classes.row}>
           {days.map((day) => (
             <p key={day} className={classes.day}>
@@ -65,10 +75,13 @@ const ChooseDate = ({close}) => {
             </p>
           ))}
         </div>
-        {weeks.map((week, i) => (
-          <Week key={i} week={week}
-          />
-        ))}
+        {loading && <Loader />}
+        {!loading && (
+          weeks.map((week, i) => (
+            <Week key={i} week={week}
+            />
+          ))
+        )}
       </div>
       <div className={classes.buttons}>
         <Button variant="text" onClick={handleBackClick}>
@@ -86,10 +99,10 @@ const ChooseDate = ({close}) => {
   }
 
   function handleNextClick () {
-    if(nextDisabled) {
+    if (nextDisabled) {
       return;
     }
-    if(withEmail) {
+    if (withEmail) {
       setStep("email");
       return;
     }
@@ -111,10 +124,10 @@ function getWeeks (daysOfMonth) {
   daysOfMonth = removeDuplicateDays(daysOfMonth);
   const today = moment();
   daysOfMonth.forEach(function(day) {
-    if(day.date.isBefore(today)) {
+    if (day.date.isBefore(today)) {
       day.time.forEach(time => time.occupied = true);
     }
-    if(day.time.every(time => time.occupied)) {
+    if (day.time.every(time => time.occupied)) {
       day.occupied = true;
     }
   });
@@ -163,5 +176,14 @@ function padEndArray (array, targetLength, padValue) {
 
   return array;
 }
+
+const Loader = () => (
+  <ColorRing
+    wrapperClass={classes.loader}
+    height="80"
+    width="80"
+    colors={["#e15b64", "#f47e60", "#f8b26a", "#abbd81", "#849b87"]}
+  />
+);
 
 export default ChooseDate;
