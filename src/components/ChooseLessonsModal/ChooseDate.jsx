@@ -48,7 +48,8 @@ const ChooseDate = ({ close }) => {
   const nextDisabled = selectedTime === null;
 
   const calendarClass = clsx({
-    [classes.calendar]: true
+    [classes.calendar]: true,
+    [classes.loading]: loading
   });
 
   return (

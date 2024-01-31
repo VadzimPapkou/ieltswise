@@ -1,54 +1,43 @@
 @use "src/app/mixins" as c;
 
-.modal {
+.modal.modal {
   overflow-y: auto;
   position: relative;
   width: 100vw;
-  max-width: 985px;
+  max-width: 669px;
   padding: clamp(10px, 3vw, 50px);
+  background-color: var(--neutral-100);
 }
 
-.header {
-  color: var(--default-text);
+.sessions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  max-width: 516px;
+  width: 100%;
+  margin: 16px auto 0;
+  gap: 8px;
+}
+
+.session {
+  padding: 16px 24px 16px 16px;
+  background-color: #fff;
+  border-radius: 8px;
+}
+
+.title.title {
+  color: var(--primary-600);
   text-align: center;
   font-weight: bold;
 }
 
 .description {
   margin-top: 8px;
-}
-
-.sessions {
-  margin-top: 24px;
-  border-radius: 12px;
-  border: 1px solid var(--primary-100);
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  gap: 16px;
-  padding: 16px;
-}
-
-.session {
-  @include c.p1;
-  display: flex;
-  gap: 8px;
-  cursor: pointer;
-  font-weight: bold;
+  text-align: center;
+  color: #4B6488;
 }
 
 .nextButton {
-  margin-top: 24px;
-  margin-left: auto;
-}
-
-@media screen and (max-width: 800px) {
-  .sessions {
-    grid-template-columns: 1fr 1fr;
-  }
-}
-
-@media screen and (max-width: 600px) {
-  .sessions {
-    grid-template-columns: 1fr;
-  }
+  width: 100%;
+  max-width: 516px;
+  margin: 24px auto 0;
 }

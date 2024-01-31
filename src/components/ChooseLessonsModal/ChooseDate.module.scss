@@ -3,6 +3,8 @@
 .modal {
   width: 554px;
   padding: clamp(10px, 3vh, 32px);
+  --day-width: 70px;
+  --day-height: 60px
 }
 
 .header {
@@ -47,10 +49,12 @@
 
 .day {
   @include c.p1;
-  font-weight: bold;
-  width: 70px;
+  width: var(--day-width);
+  height: var(--day-height);
   flex-grow: 1;
-  height: 60px;
+
+  font-weight: bold;
+
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -77,7 +81,7 @@
 
 .calendar {
   position: relative;
-  min-height: 420px;
+  min-height: calc(7 * var(--day-height));
 }
 
 .times {
@@ -132,9 +136,9 @@
     flex: 0 1 100px;
   }
 
-  .day {
-    width: 44px;
-    height: 44px;
+  .modal {
+    --day-height: 44px;
+    --day-width: 44px;
   }
 
   .header {
@@ -143,7 +147,7 @@
 }
 
 @media screen and (max-height: 800px) {
-  .day {
-    height: 50px;
+  .modal {
+    --day-height: 50px;
   }
 }

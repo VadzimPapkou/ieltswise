@@ -1,8 +1,3 @@
-.modal.email {
-  max-width: 554px;
-  min-height: 300px;
-}
-
 .closeModal {
   width: 44px;
   height: 44px;
@@ -12,11 +7,4 @@
   background-color: #fff;
   border: none;
   cursor: pointer;
-}
-
-@media screen and (max-width: 600px) {
-  .modal.date {
-    width: auto;
-    padding: 24px;
-  }
 }

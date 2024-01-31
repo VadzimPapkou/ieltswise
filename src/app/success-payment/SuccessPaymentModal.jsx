@@ -17,8 +17,9 @@ export function SuccessPaymentModal ({ setShow }) {
       const url = new URL(window.location.href);
 
       const studentEmail = url.searchParams.get("studentEmail");
-      const startDate = url.searchParams.get("date");
-      const endDate = +moment(+startDate).add(59, "minutes");
+      const datestampStartDate = +url.searchParams.get("date");
+      const startDate = moment(datestampStartDate);
+      const endDate = moment(startDate).add(59, "minutes");
       const paymentId = url.searchParams.get("paymentId");
       const payerID = url.searchParams.get("PayerID");
 
@@ -26,8 +27,8 @@ export function SuccessPaymentModal ({ setShow }) {
         const { data, status } = await axiosClient.post("/student/bookRegularSession", {
           tutorEmail: "test.tutor1.ieltswise67@gmail.com",
           studentEmail,
-          startDate,
-          endDate,
+          startDate: startDate.toISOString(true),
+          endDate: endDate.toISOString(true),
           paymentId,
           payerID
         });

@@ -1,11 +1,11 @@
 import React, { createContext, useState } from "react";
 import classes from "./ChooseLessonsModal.module.scss";
 import ModalFade from "../ModalFade";
-import Modal from "../Modal";
 import ChooseSessionType from "./ChooseSessionType";
 import ChooseDate from "./ChooseDate";
 import clsx from "clsx";
 import ChooseEmailModal from "./ChooseEmail";
+import moment from "moment";
 
 export const ModalContext = createContext({});
 
@@ -18,12 +18,7 @@ const ChooseLessonsModal = ({ setShowModal, onSubmitModal, withEmail }) => {
     "email": ChooseEmailModal
   };
 
-  const className = clsx({
-    [classes.modal]: true,
-    [classes[step]]: true
-  });
-
-  const [selectedDay, setSelectedDay] = useState(null);
+  const [selectedDay, setSelectedDay] = useState(moment());
   const [selectedTime, setSelectedTime] = useState(null);
   const [email, setEmail] = useState("");
 

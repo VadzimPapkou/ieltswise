@@ -18,20 +18,19 @@ const ChooseSessionType = ({ close }) => {
 
   return (
     <Modal className={classes.modal} onCloseClick={close}>
-      <p className={clsx("h4-like", classes.header)}>
+      <p className={clsx("h3-like", classes.title)}>
         What type of session are you interested in?
       </p>
       <p className={classes.description}>
-        I'm pleased to meet you! Please select one lesson for which you would
-        like to receive consultation.
+        I'm pleased to meet you! Please select one lesson which you would <br/> like to improve.
       </p>
       <div className={classes.sessions}>
-        <Radio label="IELTS Academic test" name="session" onChange={handleSessionType} />
-        <Radio label="IELTS General test" name="session" onChange={handleSessionType} />
-        <Radio label="Conversational English" name="session" onChange={handleSessionType} />
-        <Radio label="Functional English" name="session" onChange={handleSessionType} />
-        <Radio label="Business English" name="session" onChange={handleSessionType} />
-        <Radio label="Improve English" name="session" onChange={handleSessionType} />
+        <Radio className={classes.session} label="IELTS Academic test" name="session" onChange={handleSessionType} />
+        <Radio className={classes.session} label="IELTS General test" name="session" onChange={handleSessionType} />
+        <Radio className={classes.session} label="Conversational English" name="session" onChange={handleSessionType} />
+        <Radio className={classes.session} label="Functional English" name="session" onChange={handleSessionType} />
+        <Radio className={classes.session} label="Business English" name="session" onChange={handleSessionType} />
+        <Radio className={classes.session} label="Improve English" name="session" onChange={handleSessionType} />
       </div>
       <Button
         className={classes.nextButton}
