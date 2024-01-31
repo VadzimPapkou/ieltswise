@@ -12,13 +12,16 @@ import { ColorRing } from "react-loader-spinner";
 import clsx from "clsx";
 
 const days = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
+const tomorrow = moment(new Date()).add(1, "day");
 
 const ChooseDate = ({ close }) => {
-  const [month, setMonth] = useState(moment(new Date()));
+  const [month, setMonth] = useState(tomorrow);
   const [weeks, setWeeks] = useState([]);
   const loadedDataRef = useRef({});
 
   const [loading, setLoading] = useState(false);
+
+  const { selectedTime, setStep, submitModal, withEmail, setSelectedDay } = useContext(ModalContext);
 
   useEffect(() => {
     const fetchMonthDays = async (month) => {
@@ -42,8 +45,6 @@ const ChooseDate = ({ close }) => {
     fetchMonthDays(month).then(days => setWeeks(getWeeks(days)))
       .finally(() => setLoading(false));
   }, [month]);
-
-  const { selectedTime, setStep, submitModal, withEmail } = useContext(ModalContext);
 
   const nextDisabled = selectedTime === null;
 

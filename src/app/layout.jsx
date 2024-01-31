@@ -4,7 +4,7 @@ import Header from "../components/Header/Header";
 import Footer from "../components/Footer";
 
 export const metadata = {
-  title: "Ielts",
+  title: "Ieltswise",
   description: "English for international opportunity"
 };
 
