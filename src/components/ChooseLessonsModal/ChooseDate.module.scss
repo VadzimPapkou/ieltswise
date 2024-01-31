@@ -45,13 +45,13 @@
 
 .row {
   display: flex;
+  justify-content: center;
 }
 
 .day {
   @include c.p1;
   width: var(--day-width);
   height: var(--day-height);
-  flex-grow: 1;
 
   font-weight: bold;
 
@@ -63,6 +63,12 @@
 
 .week {
   display: flex;
+  justify-content: center;
+}
+
+.dummyDay {
+  width: var(--day-width);
+  height: var(--day-height);
 }
 
 .dayPickable {
@@ -110,14 +116,19 @@
   color: #fff;
 }
 
-.selectedDate {
+.selectedDate, .day:hover {
   border-radius: 6px;
   background: var(--primary-50);
 }
 
 .selectedDateArrow {
+  display: none;
   margin-top: -7px;
   transform: rotate(-90deg) scale(0.7);
+}
+
+.selectedDate .selectedDateArrow, .day:hover .selectedDateArrow {
+  display: block;
 }
 
 .loader {

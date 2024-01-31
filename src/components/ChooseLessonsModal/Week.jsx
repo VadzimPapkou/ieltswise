@@ -13,6 +13,7 @@ const Week = ({ week }) => {
     <>
       <div className={classes.week}>
         {week.map((day, i) => (
+          !day ? <div key={i} className={classes.dummyDay}></div> :
           <button
             key={i}
             onClick={handleDayClick(day)}
@@ -24,9 +25,7 @@ const Week = ({ week }) => {
             })}
           >
             {day?.date?.format("D")}
-            {day && day === selectedDay && (
-              <Arrow3 color="#000" className={classes.selectedDateArrow} />
-            )}
+            <Arrow3 color="#000" className={classes.selectedDateArrow} />
           </button>
         ))}
       </div>
