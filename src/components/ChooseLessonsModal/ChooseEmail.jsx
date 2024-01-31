@@ -34,6 +34,7 @@ const ChooseEmail = ({ close }) => {
           <p className={classes.enterEmail}>Please enter your Email address to allow me to send you
             an invitation to the session.</p>
           <TextField className={classes.email}
+                     type="email"
                      placeholder="email@example.com"
                      value={email}
                      onChange={e => setEmail(e.target.value)}
@@ -67,7 +68,7 @@ const ChooseEmail = ({ close }) => {
       url.searchParams.set("studentEmail", email);
       const { data } = await axiosClient.get(url.toString());
       window.location.href = data;
-    } finally {
+    } catch {
       setLoading(false);
     }
   }
