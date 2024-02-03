@@ -18,6 +18,7 @@ const ChooseLessonsModal = ({ setShowModal, onSubmitModal, withEmail }) => {
     "email": ChooseEmailModal
   };
 
+  const [sessionType, setSessionType] = useState();
   const [selectedDay, setSelectedDay] = useState(moment());
   const [selectedTime, setSelectedTime] = useState(null);
   const [email, setEmail] = useState("");
@@ -25,6 +26,7 @@ const ChooseLessonsModal = ({ setShowModal, onSubmitModal, withEmail }) => {
   const modalData = {
     selectedDay, setSelectedDay,
     selectedTime, setSelectedTime,
+    sessionType, setSessionType,
     email, setEmail,
     setStep,
     setShowModal,

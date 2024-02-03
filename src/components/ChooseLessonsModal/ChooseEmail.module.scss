@@ -1,10 +1,10 @@
 @use "src/app/mixins" as m;
 
 .modal {
+  min-height: 262px;
   max-width: 554px;
   width: 100vw;
-  min-height: 300px;
-  padding: 48px;
+  padding: 40px 50px 50px 50px;
 }
 
 .modalLoading {
@@ -16,21 +16,18 @@
 .title {
   @include m.h3-like;
   text-align: center;
-  color: var(--primary);
+  color: var(--primary-600);
 }
 
 .enterEmail {
   @include m.p1;
-  margin-top: 8px;
+  color: var(--secondary-text);
+  margin-top: 4px;
 }
 
-.email {
+.form {
   margin: 16px auto 0;
-}
-
-.buttons {
   display: flex;
-  justify-content: center;
-  margin-top: 16px;
+  align-items: center;
   gap: 8px;
 }

@@ -28,7 +28,3 @@
 .input:checked + .mark {
     display: block;
 }
-
-.label {
-    font-weight: 600;
-}

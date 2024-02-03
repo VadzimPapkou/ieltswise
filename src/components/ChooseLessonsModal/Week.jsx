@@ -17,7 +17,7 @@ const Week = ({ week }) => {
           <button
             key={i}
             onClick={handleDayClick(day)}
-            className={clsx(classes.day, classes.dayPickable, {
+            className={clsx(classes.day, {
               [classes.weekend]: i >= 5,
               [classes.occupiedDay]: day?.occupied,
               [classes.selectedDate]:

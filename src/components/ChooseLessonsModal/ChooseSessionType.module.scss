@@ -19,9 +19,13 @@
 }
 
 .session {
+  @include c.p1;
+  white-space: nowrap;
   padding: 16px 24px 16px 16px;
   background-color: #fff;
   border-radius: 8px;
+  font-weight: bold;
+  box-shadow: var(--layer-shadow-small);
 }
 
 .title.title {
@@ -40,4 +44,10 @@
   width: 100%;
   max-width: 516px;
   margin: 24px auto 0;
+}
+
+@media screen and (max-width: 550px) {
+  .sessions {
+    grid-template-columns: 1fr;
+  }
 }

@@ -1,10 +1,12 @@
 @use "src/app/mixins" as c;
 
-.modal {
-  width: 554px;
+.modal.modal {
+  margin-top: 4px;
+  max-width: 554px;
+  background-color: var(--neutral-100);
   padding: clamp(10px, 3vh, 32px);
   --day-width: 70px;
-  --day-height: 60px
+  --day-height: 60px;
 }
 
 .header {
@@ -13,13 +15,20 @@
   gap: 25px;
 }
 
+.selectDateAndTime {
+  @include c.p1;
+  color: var(--secondary-text);
+  margin-top: 16px;
+}
+
 .title {
   @include c.h3-like;
+  color: var(--primary-600);
 }
 
 .buttonLeft, .buttonRight {
-  flex: 0 0 44px;
-  height: 44px;
+  flex: 0 0 36px;
+  height: 36px;
 }
 
 .buttonLeft {
@@ -48,7 +57,7 @@
   justify-content: center;
 }
 
-.day {
+.day, .dayOfWeek {
   @include c.p1;
   width: var(--day-width);
   height: var(--day-height);
@@ -59,6 +68,10 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
 }
 
 .week {
@@ -71,12 +84,6 @@
   height: var(--day-height);
 }
 
-.dayPickable {
-  border: none;
-  background-color: transparent;
-  cursor: pointer;
-}
-
 .weekend {
   color: var(--danger-500);
 }
@@ -86,6 +93,9 @@
 }
 
 .calendar {
+  border-radius: 16px;
+  padding: 24px 24px 12px 24px;
+  background-color: #fff;
   position: relative;
   min-height: calc(7 * var(--day-height));
 }
@@ -116,7 +126,7 @@
   color: #fff;
 }
 
-.selectedDate, .day:hover {
+.selectedDate, .day:not(.occupiedDay):hover {
   border-radius: 6px;
   background: var(--primary-50);
 }
@@ -127,7 +137,7 @@
   transform: rotate(-90deg) scale(0.7);
 }
 
-.selectedDate .selectedDateArrow, .day:hover .selectedDateArrow {
+.selectedDate .selectedDateArrow, .day:not(.occupiedDay):hover .selectedDateArrow {
   display: block;
 }
 
@@ -135,7 +145,7 @@
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%,-50%);
+  transform: translate(-50%, -50%);
 }
 
 @media screen and (max-width: 600px) {
@@ -157,8 +167,60 @@
   }
 }
 
-@media screen and (max-height: 800px) {
-  .modal {
-    --day-height: 50px;
+@media screen and (max-height: 850px) {
+    .selectDateAndTime {
+      margin-top: 4px;
+    }
+
+  .calendar {
+    padding: 12px 24px;
+  }
+}
+
+@media screen and (max-height: 600px) {
+  .modal.modal {
+    --day-height: 44px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .modal.modal {
+    --day-width: 44px;
+    --day-height: 44px;
+    padding: 24px;
+    background-color: #fff;
+  }
+
+  .times {
+    margin-left: auto;
+    margin-right: auto;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    width: calc(var(--day-width) * 7);
+  }
+
+  .time {
+    padding: 10px 7.5px;
+  }
+
+  .calendar {
+    padding: 0;
+  }
+
+  .buttonLeft {
+    margin-left: 0;
+  }
+
+  .title {
+    width: 100%;
+    text-align: center;
+  }
+
+  .selectDateAndTime {
+    text-align: center;
+  }
+
+  .header {
+    flex-wrap: wrap;
+    justify-content: center;
   }
 }

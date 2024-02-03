@@ -10,7 +10,7 @@ import Modal from "../Modal";
 
 const ChooseEmail = ({ close }) => {
 
-  const { setStep, email, setEmail, selectedTime } = useContext(ModalContext);
+  const { setStep, email, setEmail, selectedTime, sessionType } = useContext(ModalContext);
 
   const [loading, setLoading] = useState(false);
 
@@ -31,17 +31,17 @@ const ChooseEmail = ({ close }) => {
       {!loading && (
         <>
           <h3 className={classes.title}>Start Learning</h3>
-          <p className={classes.enterEmail}>Please enter your Email address to allow me to send you
-            an invitation to the session.</p>
-          <TextField className={classes.email}
-                     type="email"
-                     placeholder="email@example.com"
-                     value={email}
-                     onChange={e => setEmail(e.target.value)}
-          />
-          <div className={classes.buttons}>
-            <Button variant="secondary" onClick={onBackClick}>Back</Button>
-            <Button variant="primary" onClick={onNextClick} disabled={nextDisabled}>Continue</Button>
+          <p className={classes.enterEmail}>Our lesson will be via Google Meet. Please enter your Email address to allow
+            me to send you an invitation to the lesson.</p>
+          <div className={classes.form}>
+            <TextField className={classes.email}
+                       type="email"
+                       placeholder="email@example.com"
+                       value={email}
+                       onChange={e => setEmail(e.target.value)}
+            />
+            <Button variant="link" onClick={onNextClick} disabled={nextDisabled}>Enroll</Button>
+            <Button variant="text" onClick={onBackClick}>Back</Button>
           </div>
         </>
       )}
@@ -61,6 +61,7 @@ const ChooseEmail = ({ close }) => {
 
     successUrl.searchParams.set("studentEmail", email);
     successUrl.searchParams.set("date", selectedTime);
+    successUrl.searchParams.set("sessionType", sessionType);
     try {
       const url = new URL(apiUrl + "/payment/paymentLink");
       url.searchParams.set("successUrl", successUrl.toString());

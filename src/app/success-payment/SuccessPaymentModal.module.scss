@@ -1,50 +1,91 @@
 @use "src/app/mixins" as m;
 
-.modal {
-  padding: 62px 55px;
-  width: 100vw;
+.modal.modal {
+  max-width: 615px;
   min-height: 400px;
-  max-width: 700px;
+  width: 100vw;
+  background-color: var(--neutral-100);
+  padding-bottom: 50px;
 }
 
-.loading {
+.modal.loading {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.header {
+  background-color: var(--primary);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 50px 50px 56px 50px;
+  border-radius: 24px;
 }
 
 .title {
   @include m.h3-like;
+  font-weight: 500;
+  color: #fff;
+  margin-top: 24px;
+}
+
+.message {
+  padding: 24px;
+  background-color: #fff;
+  max-width: 515px;
+  margin: -32px auto 0;
+  border-radius: 16px;
+}
+
+.messageTitle {
+  @include m.h5-like;
+  text-align: center;
+}
+
+.messageText {
+  @include m.p1;
+  text-align: center;
+  margin-top: 10px;
+}
+
+.email {
   color: var(--primary);
 }
 
-.youChoose {
-  @include m.p2;
-  font-weight: bold;
-  margin-top: 16px;
+.sessionTypeContainer {
+  margin: 12px auto 0;
+  width: max-content;
+  background-color: var(--primary);
+  border-radius: 12px;
+  padding: 12px 16px;
+
+  display: flex;
+  align-items: center;
+  gap: 16px;
 }
 
-.dateContainer {
+.sessionIcon {
+  width: 56px;
+  height: 56px;
   display: flex;
   justify-content: center;
   align-items: center;
 
-  width: 250px;
-  height: 80px;
-  padding: 12px 16px;
-
-  border-radius: 6px;
-  background-color: var(--primary-100);
+  border-radius: 12px;
+  background-color: #ECF4FE;
 }
 
-.date {
+.sessionText {
+  display: flex;
+  flex-direction: column;
+}
+
+.sessionTitle {
   @include m.h5-like;
-  color: var(--primary-600);
+  color: #fff;
 }
 
-.checkMail {
-  @include m.p1;
-  margin-top: 16px;
-  color: var(--secondary-text);
-  text-align: center;
+.sessionDate {
+  color: var(--primary-100);
 }

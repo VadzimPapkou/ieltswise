@@ -8,13 +8,14 @@ import Modal from "../Modal";
 
 const ChooseSessionType = ({ close }) => {
 
-  const [sessionType, setSessionType] = useState("");
-
   function handleSessionType (e) {
     setSessionType(e.target.value);
   }
 
-  const { setStep } = useContext(ModalContext);
+  const { setStep, sessionType, setSessionType } = useContext(ModalContext);
+
+  const SessionRadio = ({ label }) => <Radio className={classes.session} label={label} name="session" value={label} checked={label === sessionType}
+                                             onChange={handleSessionType} />;
 
   return (
     <Modal className={classes.modal} onCloseClick={close}>
@@ -22,15 +23,15 @@ const ChooseSessionType = ({ close }) => {
         What type of session are you interested in?
       </p>
       <p className={classes.description}>
-        I'm pleased to meet you! Please select one lesson which you would <br/> like to improve.
+        I'm pleased to meet you! Please select one lesson which you would <br /> like to improve.
       </p>
       <div className={classes.sessions}>
-        <Radio className={classes.session} label="IELTS Academic test" name="session" onChange={handleSessionType} />
-        <Radio className={classes.session} label="IELTS General test" name="session" onChange={handleSessionType} />
-        <Radio className={classes.session} label="Conversational English" name="session" onChange={handleSessionType} />
-        <Radio className={classes.session} label="Functional English" name="session" onChange={handleSessionType} />
-        <Radio className={classes.session} label="Business English" name="session" onChange={handleSessionType} />
-        <Radio className={classes.session} label="Improve English" name="session" onChange={handleSessionType} />
+        <SessionRadio label="IELTS Academic test" />
+        <SessionRadio label="IELTS General test" />
+        <SessionRadio label="Conversational English" />
+        <SessionRadio label="Functional English" />
+        <SessionRadio label="Business English" />
+        <SessionRadio label="Improve English" />
       </div>
       <Button
         className={classes.nextButton}

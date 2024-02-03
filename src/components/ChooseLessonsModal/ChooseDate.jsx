@@ -10,6 +10,9 @@ import { ModalContext } from "./ChooseLessonsModal";
 import Modal from "../Modal";
 import { ColorRing } from "react-loader-spinner";
 import clsx from "clsx";
+import ArrowRight from "../../icon-components/ArrowRight";
+import Arrow2 from "../../icon-components/Arrow2/Arrow2";
+import Arrow4 from "../../icon-components/Arrow4";
 
 const days = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
 const tomorrow = moment(new Date()).add(1, "day");
@@ -62,17 +65,18 @@ const ChooseDate = ({ close }) => {
           variant="icon"
           onClick={setPrevMonth}
         >
-          <Arrow3 color="#fff" />
+          <Arrow4 color="#fff" />
         </Button>
         <p className={classes.date}>{month.format("MMMM YYYY")}</p>
         <Button variant="icon" onClick={setNextMonth} className={classes.buttonRight}>
-          <Arrow3 color="#fff" />
+          <Arrow4 color="#fff" />
         </Button>
       </div>
+      <p className={classes.selectDateAndTime}>Select a date and time for a lesson.</p>
       <div className={calendarClass}>
         <div className={classes.row}>
           {days.map((day) => (
-            <p key={day} className={classes.day}>
+            <p key={day} className={classes.dayOfWeek}>
               {day}
             </p>
           ))}
