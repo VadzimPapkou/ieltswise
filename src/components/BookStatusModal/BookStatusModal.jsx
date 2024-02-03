@@ -46,7 +46,7 @@ const BookStatusModal = ({ setShow, response }) => {
 };
 
 const SuccessModal = ({ response, setShow }) => {
-  const sessionIcon = serviceToIcon[response.data.requestedService].iconSrc || "/service-icon-1.svg";
+  const sessionIcon = serviceToIcon[response.data.requestedService]?.iconSrc || "/service-icon-1.svg";
   return (
     <Modal className={classes.modal} onCloseClick={() => setShow(false)}>
       <h3 className={classes.title}>Thank you for registering for the free chat!</h3>

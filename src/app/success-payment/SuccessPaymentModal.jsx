@@ -63,7 +63,7 @@ export function SuccessPaymentModal ({ setShow }) {
   const url = new URL(window.location.href);
   const startDate = url.searchParams.get("date");
   const studentEmail = url.searchParams.get("studentEmail");
-  const sessionType = url.searchParams.get("sessionType");
+  const sessionType = url.searchParams.get("requestedService");
 
   const formattedDate = moment(+startDate)
     .format("DD.MM.YYYY – 7 ") +
