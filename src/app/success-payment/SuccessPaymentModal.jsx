@@ -63,7 +63,7 @@ export function SuccessPaymentModal ({ setShow }) {
   const url = new URL(window.location.href);
   const startDate = url.searchParams.get("date");
   const studentEmail = url.searchParams.get("studentEmail");
-  const sessionType = url.searchParams.get("requestedService");
+  const sessionType = url.searchParams.get("sessionType");
 
   const formattedDate = moment(+startDate)
     .format("DD.MM.YYYY – 7 ") +
@@ -100,7 +100,7 @@ export function SuccessPaymentModal ({ setShow }) {
               </p>
               <div className={classes.sessionTypeContainer}>
                 <div className={classes.sessionIcon}>
-                  <Image src={serviceToIcon[sessionType].iconSrc} alt="" width={24} height={24} />
+                  <Image src={serviceToIcon[sessionType]?.iconSrc} alt="" width={24} height={24} />
                 </div>
                 <div className={classes.sessionText}>
                   <p className={classes.sessionTitle}>{sessionType}</p>
