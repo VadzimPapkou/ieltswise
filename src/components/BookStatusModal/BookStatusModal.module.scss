@@ -1,8 +1,9 @@
 @use "src/app/mixins" as m;
 
-.modal {
+.modal.modal {
   padding: 62px 55px;
   max-width: 700px;
+  background-color: var(--neutral-100);
 }
 
 .title {
@@ -39,4 +40,31 @@
   margin-top: 16px;
   color: var(--secondary-text);
   text-align: center;
+}
+
+.sessionInfo {
+  display: flex;
+  gap: 8px;
+}
+
+.sessionTypeContainer {
+  padding: 12px 16px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background-color: #fff;
+}
+
+.sessionIcon {
+  width: 56px;
+  height: 56px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 12px;
+  background-color: #ECF4FE;
+}
+
+.sessionType {
+  @include m.h5-like;
 }

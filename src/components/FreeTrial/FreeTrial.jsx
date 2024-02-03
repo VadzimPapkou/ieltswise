@@ -56,14 +56,16 @@ const FreeTrial = ({}) => {
     setShowChooseLessonModal(true);
   }
 
-  async function onSubmitModal (time) {
-    const startDate = moment(time);
+  async function onSubmitModal ({ selectedTime, sessionType }) {
+    const startDate = moment(selectedTime);
     let endDate = moment(startDate).add(59, "minutes");
 
     try {
       const response = await axiosClient.post("/student/bookTrialSession", {
+        requestedService: sessionType,
         tutorEmail: "test.tutor1.ieltswise67@gmail.com",
         studentEmail: email,
+        studentName: name,
         startDate: startDate.toISOString(true),
         endDate: endDate.toISOString(true)
       });

@@ -113,7 +113,7 @@ const ChooseDate = ({ close }) => {
       return;
     }
 
-    submitModal(selectedTime);
+    submitModal();
   }
 
   function setPrevMonth () {

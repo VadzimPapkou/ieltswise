@@ -51,8 +51,8 @@ const ChooseLessonsModal = ({ setShowModal, onSubmitModal, withEmail }) => {
     setShowModal(false);
   }
 
-  function submitModal (time) {
-    onSubmitModal && onSubmitModal(time);
+  function submitModal () {
+    onSubmitModal && onSubmitModal({selectedTime, email, sessionType});
     closeModal();
   }
 };
