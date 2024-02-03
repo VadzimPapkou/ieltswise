@@ -51,7 +51,7 @@ export function SuccessPaymentModal ({ setShow }) {
           endDate: endDate.toISOString(true),
           paymentId,
           payerID,
-          sessionType
+          requestedService: sessionType
         });
         console.log("data status", data, status);
       } finally {

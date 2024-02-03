@@ -15,7 +15,7 @@ export default function Home() {
         <FreeTrial />
         <TrialDescription />
         <Services />
-        <SeveralLessons />
+        {/*<SeveralLessons />*/}
         <AboutTutor />
         <Reviews />
         <GetStarted />
