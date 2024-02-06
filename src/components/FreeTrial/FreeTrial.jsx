@@ -24,7 +24,7 @@ const FreeTrial = ({}) => {
   return (
     <div className={classes.freeTrial}>
       {showChooseLessonModal &&
-        <ChooseLessonsModal setShowModal={setShowChooseLessonModal} onSubmitModal={onSubmitModal} />}
+        <ChooseLessonsModal setShow={setShowChooseLessonModal} onSubmitModal={onSubmitModal} />}
       {showStatusModal &&
         <BookStatusModal setShow={setShowStatusModal} response={bookResponse} />
       }

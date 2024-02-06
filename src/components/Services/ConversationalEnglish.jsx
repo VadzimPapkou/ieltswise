@@ -1,6 +1,7 @@
 import classes from "./ConversationalEnglish.module.css";
 import Tab from "./Tab";
 import clsx from "clsx";
+import { BookFreeChatButton } from "./BookFreeChatButton";
 
 const ConversationalEnglish = () => {
   return (
@@ -11,6 +12,7 @@ const ConversationalEnglish = () => {
         a native speaker. English is the universal language of business, travel,
         and education which offers huge benefits to its international speakers.
       </p>
+      <BookFreeChatButton className={classes.bookFreeChatButton}/>
     </Tab>
   );
 };

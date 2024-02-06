@@ -1,6 +1,7 @@
 import classes from "./BusinessEnglish.module.css";
 import Tab from "./Tab";
 import clsx from "clsx";
+import { BookFreeChatButton } from "./BookFreeChatButton";
 
 const BusinessEnglish = () => {
   return (
@@ -19,6 +20,7 @@ const BusinessEnglish = () => {
         The needs of each student will be discussed during the trial lesson so
         that the lessons can be tailored for each individual student.
       </p>
+      <BookFreeChatButton className={classes.bookFreeChatButton}/>
     </Tab>
   );
 };

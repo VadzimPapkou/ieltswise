@@ -67,16 +67,16 @@ const Footer = ({}) => {
           </Link>
         </div>
       </div>
-      <div className={classes.social}>
-        <p className="h5-like">Social</p>
+      <div className={classes.social} id="contacts">
+        <p className="h5-like">Contacts</p>
         <div className={classes.links}>
-          <Link href="/" className={clsx(classes.textLink, "p1")}>
+          <Link href="mailto:aid.ieltswise@gmail.com" className={clsx(classes.textLink, "p1")}>
             <Image alt="google" src="/google.svg" width={32} height={32} />
           </Link>
-          <Link href="/" className={clsx(classes.textLink, "p1")}>
+          <Link href="https://www.linkedin.com/in/ieltswise-education-944975272" className={clsx(classes.textLink, "p1")}>
             <Image alt="linkedin" src="/linkedin.svg" width={32} height={32} />
           </Link>
-          <Link href="/" className={clsx(classes.textLink, "p1")}>
+          <Link href="https://www.facebook.com/profile.php?id=61554267389898" className={clsx(classes.textLink, "p1")}>
             <Image alt="facebook" src="/facebook.svg" width={32} height={32} />
           </Link>
         </div>

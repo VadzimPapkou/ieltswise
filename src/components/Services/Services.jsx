@@ -9,6 +9,11 @@ import FunctionalEnglish from "./FunctionalEnglish";
 import ConversationalEnglish from "./ConversationalEnglish";
 import BusinessEnglish from "./BusinessEnglish";
 import ImproveEnglish from "./ImproveEnglish";
+import Button from "../Button/Button";
+import ChooseLessonsModal from "../ChooseLessonsModal";
+import moment from "moment/moment";
+import axiosClient from "../../axiosClient";
+import BookStatusModal from "../BookStatusModal";
 
 const tabs = [
   {
@@ -40,7 +45,7 @@ const tabs = [
     iconSrc: "/service-icon-6.svg",
     component: ImproveEnglish,
     class: classes.improveEnglish
-  },
+  }
 ];
 
 const Services = ({}) => {
@@ -85,8 +90,8 @@ const Services = ({}) => {
     </div>
   );
 
-  function handleTabClick(tab) {
-    return function () {
+  function handleTabClick (tab) {
+    return function() {
       setActiveTab(tab);
     };
   }

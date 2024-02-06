@@ -37,7 +37,7 @@ const ChooseSessionType = ({ close }) => {
         className={classes.nextButton}
         variant="link"
         onClick={handleNextClick}
-        disabled={sessionType === ""}
+        disabled={!sessionType}
       >
         Next
       </Button>
@@ -45,7 +45,7 @@ const ChooseSessionType = ({ close }) => {
   );
 
   function handleNextClick () {
-    if (sessionType === "") return;
+    if (!sessionType) return;
     setStep("date");
   }
 };

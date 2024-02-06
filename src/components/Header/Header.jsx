@@ -14,10 +14,10 @@ const Header = () => {
           <Image className={classes.logoImg} alt="Neil wood" src="/logo.svg" width={171} height={52} />
         </Link>
         <div className={classes.links}>
-          <Link href={"/#aboutTutor"} className={clsx(classes.link)}>
+          <Link href={"#aboutTutor"} className={clsx(classes.link)}>
             <span className={clsx("p1")}>Tutor</span>
           </Link>
-          <Link href={"/"} className={clsx(classes.link)}>
+          <Link href={"#contacts"} className={clsx(classes.link)}>
             <span className={clsx("p1")}>Contacts</span>
           </Link>
         </div>

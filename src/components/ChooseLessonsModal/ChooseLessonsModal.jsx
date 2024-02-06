@@ -9,7 +9,7 @@ import moment from "moment";
 
 export const ModalContext = createContext({});
 
-const ChooseLessonsModal = ({ setShowModal, onSubmitModal, withEmail }) => {
+const ChooseLessonsModal = ({ setShow, onSubmitModal, withEmail }) => {
   const [step, setStep] = useState("sessionType");
 
   const stepToComponent = {
@@ -29,7 +29,7 @@ const ChooseLessonsModal = ({ setShowModal, onSubmitModal, withEmail }) => {
     sessionType, setSessionType,
     email, setEmail,
     setStep,
-    setShowModal,
+    setShowModal: setShow,
     submitModal,
     withEmail
   };
@@ -48,12 +48,12 @@ const ChooseLessonsModal = ({ setShowModal, onSubmitModal, withEmail }) => {
   );
 
   function closeModal () {
-    setShowModal(false);
+    debugger;
+    setShow(false);
   }
 
-  function submitModal () {
-    onSubmitModal && onSubmitModal({selectedTime, email, sessionType});
-    closeModal();
+  async function submitModal () {
+    await onSubmitModal({selectedTime, email, sessionType});
   }
 };
 

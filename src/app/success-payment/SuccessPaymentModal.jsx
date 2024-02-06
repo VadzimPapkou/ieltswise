@@ -78,6 +78,8 @@ export function SuccessPaymentModal ({ setShow }) {
     [classes.loading]: loading
   });
 
+  const serviceIconSrc = serviceToIcon[sessionType]?.iconSrc || "/service-icon-1.svg";
+
   return (
     <ModalFade onClickOutside={close}>
       <Modal onCloseClick={close} className={modalClass}>
@@ -100,7 +102,7 @@ export function SuccessPaymentModal ({ setShow }) {
               </p>
               <div className={classes.sessionTypeContainer}>
                 <div className={classes.sessionIcon}>
-                  <Image src={serviceToIcon[sessionType]?.iconSrc} alt="" width={24} height={24} />
+                  <Image src={serviceIconSrc} alt="" width={24} height={24} />
                 </div>
                 <div className={classes.sessionText}>
                   <p className={classes.sessionTitle}>{sessionType}</p>

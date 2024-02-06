@@ -10,7 +10,7 @@ import Modal from "../Modal";
 
 const ChooseEmail = ({ close }) => {
 
-  const { setStep, email, setEmail, selectedTime, sessionType } = useContext(ModalContext);
+  const { setStep, email, setEmail, selectedTime, sessionType, submitModal } = useContext(ModalContext);
 
   const [loading, setLoading] = useState(false);
 
@@ -52,28 +52,10 @@ const ChooseEmail = ({ close }) => {
     setStep("date");
   }
 
-  async function onNextClick () {
-    if (nextDisabled) return;
-
+  function onNextClick() {
     setLoading(true);
-    const successUrl = new URL(window.location.origin + "/success-payment");
-    const cancelUrl = new URL(window.location.origin + "/error-payment");
-
-    successUrl.searchParams.set("studentEmail", email);
-    successUrl.searchParams.set("date", selectedTime);
-    successUrl.searchParams.set("sessionType", sessionType);
-    try {
-      const url = new URL(apiUrl + "/payment/paymentLink");
-      url.searchParams.set("successUrl", successUrl.toString());
-      url.searchParams.set("cancelUrl", cancelUrl.toString());
-      url.searchParams.set("studentEmail", email);
-      const { data } = await axiosClient.get(url.toString());
-      window.location.href = data;
-    } catch {
-      setLoading(false);
-    }
+    submitModal();
   }
-
 };
 
 export default ChooseEmail;

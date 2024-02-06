@@ -8,13 +8,18 @@ import Image from "next/image";
 import ChooseLessonsModal from "../ChooseLessonsModal";
 import Link from "next/link";
 import axiosClient from "../../axiosClient";
+import { processPayment } from "../../processPayment";
 
 const UnderHeader = () => {
   const [showLessonsModal, setShowLessonsModal] = useState(false);
 
   return (
     <div className={classes.wrapper}>
-      {showLessonsModal && <ChooseLessonsModal setShowModal={setShowLessonsModal} onSubmitModal={handleSubmitLessons} withEmail={true}/>}
+      {showLessonsModal && <ChooseLessonsModal setShow={setShowLessonsModal}
+                                               onSubmitModal={handleSubmitLessons}
+                                               withEmail={true}
+      />
+      }
       <div className={classes.underHeader}>
         <div className={classes.textBlock}>
           <p className={classes.upperTitle}>IELTSWISE EDUCATION</p>
@@ -82,12 +87,12 @@ const UnderHeader = () => {
     </div>
   );
 
-  function handleChooseLessonsClick() {
+  function handleChooseLessonsClick () {
     setShowLessonsModal(!showLessonsModal);
   }
 
-  function handleSubmitLessons(lessonTime) {
-
+  async function handleSubmitLessons ({ email, selectedTime, sessionType }) {
+    return processPayment(email, selectedTime, sessionType);
   }
 };
 

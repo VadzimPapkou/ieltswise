@@ -1,4 +1,6 @@
 import Tab from "./Tab";
+import classes from "./IeltsPreparation.module.css";
+import { BookFreeChatButton } from "./BookFreeChatButton";
 
 const FunctionalEnglish = () => {
   return <Tab title="What are Functional English skills?">
@@ -17,6 +19,7 @@ const FunctionalEnglish = () => {
     <p className="p1">The aim of these sessions is to improve your English skills, assisting you in your life and work.
       You will study
       at your own pace with lots of support using differnet styles that suit your learning needs.</p>
+    <BookFreeChatButton className={classes.bookFreeChatButton}/>
   </Tab>;
 };
 
