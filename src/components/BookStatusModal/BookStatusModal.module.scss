@@ -68,3 +68,39 @@
 .sessionType {
   @include m.h5-like;
 }
+
+.errorModal {
+  max-width: 430px;
+  width: 100vw;
+  border-radius: 24px;
+  padding-bottom: 40px;
+}
+
+.errorHeader {
+  background-color: var(--danger-700);
+  border-radius: 24px;
+  padding-top: 40px;
+  padding-bottom: 26px;
+}
+
+.errorTitle {
+  margin-top: 24px;
+  color: #fff;
+  text-align: center;
+}
+
+.errorSubtitle {
+  @include m.p1;
+  margin-top: 4px;
+  color: #fff;
+  text-align: center;
+}
+
+.errorIcon {
+  display: block;
+  margin: 0 auto;
+}
+
+.goHome {
+  margin: 25px auto 0 auto;
+}

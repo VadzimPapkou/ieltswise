@@ -5,6 +5,7 @@ import ModalFade from "../ModalFade";
 import Modal from "../Modal";
 import moment from "moment";
 import Image from "next/image";
+import Button from "../Button/Button";
 
 const serviceToIcon = {
   "IELTS preparation": {
@@ -72,9 +73,13 @@ const SuccessModal = ({ response, setShow }) => {
 };
 
 const ErrorModal = ({ setShow, response }) => (
-  <Modal className={classes.modal} onCloseClick={() => setShow(false)}>
-    <h3 className={classes.title}>Something went wrong. Please, try again later</h3>
-    <p>{response.data}</p>
+  <Modal className={classes.errorModal} onCloseClick={() => setShow(false)}>
+    <div className={classes.errorHeader}>
+      <Image className={classes.errorIcon} src="/error-payment-icon.svg" alt="" width={168} height={168} />
+      <h3 className={classes.errorTitle}>Oops:(</h3>
+      <p className={classes.errorSubtitle}>You have already used the free lesson.</p>
+    </div>
+    <Button className={classes.goHome} variant="primary">Back to Home Page</Button>
   </Modal>
 );
 
