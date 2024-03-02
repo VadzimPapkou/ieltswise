@@ -3,14 +3,11 @@ import FreeTrial from "../components/FreeTrial";
 import TrialDescription from "../components/TrialDescription";
 import AboutTutor from "../components/AboutTutor";
 import Services from "../components/Services";
-import Reviews from "../components/Reviews";
 import GetStarted from "../components/GetStarted";
-import SeveralLessons from "../components/SeveralLessons";
-import { apiUrl } from "../axiosClient";
+import { Reviews } from "../components/Reviews/Reviews";
+import { ReviewsList } from "../components/Reviews/ReviewsList";
 
 export default async function Home() {
-  const reviews = await fetchReviews();
-
   return (
     <>
       <main>
@@ -20,13 +17,11 @@ export default async function Home() {
         <Services />
         {/*<SeveralLessons />*/}
         <AboutTutor />
-        <Reviews reviews={reviews} />
+        <Reviews>
+          <ReviewsList />
+        </Reviews>
         <GetStarted />
       </main>
     </>
   );
-}
-
-async function fetchReviews() {
-  return fetch(apiUrl + "/comments").then((response) => response.json());
 }
