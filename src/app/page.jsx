@@ -6,8 +6,11 @@ import Services from "../components/Services";
 import Reviews from "../components/Reviews";
 import GetStarted from "../components/GetStarted";
 import SeveralLessons from "../components/SeveralLessons";
+import { apiUrl } from "../axiosClient";
 
-export default function Home() {
+export default async function Home() {
+  const reviews = await fetchReviews();
+
   return (
     <>
       <main>
@@ -17,9 +20,13 @@ export default function Home() {
         <Services />
         {/*<SeveralLessons />*/}
         <AboutTutor />
-        <Reviews />
+        <Reviews reviews={reviews} />
         <GetStarted />
       </main>
     </>
   );
+}
+
+async function fetchReviews() {
+  return fetch(apiUrl + "/comments").then((response) => response.json());
 }
