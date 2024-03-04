@@ -8,13 +8,29 @@ import TextField from "../TextField/TextField";
 import { makeAutoObservable } from "mobx";
 import { observer } from "mobx-react-lite";
 import axiosClient from "../../axiosClient";
+import { useRouter } from "next/navigation";
+import ModalFade from "../ModalFade";
+import Modal from "../Modal";
+
+const ErrorModal = ({ close }) => (
+  <ModalFade onClickOutside={close}>
+    <Modal className={classes.errorModal} onCloseClick={close}>
+      User didn't purchase any lessons
+    </Modal>
+  </ModalFade>
+);
 
 export const Reviews = observer(({ children }) => {
   const storeRef = useRef(new ReviewsStore());
   const store = storeRef.current;
 
+  const router = useRouter();
+
   return (
-    <form className={classes.wrapper} onSubmit={handleSubmit}>
+    <form className={classes.wrapper} onSubmit={store.handleSubmit(router)}>
+      {store.showErrorModal && (
+        <ErrorModal close={() => (store.showErrorModal = false)} />
+      )}
       <h2 className={clsx("h2-like", classes.title)}>Reviews</h2>
       <p className={classes.titleDescription}>
         “I admire people who dare to take the language, English, and understand
@@ -23,32 +39,29 @@ export const Reviews = observer(({ children }) => {
       <div className={classes.reviews}>
         <div className={classes.newReview}>
           <TextField
+            type="email"
             placeholder="email@example.com"
-            value={store.studentEmail.value}
-            onChange={(e) => store.setStudentEmail(e.target.value)}
-            validityState={store.studentEmail.error ? "invalid" : "default"}
-            validationMessage={store.studentEmail.error}
+            value={store.studentEmail}
+            onChange={(e) => (store.studentEmail = e.target.value)}
           />
           <textarea
             className={classes.newReviewValue}
             placeholder="Share some insights about Neil session. Tell us what the tutor helped you with, about his behavior, approach ect. "
+            value={store.value}
+            onChange={(e) => (store.value = e.target.value)}
           />
         </div>
         {children}
       </div>
       <Button
         variant="primary"
+        loading={store.loading}
         className={classes.showAllButton}
-        onSubmit={handleSubmit}
       >
         Submit review
       </Button>
     </form>
   );
-
-  async function handleSubmit(e) {
-    axiosClient.post("/comment", {});
-  }
 });
 
 class ReviewsStore {
@@ -56,12 +69,30 @@ class ReviewsStore {
     makeAutoObservable(this);
   }
 
-  studentEmail = {
-    value: "",
-    error: null,
-  };
+  studentEmail = "";
+  value = "";
 
-  setStudentEmail(value) {
-    this.studentEmail.value = value;
-  }
+  loading = false;
+  showErrorModal = false;
+
+  handleSubmit = (router) => async (e) => {
+    e.preventDefault();
+    try {
+      this.loading = true;
+      const { status } = await axiosClient.post("/comments", {
+        studentEmail: this.studentEmail,
+        value: this.value,
+      });
+
+      if (status === 200) {
+        router.refresh();
+      }
+    } catch (e) {
+      if (e.response.status === 400) {
+        this.showErrorModal = true;
+      }
+    } finally {
+      this.loading = false;
+    }
+  };
 }
