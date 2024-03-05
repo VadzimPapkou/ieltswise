@@ -30,6 +30,8 @@ const serviceToIcon = {
 };
 
 export function SuccessPaymentModal() {
+  if (typeof window === "undefined") return null;
+
   const [loading, setLoading] = useState(true);
   const [show, setShow] = useState(true);
   const close = () => setShow(false);
@@ -47,18 +49,15 @@ export function SuccessPaymentModal() {
       const sessionType = url.searchParams.get("sessionType");
 
       try {
-        const { data, status } = await axiosClient.post(
-          "/student/bookRegularSession",
-          {
-            tutorEmail: "test.tutor1.ieltswise67@gmail.com",
-            studentEmail,
-            startDate: startDate.toISOString(true),
-            endDate: endDate.toISOString(true),
-            paymentId,
-            payerID,
-            requestedService: sessionType,
-          }
-        );
+        const { data, status } = await axiosClient.post("/student/bookRegularSession", {
+          tutorEmail: "test.tutor1.ieltswise67@gmail.com",
+          studentEmail,
+          startDate: startDate.toISOString(true),
+          endDate: endDate.toISOString(true),
+          paymentId,
+          payerID,
+          requestedService: sessionType,
+        });
         console.log("data status", data, status);
       } catch (e) {
         console.error(e);
@@ -86,8 +85,7 @@ export function SuccessPaymentModal() {
     [classes.loading]: loading,
   });
 
-  const serviceIconSrc =
-    serviceToIcon[sessionType]?.iconSrc || "/service-icon-1.svg";
+  const serviceIconSrc = serviceToIcon[sessionType]?.iconSrc || "/service-icon-1.svg";
 
   if (!show) return null;
 
@@ -95,32 +93,19 @@ export function SuccessPaymentModal() {
     <ModalFade onClickOutside={close}>
       <Modal onCloseClick={close} className={modalClass}>
         {loading && (
-          <ColorRing
-            height="80"
-            width="80"
-            colors={["#e15b64", "#f47e60", "#f8b26a", "#abbd81", "#849b87"]}
-          />
+          <ColorRing height="80" width="80" colors={["#e15b64", "#f47e60", "#f8b26a", "#abbd81", "#849b87"]} />
         )}
         {!loading && (
           <>
             <div className={classes.header}>
-              <Image
-                src="/success-payment-icon.svg"
-                alt=""
-                width={168}
-                height={168}
-              />
+              <Image src="/success-payment-icon.svg" alt="" width={168} height={168} />
               <h3 className={classes.title}>Payment was successful!</h3>
             </div>
             <div className={classes.message}>
-              <p className={classes.messageTitle}>
-                Thank you for registering for the lesson!
-              </p>
+              <p className={classes.messageTitle}>Thank you for registering for the lesson!</p>
               <p className={classes.messageText}>
-                Your lesson will appear in “
-                <span className={classes.email}>{studentEmail}</span>”, if you
-                change your mind about coming to the online lesson, please{" "}
-                <b>cancel 24 hours in advance</b>.
+                Your lesson will appear in “<span className={classes.email}>{studentEmail}</span>”, if you change your
+                mind about coming to the online lesson, please <b>cancel 24 hours in advance</b>.
               </p>
               <div className={classes.sessionTypeContainer}>
                 <div className={classes.sessionIcon}>
