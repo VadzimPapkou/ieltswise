@@ -43,7 +43,7 @@
 }
 
 .review {
-  width: 410px;
+  flex: 0 0 360px;
   height: 260px;
   padding: 24px;
   background-color: #fff;
@@ -91,7 +91,7 @@
 }
 
 .newReview {
-  width: 410px;
+  flex: 0 0 360px;
   height: 260px;
   display: flex;
   flex-direction: column;
@@ -107,6 +107,10 @@
   padding: 24px;
   resize: none;
   outline: none;
+}
+
+.newReviewEmail {
+  max-width: unset;
 }
 
 .showAllButton {

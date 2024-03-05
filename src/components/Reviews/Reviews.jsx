@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useRef } from "react";
+import React, { useRef, useTransition } from "react";
 import classes from "./Reviews.module.scss";
 import clsx from "clsx";
 import Button from "../Button/Button";
@@ -25,9 +25,13 @@ export const Reviews = observer(({ children }) => {
   const store = storeRef.current;
 
   const router = useRouter();
+  const [isPending, startTransition] = useTransition();
 
   return (
-    <form className={classes.wrapper} onSubmit={store.handleSubmit(router)}>
+    <form
+      className={classes.wrapper}
+      onSubmit={store.handleSubmit(router, startTransition)}
+    >
       {store.showErrorModal && (
         <ErrorModal close={() => (store.showErrorModal = false)} />
       )}
@@ -39,16 +43,17 @@ export const Reviews = observer(({ children }) => {
       <div className={classes.reviews}>
         <div className={classes.newReview}>
           <TextField
+            className={classes.newReviewEmail}
             type="email"
             placeholder="email@example.com"
-            value={store.studentEmail}
-            onChange={(e) => (store.studentEmail = e.target.value)}
+            value={store.newReviewEmail}
+            onChange={(e) => (store.newReviewEmail = e.target.value)}
           />
           <textarea
             className={classes.newReviewValue}
             placeholder="Share some insights about Neil session. Tell us what the tutor helped you with, about his behavior, approach ect. "
-            value={store.value}
-            onChange={(e) => (store.value = e.target.value)}
+            value={store.newReviewValue}
+            onChange={(e) => (store.newReviewValue = e.target.value)}
           />
         </div>
         {children}
@@ -69,27 +74,29 @@ class ReviewsStore {
     makeAutoObservable(this);
   }
 
-  studentEmail = "";
-  value = "";
+  newReviewEmail = "";
+  newReviewValue = "";
 
   loading = false;
   showErrorModal = false;
 
-  handleSubmit = (router) => async (e) => {
+  handleSubmit = (router, startTransition) => async (e) => {
     e.preventDefault();
     try {
       this.loading = true;
-      const { status } = await axiosClient.post("/comments", {
-        studentEmail: this.studentEmail,
-        value: this.value,
+      await axiosClient.post("/comments", {
+        email: this.newReviewEmail,
+        value: this.newReviewValue,
       });
 
-      if (status === 200) {
+      startTransition(() => {
         router.refresh();
-      }
+      });
     } catch (e) {
       if (e.response.status === 400) {
         this.showErrorModal = true;
+      } else {
+        console.error(e);
       }
     } finally {
       this.loading = false;

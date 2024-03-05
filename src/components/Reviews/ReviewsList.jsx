@@ -31,5 +31,7 @@ export const ReviewsList = async () => {
 };
 
 async function fetchReviews() {
-  return fetch(apiUrl + "/comments").then((response) => response.json());
+  return fetch(apiUrl + "/comments", { cache: "no-cache" })
+    .then((response) => response.json())
+    .then((reviews) => reviews.reverse());
 }
