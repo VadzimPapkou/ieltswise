@@ -43,11 +43,23 @@
 }
 
 .review {
+  position: relative;
   flex: 0 0 360px;
   height: 260px;
   padding: 24px;
   background-color: #fff;
   border-radius: 12px;
+  overflow: hidden;
+}
+
+.review:after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 25px;
+  background: linear-gradient(0deg, rgba(255,255,255,1) 40%, rgba(0,0,0,0) 100%);
 }
 
 .reviewAvatar {
@@ -87,6 +99,9 @@
 }
 
 .reviewValue {
+  display: inline;
+  line-clamp: 6;
+  text-overflow: ellipsis;
   margin-top: 12px;
 }
 
@@ -113,28 +128,19 @@
   max-width: unset;
 }
 
-.showAllButton {
+.buttons {
+  margin-top: 24px;
+  display: flex;
+  gap: 16px;
+}
+
+.leaveFeedback {
   margin-top: 24px;
 }
 
 .column {
   height: 570px;
   overflow: hidden;
-}
-
-.reviewTextArea {
-  padding: 16px;
-  border-radius: 12px;
-  border: 1px solid var(--neutral-400);
-  background: var(--neutral-200);
-
-  font-family: Inter, sans-serif;
-  outline: none;
-  resize: vertical;
-}
-
-.reviewTextArea::placeholder {
-  color: var(--neutral-400);
 }
 
 .errorModal {
