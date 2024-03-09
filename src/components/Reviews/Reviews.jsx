@@ -27,7 +27,7 @@ export const Reviews = observer(({ children }) => {
         <Button variant="primary" onClick={() => setShowNewReviewModal(true)}>
           Leave Feedback
         </Button>
-        <Button variant="text">Read All Reviews</Button>
+        {/*<Button variant="text">Read All Reviews</Button>*/}
       </div>
     </div>
   );
