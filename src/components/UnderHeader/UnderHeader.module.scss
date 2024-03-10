@@ -1,160 +1,155 @@
 @use "src/app/mixins" as m;
 
 .wrapper {
-  margin: 80px auto 0 auto;
-  max-width: 1180px;
+  margin: 0 auto;
+  max-width: 1256px;
   width: 100%;
-}
-
-.underHeader {
-  min-height: 464px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.textBlock {
-  flex: 0 1 540px;
-}
-
-.image {
-  object-fit: cover;
-  border-radius: 12px;
-}
-
-.imagesBlock {
-  height: 464px;
-  flex: 0 0 515px;
-  position: relative;
-}
-
-.woman {
-  position: absolute;
-  top: 29px;
-  left: 79px;
-}
-
-.chart {
-  position: absolute;
-  top: 0;
-  left: 40px;
-}
-
-.man {
-  position: absolute;
-  bottom: 0;
-  right: 0;
-}
-
-.flyingText {
-  color: var(--primary-600);
-  background-color: #fff;
-  font-style: italic;
-  font-weight: 600;
-  position: absolute;
-  padding: 12px 16px;
-  border-radius: 100px;
-}
-
-.ft1 {
-  top: 61px;
-  right: 91px;
-}
-
-.ft2 {
-  top: 113px;
-  right: 2px;
-}
-
-.ft3 {
-  top: 322px;
-  right: 274px;
-}
-
-.ft4 {
-  top: 374px;
-  left: 0;
-}
-
-/* ================================================= */
-
-.textBlockButtons {
-  margin-top: 64px;
-  display: flex;
-  gap: 11px;
-}
-
-.upperTitle {
-  font-size: 22px;
-  font-weight: 500;
-  color: var(--primary-700);
-}
-
-.underTitle {
-  margin-top: 16px;
-}
-
-.title {
-  margin-top: 8px;
 }
 
 .accent {
   color: var(--accent-500);
 }
 
-@media screen and (max-width: 1200px) {
-  .imagesBlock {
-    transform: scale(0.75);
-  }
-
-  .title {
-    @include m.h2-like
-  }
-
-  .wrapper {
-    padding: 0;
-    box-sizing: border-box;
-  }
+.underHeader {
+  display: flex;
+  gap: 46px;
 }
 
-@media screen and (max-width: 1000px) {
-  .imagesBlock {
-    display: none;
-  }
-
-  .underHeader {
-    justify-content: center;
-  }
+.textBlock {
+  display: flex;
+  flex-direction: column;
 }
 
-@media screen and (max-width: 600px) {
-  .underHeader {
-    justify-content: start;
-  }
+.ieltswiseEducation {
+  font-weight: 600;
+  color: var(--primary-700);
+  line-height: 30px;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+}
 
-  .title {
-    @include m.h4-like
-  }
+.title {
+  @include m.h1-like;
+  margin-top: 8px;
+  font-weight: 800;
+}
 
-  .textBlock {
-    flex: unset;
-    width: 100%;
-  }
+.info {
+  @include m.p1;
+  margin-top: 16px;
+}
 
-  .underTitle {
-    text-align: justify;
-  }
+.lessonInfo {
+  width: 295px;
+  height: 65px;
+  margin-top: auto;
+  display: grid;
+  justify-content: center;
+  align-content: center;
+  grid-template-columns: repeat(3, max-content);
+  grid-auto-rows: 20px 20px;
+  gap: 1px 16px;
 
-  .textBlockButtons {
-    flex-direction: column;
-    align-items: center;
-  }
+  background-color: #fff;
+  border-radius: 12px;
+  border: 1px var(--primary-100) solid;
+  box-shadow: var(--layer-shadow-small);
+}
 
-  .seeTutor {
-    display: none;
-  }
+.lessonInfo > p {
+  line-height: 20px;
+}
 
-  .wrapper {
-    margin: 20px auto 0 auto;
-  }
+.lessonInfo .accent {
+  font-weight: 600;
+  color: var(--accent-600);
+}
+
+.chooseLessonButton {
+  margin-top: 11px;
+}
+
+// Images block
+
+.imagesBlock {
+  display: flex;
+  gap: 12px;
+}
+
+.positiveWoman {
+  position: relative;
+  width: 384px;
+  height: 520px;
+}
+
+.positiveWomanImage {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: 16px;
+}
+
+.discount {
+  overflow: hidden;
+  position: absolute;
+  bottom: 12px;
+  left: 12px;
+  right: 12px;
+  height: 169px;
+  border-radius: 16px;
+  background: linear-gradient(287.26deg, rgba(253, 253, 253, 0.7) 12.59%, rgba(218, 236, 255, 0.7) 66.13%, rgba(169, 206, 246, 0.7) 98.52%);
+}
+
+.discount:after {
+  content: "";
+  position: absolute;
+  right: 12px;
+  top: 12px;
+  width: 16px;
+  height: 16px;
+  border-radius: 100px;
+  background-color: var(--primary);
+}
+
+.discountText {
+  z-index: 10;
+  position: absolute;
+  bottom: 12px;
+  left: 12px;
+  right: 12px;
+  text-align: end;
+}
+
+.discountTitle {
+  font-weight: 700;
+  color: #2657AB;
+  font-size: 20px;
+  line-height: 34px;
+  letter-spacing: 0.06px;
+}
+
+.discountAmount {
+  @include m.h5-like;
+}
+
+.discountValue {
+  color: var(--accent);
+  font-weight: 700;
+  font-size: 22px;
+  line-height: 34px;
+}
+
+.percent {
+  position: absolute;
+  bottom: -20px;
+  left: 10px;
+  transform: rotate(9deg);
+}
+
+.focusedMan {
+
+}
+
+.focusedManImage {
+  border-radius: 16px;
 }

@@ -2,96 +2,67 @@
 
 import React, { useState } from "react";
 import classes from "./UnderHeader.module.scss";
-import clsx from "clsx";
 import Button from "../Button/Button";
-import Image from "next/image";
 import ChooseLessonsModal from "../ChooseLessonsModal";
-import Link from "next/link";
-import axiosClient from "../../axiosClient";
 import { processPayment } from "../../processPayment";
+import Image from "next/image";
 
 const UnderHeader = () => {
   const [showLessonsModal, setShowLessonsModal] = useState(false);
 
   return (
     <div className={classes.wrapper}>
-      {showLessonsModal && <ChooseLessonsModal setShow={setShowLessonsModal}
-                                               onSubmitModal={handleSubmitLessons}
-                                               withEmail={true}
-      />
-      }
+      {showLessonsModal && (
+        <ChooseLessonsModal setShow={setShowLessonsModal} onSubmitModal={handleSubmitLessons} withEmail={true} />
+      )}
       <div className={classes.underHeader}>
         <div className={classes.textBlock}>
-          <p className={classes.upperTitle}>IELTSWISE EDUCATION</p>
-          <h1 className={clsx("h1-like", classes.title)}>
-            Online English Tutor to Fit{" "}
-            <span className={classes.accent}>YOUR Schedule.</span>
+          <p className={classes.ieltswiseEducation}>IELTSWISE Education</p>
+          <h1 className={classes.title}>
+            Online English Tutor to Fit <span className={classes.accent}>YOUR Schedule.</span>
           </h1>
-          <p className={clsx("p1", classes.underTitle)}>
-            The lessons take place online and are personalised to fit your
-            needs. Lessons can be arranged to fit into your daily schedule:
-            before work; after work; evenings and weekend slots are all
-            available.
+          <p className={classes.info}>
+            The lessons take place online and are personalised to fit your needs. Lessons can be arranged to fit into
+            your daily schedule: before work; after work; evenings and weekend slots are all available.
           </p>
-          <div className={classes.textBlockButtons}>
-            <Button variant="primary" onClick={handleChooseLessonsClick}>
-              Choose a Lessons
-            </Button>
-            <Link
-              href="#aboutTutor"
-              style={{ textDecoration: "none" }}
-              className={classes.seeTutor}
-            >
-              <Button variant="secondary">See Tutor</Button>
-            </Link>
+          <div className={classes.lessonInfo}>
+            <p className={classes.accent}>$15</p>
+            <p className={classes.accent}>1 hour</p>
+            <p className={classes.accent}>Google meet</p>
+            <p>Price</p>
+            <p>Duration</p>
+            <p>Platform</p>
           </div>
+          <Button className={classes.chooseLessonButton} variant="primary" onClick={handleChooseLessonsClick}>
+            Choose a Lesson
+          </Button>
         </div>
         <div className={classes.imagesBlock}>
-          <Image
-            className={clsx(classes.image, classes.woman)}
-            alt="positive woman"
-            src="/positive-woman.png"
-            width={260}
-            height={260}
-            quality={100}
-          />
-          <Image
-            className={clsx(classes.image, classes.man)}
-            alt="focused man"
-            src="/focused-man.png"
-            width={305}
-            height={244}
-            quality={100}
-          />
-          <Image
-            className={clsx(classes.image, classes.chart)}
-            alt="chart"
-            src="/chart.svg"
-            width={89}
-            height={89}
-          />
-          <div className={clsx("p2", classes.flyingText, classes.ft1)}>
-            IELTS preparation
+          <div className={classes.positiveWoman}>
+            <Image className={classes.positiveWomanImage} src="/positive-woman.jpg" width={384} height={520} alt="" />
+            <div className={classes.discount}>
+              <div className={classes.discountText}>
+                <p className={classes.discountTitle}>BOOK EVERY FIFTH SESSIONS</p>
+                <p className={classes.discountAmount}>
+                  and get a <span className={classes.discountValue}>25% DISCOUNT.</span>
+                </p>
+              </div>
+              <Image className={classes.percent} src="/percent.svg" width={127} height={143} alt="" />
+            </div>
           </div>
-          <div className={clsx("p2", classes.flyingText, classes.ft2)}>
-            Functional English
-          </div>
-          <div className={clsx("p2", classes.flyingText, classes.ft3)}>
-            Business English
-          </div>
-          <div className={clsx("p2", classes.flyingText, classes.ft4)}>
-            Conversational English
+          <div className={classes.focusedMan}>
+            <Image className={classes.focusedManImage} src="/focused-man.jpg" width={291} height={520} alt="" />
           </div>
         </div>
       </div>
     </div>
   );
 
-  function handleChooseLessonsClick () {
+  function handleChooseLessonsClick() {
     setShowLessonsModal(!showLessonsModal);
   }
 
-  async function handleSubmitLessons ({ email, selectedTime, sessionType }) {
+  async function handleSubmitLessons({ email, selectedTime, sessionType }) {
     return processPayment(email, selectedTime, sessionType);
   }
 };
