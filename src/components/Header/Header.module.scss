@@ -21,30 +21,27 @@
     margin-right: auto;
 }
 
+.links {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    height: 66px;
+    padding: 8px;
+    border: 1px solid #E8EBF3;
+    background: #fff;
+    border-radius: 12px;
+}
+
 .link {
     font-weight: 600;
-    margin-left: 24px;
-    padding: 10px;
 }
 
-.logIn {
-    padding: 4px 8px;
-    display: flex;
-    align-items: center;
+.tutorLink {
+    padding: 15px 29px;
 }
 
-.signUp {
-    margin-left: 14px;
-}
-
-.verticalDivider {
-    margin-left: 24px;
-    height: 40px;
-    border-right: 1px solid var(--primary-100);
-}
-
-.logInArrow {
-    margin-left: 4px;
+.contactsLink {
+    padding: 15px 14px;
 }
 
 .menu {
@@ -52,18 +49,4 @@
     border: none;
     font-size: 32px;
     background-color: transparent;
-}
-
-@media screen and (max-width: 600px) {
-    .logoImg {
-        width: 140px;
-    }
-
-    .menu {
-        display: block;
-    }
-
-    .links {
-        display: none;
-    }
 }

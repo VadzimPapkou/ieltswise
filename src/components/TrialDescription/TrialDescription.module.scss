@@ -1,107 +1,98 @@
 @use "src/app/mixins" as m;
 
 .trialDescription {
-  margin: 20px auto 0 auto;
+  display: flex;
+  gap: 16px;
   max-width: 1256px;
-  width: 100%;
-  height: 270px;
-  display: flex;
-  gap: 20px;
+  margin: 16px auto 0 auto;
 }
 
-.description {
-  padding: 24px 40px;
-  flex: 1 1 0;
-  width: calc(50% - 20px);
-  border-radius: 24px;
-  background: var(--primary-500);
-  color: #fff;
-}
-
-.header {
-  @include m.h4-like;
-}
-
-.benefits {
-  margin-top: 8px;
-  margin-left: 40px;
-  color: #fff;
-}
-
-.benefits > li {
-  margin-top: 8px;
-}
-
-.discount {
-  display: flex;
+@mixin description {
+  position: relative;
   padding: 24px;
-  min-height: 244px;
-  overflow: hidden;
-  position: relative;
-  width: calc(50% - 20px);
-  border-radius: 24px;
-  background: #FFF;
+  width: 0;
+  min-height: 191px;
+  border-radius: 16px;
+
+  display: flex;
+  flex-direction: column;
 }
 
-.percent {
-  position: absolute;
-  bottom: 0;
+.description1 {
+  @include description;
+  padding: 24px 32px;
+  flex-grow: 0.55;
+  background-color: var(--primary);
 }
 
-.discountText {
-  position: relative;
-  max-width: 402px;
-  margin-top: auto;
-  margin-left: auto;
-
-  color: #222;
-  font-size: 28px;
-  font-weight: 700;
-  line-height: 34px;
-  letter-spacing: 0.168px;
-  text-align: end;
+.description2 {
+  @include description;
+  flex-grow: 0.25;
+  background-color: #fff;
 }
 
-.sessionsButton {
-  position: relative;
-  margin-left: auto;
-  margin-top: 16px;
+.description3 {
+  @include description;
+  flex-grow: 0.25;
+  background-color: #fff;
 }
 
-.accent {
-  color: var(--accent-500);
-}
-
-.primary {
-  color: var(--primary-700);
-}
-
-.benefit {
+.title {
+  font-size: 22px;
+  line-height: 28px;
+  letter-spacing: 0.06px;
+  font-weight: 600;
   color: #fff;
 }
 
-@media screen and (max-width: 900px) {
-  .trialDescription {
-    height: auto;
-  }
-
-  .description {
-    padding: 8px;
-    flex: 1 1 auto;
-  }
-
-  .discount {
-    flex: 1 1 auto;
-  }
+.dots {
+  position: absolute;
+  bottom: 24px;
+  right: 24px;
+  display: flex;
+  gap: 4px;
 }
 
-@media screen and (max-width: 600px) {
-  .trialDescription {
-    flex-direction: column;
-    align-items: center;
-  }
+.dot {
+  width: 16px;
+  height: 16px;
+  border-radius: 100px;
+  background-color: var(--primary);
+}
 
-  .description, .discount {
-    width: 100%;
-  }
+.description1 p {
+  @include m.p1;
+  margin-top: auto;
+  color: #fff;
+  width: 75%;
+}
+
+.description1 .dot:nth-child(1) {
+  background-color: #fff;
+}
+
+.description1 .dot:nth-child(2) {
+  background-color: var(--primary-400);
+}
+
+.description1 .dot:nth-child(3) {
+  background-color: var(--primary-400);
+}
+
+.description2 p {
+  @include m.p1;
+  font-weight: 600;
+  line-height: 20px;
+  color: var(--primary-600);
+}
+
+.description2 .dot:nth-child(3) {
+  background-color: var(--primary-100);
+}
+
+.description3 p {
+  @include m.p1;
+  font-weight: 600;
+  line-height: 20px;
+  color: var(--primary-600);
 }

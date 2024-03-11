@@ -12,7 +12,6 @@ import moment from "moment";
 import BookStatusModal from "../BookStatusModal";
 
 const FreeTrial = ({}) => {
-
   const [showChooseLessonModal, setShowChooseLessonModal] = useState(false);
   const [showStatusModal, setShowStatusModal] = useState(false);
   const [name, setName] = useState("");
@@ -23,19 +22,18 @@ const FreeTrial = ({}) => {
 
   return (
     <div className={classes.freeTrial}>
-      {showChooseLessonModal &&
-        <ChooseLessonsModal setShow={setShowChooseLessonModal} onSubmitModal={onSubmitModal} />}
-      {showStatusModal &&
-        <BookStatusModal setShow={setShowStatusModal} response={bookResponse} />
-      }
-      <h2 className={clsx(classes.header)}>
-        Book for a FREE 30 min trial session
-      </h2>
+      {showChooseLessonModal && <ChooseLessonsModal setShow={setShowChooseLessonModal} onSubmitModal={onSubmitModal} />}
+      {showStatusModal && <BookStatusModal setShow={setShowStatusModal} response={bookResponse} />}
+      <h2 className={clsx(classes.header)}>Book for a FREE 30 min trial session</h2>
       <form className={classes.bookTrialForm}>
-        <TextField placeholder="Name" name="name"
-                   value={name} onChange={e => setName(e.target.value)} />
-        <TextField placeholder="E-mail" name="email" type="email"
-                   value={email} onChange={e => setEmail(e.target.value)} />
+        <TextField placeholder="Name" name="name" value={name} onChange={(e) => setName(e.target.value)} />
+        <TextField
+          placeholder="email@example.com"
+          name="email"
+          type="email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+        />
         <Button variant="primary" type="submit" onClick={handleSubmit}>
           Book a Free Chat
         </Button>
@@ -46,17 +44,20 @@ const FreeTrial = ({}) => {
           Personal data.
         </Link>
       </p>
+      <div className={classes.bubble1}></div>
+      <div className={classes.bubble2}></div>
+      <div className={classes.bubble3}></div>
     </div>
   );
 
-  function handleSubmit (e) {
+  function handleSubmit(e) {
     e.preventDefault();
     if (disabled) return;
 
     setShowChooseLessonModal(true);
   }
 
-  async function onSubmitModal ({ selectedTime, sessionType }) {
+  async function onSubmitModal({ selectedTime, sessionType }) {
     const startDate = moment(selectedTime);
     let endDate = moment(startDate).add(59, "minutes");
 
@@ -67,7 +68,7 @@ const FreeTrial = ({}) => {
         studentEmail: email,
         studentName: name,
         startDate: startDate.toISOString(true),
-        endDate: endDate.toISOString(true)
+        endDate: endDate.toISOString(true),
       });
       setBookResponse(response);
       setShowStatusModal(true);

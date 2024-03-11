@@ -9,29 +9,33 @@ import moment from "moment";
 
 export const ModalContext = createContext({});
 
-const ChooseLessonsModal = ({ setShow, onSubmitModal, withEmail }) => {
-  const [step, setStep] = useState("sessionType");
+const ChooseLessonsModal = ({ setShow, onSubmitModal, withEmail, withSessionType, defaultSessionType }) => {
+  const [step, setStep] = useState(withSessionType ? "sessionType" : "date");
 
   const stepToComponent = {
-    "sessionType": ChooseSessionType,
-    "date": ChooseDate,
-    "email": ChooseEmailModal
+    sessionType: ChooseSessionType,
+    date: ChooseDate,
+    email: ChooseEmailModal,
   };
 
-  const [sessionType, setSessionType] = useState();
+  const [sessionType, setSessionType] = useState(defaultSessionType);
   const [selectedDay, setSelectedDay] = useState(moment());
   const [selectedTime, setSelectedTime] = useState(null);
   const [email, setEmail] = useState("");
 
   const modalData = {
-    selectedDay, setSelectedDay,
-    selectedTime, setSelectedTime,
-    sessionType, setSessionType,
-    email, setEmail,
+    selectedDay,
+    setSelectedDay,
+    selectedTime,
+    setSelectedTime,
+    sessionType,
+    setSessionType,
+    email,
+    setEmail,
     setStep,
     setShowModal: setShow,
     submitModal,
-    withEmail
+    withEmail,
   };
 
   const CurrentStep = stepToComponent[step];
@@ -47,13 +51,13 @@ const ChooseLessonsModal = ({ setShow, onSubmitModal, withEmail }) => {
     </ModalFade>
   );
 
-  function closeModal () {
+  function closeModal() {
     debugger;
     setShow(false);
   }
 
-  async function submitModal () {
-    await onSubmitModal({selectedTime, email, sessionType});
+  async function submitModal() {
+    await onSubmitModal({ selectedTime, email, sessionType });
   }
 };
 

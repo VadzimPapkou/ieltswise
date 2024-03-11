@@ -14,16 +14,14 @@ const Header = () => {
           <Image className={classes.logoImg} alt="Neil wood" src="/logo.svg" width={171} height={52} />
         </Link>
         <div className={classes.links}>
-          <Link href={"#aboutTutor"} className={clsx(classes.link)}>
+          <Link href={"#aboutTutor"} className={clsx(classes.link, classes.tutorLink)}>
             <span className={clsx("p1")}>Tutor</span>
           </Link>
-          <Link href={"#contacts"} className={clsx(classes.link)}>
+          <Link href={"#contacts"} className={clsx(classes.link, classes.contactsLink)}>
             <span className={clsx("p1")}>Contacts</span>
           </Link>
         </div>
-        <button className={classes.menu}>
-          ☰
-        </button>
+        <button className={classes.menu}>☰</button>
         {/*<div className={classes.verticalDivider} />*/}
         {/*<Link href={"/"} className={clsx(classes.link, classes.logIn)}>*/}
         {/*  <Button variant="text">Login</Button>*/}
