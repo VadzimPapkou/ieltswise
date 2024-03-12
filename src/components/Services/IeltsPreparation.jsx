@@ -19,6 +19,7 @@ const IeltsPreparation = () => {
           withEmail={true}
           defaultSessionType={chooseLessonModal.sessionType}
           onSubmitModal={handleSubmitLessons}
+          setShow={(show) => setChooseLessonModal({ show, sessionType: chooseLessonModal.sessionType })}
         />
       )}
       <ul className={classes.ieltsList}>

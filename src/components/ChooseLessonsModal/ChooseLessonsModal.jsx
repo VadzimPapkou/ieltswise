@@ -3,9 +3,9 @@ import classes from "./ChooseLessonsModal.module.scss";
 import ModalFade from "../ModalFade";
 import ChooseSessionType from "./ChooseSessionType";
 import ChooseDate from "./ChooseDate";
-import clsx from "clsx";
 import ChooseEmailModal from "./ChooseEmail";
 import moment from "moment";
+import PropTypes from "prop-types";
 
 export const ModalContext = createContext({});
 
@@ -52,13 +52,17 @@ const ChooseLessonsModal = ({ setShow, onSubmitModal, withEmail, withSessionType
   );
 
   function closeModal() {
-    debugger;
     setShow(false);
   }
 
   async function submitModal() {
     await onSubmitModal({ selectedTime, email, sessionType });
   }
+};
+
+ChooseLessonsModal.propTypes = {
+  setShow: PropTypes.func.isRequired,
+  onSubmitModal: PropTypes.func.isRequired,
 };
 
 export default ChooseLessonsModal;
