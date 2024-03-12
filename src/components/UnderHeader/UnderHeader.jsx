@@ -6,9 +6,11 @@ import Button from "../Button/Button";
 import ChooseLessonsModal from "../ChooseLessonsModal";
 import { processPayment } from "../../processPayment";
 import Image from "next/image";
+import { useWindowSize } from "../../hooks/useWindowSize";
 
 const UnderHeader = () => {
   const [showLessonsModal, setShowLessonsModal] = useState(false);
+  const { width } = useWindowSize();
 
   return (
     <div className={classes.wrapper}>
@@ -54,6 +56,16 @@ const UnderHeader = () => {
             <Image className={classes.focusedManImage} src="/focused-man.jpg" width={291} height={520} alt="" />
           </div>
         </div>
+        <Image
+          src="/positive-woman-2.png"
+          width={358}
+          height={233}
+          alt="positive woman"
+          className={classes.positiveWomanMobile}
+        />
+        <Button className={classes.chooseLessonButtonMobile} variant="primary" onClick={handleChooseLessonsClick}>
+          Choose a Lesson
+        </Button>
       </div>
     </div>
   );

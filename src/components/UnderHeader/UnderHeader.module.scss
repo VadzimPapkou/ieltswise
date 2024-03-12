@@ -2,7 +2,9 @@
 
 .wrapper {
   margin: 0 auto;
-  max-width: 1256px;
+
+  max-width: 1288px;
+  padding: 0 16px;
   width: 100%;
 }
 
@@ -152,4 +154,68 @@
 
 .focusedManImage {
   border-radius: 16px;
+}
+
+.chooseLessonButtonMobile {
+  margin: 60px auto 0;
+  display: none;
+}
+
+.positiveWomanMobile {
+  margin-top: 24px;
+  width: 100%;
+  height: auto;
+  display: none;
+}
+
+
+@media screen and (max-width: 1170px) {
+  .textBlock {
+    max-width: 700px;
+  }
+
+  .focusedMan {
+    display: none;
+  }
+
+  .lessonInfo {
+    margin-top: 40px;
+  }
+}
+
+@media screen and (max-width: 880px) {
+  .imagesBlock {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .underHeader {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .lessonInfo {
+    display: none;
+  }
+
+  .chooseLessonButton {
+    display: none;
+  }
+
+  .chooseLessonButtonMobile {
+    display: block;
+  }
+
+  .positiveWomanMobile {
+    display: block;
+  }
+
+  .title {
+    @include m.h3-like;
+  }
+
+  .info {
+    text-align: justify;
+  }
 }

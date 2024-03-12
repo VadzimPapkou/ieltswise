@@ -19,11 +19,8 @@
 .bookTrialForm {
   margin-top: 32px;
   display: flex;
+  gap: 16px;
   align-items: center;
-}
-
-.bookTrialForm > * {
-  margin-right: 16px;
 }
 
 .agree {
@@ -45,7 +42,7 @@
 
   .freeTrial {
     padding: 16px;
-    margin: 0;
+    margin: 60px 0 0 0;
   }
 
   .bookTrialForm {
@@ -90,4 +87,46 @@
   transform: rotate(150deg);
   right: -120px;
   top: 18px;
+}
+
+.submitButton {
+  white-space: nowrap;
+  padding: 8px;
+}
+
+.agreeMobile {
+  display: none;
+  font-size: 12px;
+  line-height: 18px;
+  color: var(--secondary-text);
+  margin: -12px 0 0 16px;
+}
+
+@media screen and (max-width: 1100px) {
+  .bubble1, .bubble2, .bubble3 {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .textField {
+    max-width: unset;
+  }
+
+  .submitButton {
+    margin-left: auto;
+    margin-top: 16px;
+  }
+
+  .agree {
+    display: none;
+  }
+
+  .agreeMobile {
+    display: block;
+  }
+
+  .header {
+    font-weight: 600;
+  }
 }

@@ -1,52 +1,60 @@
 .headerWrapper {
-    border-bottom: 1px solid var(--primary-100);
+  border-bottom: 1px solid var(--primary-100);
 }
 
 .header {
-    margin: 40px auto 0 auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: 90px;
-    max-width: 1256px;
-    padding: 12px 0;
-    border-radius: 12px;
+  margin: 40px auto 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  height: 90px;
+  max-width: 1288px;
+  padding: 12px 16px;
+
+  border-radius: 12px;
 }
 
 .header a {
-    text-decoration: none;
+  text-decoration: none;
 }
 
 .logo {
-    margin-right: auto;
+  margin-right: auto;
 }
 
 .links {
-    display: flex;
-    gap: 8px;
-    align-items: center;
-    height: 66px;
-    padding: 8px;
-    border: 1px solid #E8EBF3;
-    background: #fff;
-    border-radius: 12px;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  height: 66px;
+  padding: 8px;
+  border: 1px solid #E8EBF3;
+  background: #fff;
+  border-radius: 12px;
 }
 
 .link {
-    font-weight: 600;
+  font-weight: 600;
 }
 
 .tutorLink {
-    padding: 15px 29px;
+  padding: 15px 29px;
 }
 
 .contactsLink {
-    padding: 15px 14px;
+  padding: 15px 14px;
 }
 
 .menu {
+  display: none;
+  border: none;
+  font-size: 32px;
+  background-color: transparent;
+}
+
+@media screen and (max-width: 500px) {
+  .links {
     display: none;
-    border: none;
-    font-size: 32px;
-    background-color: transparent;
+  }
 }

@@ -21,6 +21,7 @@ const TrialDescription = ({}) => {
         </p>
         <Dots />
       </div>
+      <div className={classes.trialDescriptionMobile}></div>
     </div>
   );
 };

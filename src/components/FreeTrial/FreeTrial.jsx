@@ -26,15 +26,28 @@ const FreeTrial = ({}) => {
       {showStatusModal && <BookStatusModal setShow={setShowStatusModal} response={bookResponse} />}
       <h2 className={clsx(classes.header)}>Book for a FREE 30 min trial session</h2>
       <form className={classes.bookTrialForm}>
-        <TextField placeholder="Name" name="name" value={name} onChange={(e) => setName(e.target.value)} />
         <TextField
+          placeholder="Name"
+          name="name"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+          className={classes.textField}
+        />
+        <TextField
+          className={classes.textField}
           placeholder="email@example.com"
           name="email"
           type="email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
         />
-        <Button variant="primary" type="submit" onClick={handleSubmit}>
+        <p className={classes.agreeMobile}>
+          By clicking “Book”, you agree to the processing of{" "}
+          <Link href="" className={classes.personalData}>
+            Personal data.
+          </Link>
+        </p>
+        <Button variant="primary" type="submit" onClick={handleSubmit} className={classes.submitButton}>
           Book a Free Chat
         </Button>
       </form>
