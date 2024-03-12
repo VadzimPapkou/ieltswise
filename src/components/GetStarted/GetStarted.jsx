@@ -1,8 +1,6 @@
 "use client";
 import React, { useState } from "react";
 import classes from "./GetStarted.module.scss";
-import clsx from "clsx";
-import TextField from "../TextField/TextField";
 import Button from "../Button/Button";
 import ChooseLessonsModal from "../ChooseLessonsModal";
 import { processPayment } from "../../processPayment";
@@ -12,16 +10,12 @@ const GetStarted = ({}) => {
 
   return (
     <div className={classes.getStarted}>
-      {showLessonsModal && <ChooseLessonsModal setShow={setShowLessonsModal}
-                                               onSubmitModal={handleSubmitLessons}
-                                               withEmail={true}
-      />}
-      <h2 className={clsx(classes.title)}>
-        Let me help you reach your goal!
-      </h2>
+      {showLessonsModal && (
+        <ChooseLessonsModal setShow={setShowLessonsModal} onSubmitModal={handleSubmitLessons} withEmail={true} />
+      )}
+      <h2 className={classes.title}>Let me help you reach your goal!</h2>
       <p className={classes.description}>
-        Explore my sessions that will help you succeed and overcome any
-        difficulties you may encounter.
+        Explore my sessions that will help you succeed and overcome any difficulties you may encounter.
       </p>
       <Button variant="secondary" className={classes.getStartedButton} onClick={onGetStartedClick}>
         Get Started
@@ -30,10 +24,10 @@ const GetStarted = ({}) => {
   );
 
   function onGetStartedClick(e) {
-    setShowLessonsModal(true)
+    setShowLessonsModal(true);
   }
 
-  async function handleSubmitLessons ({ email, selectedTime, sessionType }) {
+  async function handleSubmitLessons({ email, selectedTime, sessionType }) {
     return processPayment(email, selectedTime, sessionType);
   }
 };

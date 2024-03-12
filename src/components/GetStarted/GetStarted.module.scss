@@ -28,6 +28,16 @@
 
 @media screen and (max-width: 600px) {
   .title {
-    @include m.h3-like
+    @include m.h4-like
+  }
+
+  .description {
+    font-weight: 300;
+  }
+
+  .getStarted {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    padding: 56px 21px 36px 21px;
   }
 }

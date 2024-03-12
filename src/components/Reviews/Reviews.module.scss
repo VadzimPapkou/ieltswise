@@ -6,6 +6,7 @@
 }
 
 .title {
+  @include m.h2-like;
   text-align: center;
   color: var(--primary-700);
 }
@@ -151,12 +152,15 @@
   .review {
     padding: 12px 16px;
   }
+
+  .title {
+    @include m.h4-like;
+    font-weight: 600;
+  }
 }
 
 @media screen and (max-width: 500px) {
-  .review:nth-child(2n - 1) {
-    display: none;
-  }
+
 
   .review, .reviewTextArea {
     min-height: 200px;

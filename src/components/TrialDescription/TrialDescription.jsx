@@ -1,28 +1,31 @@
-import React from "react";
+import React, { Fragment } from "react";
 import classes from "./TrialDescription.module.scss";
+import TrialDescriptionMobile from "./TrialDescriptionMobile";
 
-const TrialDescription = ({}) => {
+const TrialDescription = () => {
   return (
-    <div className={classes.trialDescription}>
-      <div className={classes.description1}>
-        <h3 className={classes.title}>What will a FREE TRIAL SESSION give you?</h3>
-        <p>We will discuss the reasons why you want to improve your English.</p>
-        <Dots />
+    <Fragment>
+      <div className={classes.trialDescription}>
+        <div className={classes.description1}>
+          <h3 className={classes.title}>What will a FREE TRIAL SESSION give you?</h3>
+          <p>We will discuss the reasons why you want to improve your English.</p>
+          <Dots />
+        </div>
+        <div className={classes.description2}>
+          <p>We will plan a Learning Strategy together to allow you to achieve your goals.</p>
+          <Dots />
+        </div>
+        <div className={classes.description3}>
+          <p>
+            At the end of the FREE SESSION, I will suggest how many sessions you may need <br /> for the Leaning
+            Strategy <br />
+            to be successfully achieved.
+          </p>
+          <Dots />
+        </div>
       </div>
-      <div className={classes.description2}>
-        <p>We will plan a Learning Strategy together to allow you to achieve your goals.</p>
-        <Dots />
-      </div>
-      <div className={classes.description3}>
-        <p>
-          At the end of the FREE SESSION, I will suggest how many sessions you may need <br /> for the Leaning Strategy{" "}
-          <br />
-          to be successfully achieved.
-        </p>
-        <Dots />
-      </div>
-      <div className={classes.trialDescriptionMobile}></div>
-    </div>
+      <TrialDescriptionMobile />
+    </Fragment>
   );
 };
 

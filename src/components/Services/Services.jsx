@@ -9,43 +9,38 @@ import FunctionalEnglish from "./FunctionalEnglish";
 import ConversationalEnglish from "./ConversationalEnglish";
 import BusinessEnglish from "./BusinessEnglish";
 import ImproveEnglish from "./ImproveEnglish";
-import Button from "../Button/Button";
-import ChooseLessonsModal from "../ChooseLessonsModal";
-import moment from "moment/moment";
-import axiosClient from "../../axiosClient";
-import BookStatusModal from "../BookStatusModal";
 
 const tabs = [
   {
     title: "IELTS preparation",
     iconSrc: "/service-icon-1.svg",
     component: IeltsPreparation,
-    class: classes.ieltsPreparation
+    class: classes.ieltsPreparation,
   },
   {
     title: "Functional English",
     iconSrc: "/service-icon-4.svg",
     component: FunctionalEnglish,
-    class: classes.functionalEnglish
+    class: classes.functionalEnglish,
   },
   {
     title: "Conversational English",
     iconSrc: "/service-icon-5.svg",
     component: ConversationalEnglish,
-    class: classes.conversationalEnglish
+    class: classes.conversationalEnglish,
   },
   {
     title: "Business English",
     iconSrc: "/service-icon-3.svg",
     component: BusinessEnglish,
-    class: classes.businessEnglish
+    class: classes.businessEnglish,
   },
   {
     title: "Improve English",
     iconSrc: "/service-icon-6.svg",
     component: ImproveEnglish,
-    class: classes.improveEnglish
-  }
+    class: classes.improveEnglish,
+  },
 ];
 
 const Services = ({}) => {
@@ -54,10 +49,9 @@ const Services = ({}) => {
 
   return (
     <div className={classes.services}>
-      <h2 className={clsx(classes.title, "h2-like")}>Services</h2>
+      <h2 className={classes.title}>Services</h2>
       <p className={clsx(classes.description, "p1")}>
-        Choose a training program that suits your goals, or create your own
-        individual plan.
+        Choose a training program that suits your goals, or create your own individual plan.
       </p>
       <div className={classes.tabSwitchers}>
         {tabs.map((tab) => (
@@ -65,24 +59,15 @@ const Services = ({}) => {
             className={clsx({
               [classes.tabSwitch]: true,
               [tab.class]: true,
-              [classes.active]: tab.title === activeTab.title
+              [classes.active]: tab.title === activeTab.title,
             })}
             key={tab.title}
             onClick={handleTabClick(tab)}
           >
-            <div
-              className={clsx(classes.iconDecoration, classes.iconDecoration1)}
-            >
-              <Image
-                alt="service icon"
-                src={tab.iconSrc}
-                width={24}
-                height={24}
-              />
+            <div className={clsx(classes.iconDecoration, classes.iconDecoration1)}>
+              <Image alt="service icon" src={tab.iconSrc} width={24} height={24} />
             </div>
-            <span className={clsx(classes.tabText)}>
-              {tab.title}
-            </span>
+            <span className={clsx(classes.tabText)}>{tab.title}</span>
           </button>
         ))}
       </div>
@@ -90,8 +75,8 @@ const Services = ({}) => {
     </div>
   );
 
-  function handleTabClick (tab) {
-    return function() {
+  function handleTabClick(tab) {
+    return function () {
       setActiveTab(tab);
     };
   }

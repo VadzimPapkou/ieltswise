@@ -6,6 +6,7 @@
 }
 
 .title {
+  @include m.h2-like;
   text-align: center;
   color: var(--primary-700);
 }
@@ -163,6 +164,11 @@
 }
 
 @media screen and (max-width: 600px) {
+  .title {
+    @include m.h4-like;
+    font-weight: 600;
+  }
+
   .tabSwitchers {
     flex-direction: column;
     align-items: stretch;

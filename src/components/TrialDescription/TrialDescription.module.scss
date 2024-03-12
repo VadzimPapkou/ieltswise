@@ -96,3 +96,9 @@
   line-height: 20px;
   color: var(--primary-600);
 }
+
+@media screen and (max-width: 900px) {
+  .trialDescription {
+    display: none;
+  }
+}
