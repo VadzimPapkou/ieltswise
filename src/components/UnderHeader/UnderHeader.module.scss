@@ -156,7 +156,7 @@
   border-radius: 16px;
 }
 
-.chooseLessonButtonMobile {
+.chooseLessonButtonMobile.chooseLessonButtonMobile {
   margin: 60px auto 0;
   display: none;
 }
@@ -199,11 +199,11 @@
     display: none;
   }
 
-  .chooseLessonButton {
+  .chooseLessonButton.chooseLessonButton {
     display: none;
   }
 
-  .chooseLessonButtonMobile {
+  .chooseLessonButtonMobile.chooseLessonButtonMobile {
     display: block;
   }
 
