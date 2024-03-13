@@ -13,14 +13,10 @@ export const ReviewsList = async () => {
       {reviews.map((review) => (
         <div className={classes.review}>
           <div className={classes.reviewHeader}>
-            <div className={classes.reviewAvatar}>
-              {review.name[0].toUpperCase()}
-            </div>
+            <div className={classes.reviewAvatar}>{review.name[0].toUpperCase()}</div>
             <div className={classes.reviewText}>
               <h3 className={classes.reviewName}>{review.name}</h3>
-              <p className={classes.reviewCreated}>
-                {moment(review.created).format("MMMM DD, YYYY")}
-              </p>
+              <p className={classes.reviewCreated}>{moment(review.created).format("MMMM DD, YYYY")}</p>
             </div>
           </div>
           <p className={classes.reviewValue}>“{review.value}”</p>
@@ -33,5 +29,5 @@ export const ReviewsList = async () => {
 async function fetchReviews() {
   return fetch(apiUrl + "/comments", { cache: "no-cache" })
     .then((response) => response.json())
-    .then((reviews) => reviews.reverse());
+    .then((reviews) => reviews.sort((a, b) => (a.id > b.id ? -1 : 1)));
 }

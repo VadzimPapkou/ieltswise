@@ -36,6 +36,7 @@ const ChooseLessonsModal = ({ setShow, onSubmitModal, withEmail, withSessionType
     setShowModal: setShow,
     submitModal,
     withEmail,
+    withSessionType,
   };
 
   const CurrentStep = stepToComponent[step];

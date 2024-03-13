@@ -2,9 +2,10 @@
 
 .modal {
   min-height: 262px;
-  max-width: 554px;
+  max-width: 659px;
   width: 100vw;
   padding: 40px 50px 50px 50px;
+  background-color: var(--neutral-100);
 }
 
 .modalLoading {
@@ -21,8 +22,10 @@
 
 .enterEmail {
   @include m.p1;
+  max-width: 489px;
+
   color: var(--secondary-text);
-  margin-top: 4px;
+  margin: 4px auto 0;
 }
 
 .form {
@@ -30,4 +33,10 @@
   display: flex;
   align-items: center;
   gap: 8px;
+}
+
+@media screen and (max-width: 500px) {
+  .form {
+    flex-wrap: wrap;
+  }
 }

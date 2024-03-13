@@ -24,7 +24,7 @@ const ChooseDate = ({ close }) => {
 
   const [loading, setLoading] = useState(false);
 
-  const { selectedTime, setStep, submitModal, withEmail, setSelectedDay } = useContext(ModalContext);
+  const { selectedTime, setStep, submitModal, withEmail, setSelectedDay, withSessionType } = useContext(ModalContext);
 
   useEffect(() => {
     const fetchMonthDays = async (month) => {
@@ -33,7 +33,9 @@ const ChooseDate = ({ close }) => {
         if (cachedData) {
           return cachedData;
         } else {
-          const { data } = await axiosClient.get(`/tutor/events/test.tutor1.ieltswise67@gmail.com/${month.format("YYYY/MM")}`);
+          const { data } = await axiosClient.get(
+            `/tutor/events/test.tutor1.ieltswise67@gmail.com/${month.format("YYYY/MM")}`
+          );
           loadedDataRef.current[month.format("YYYY/MM")] = data;
           return data;
         }
@@ -45,7 +47,8 @@ const ChooseDate = ({ close }) => {
     fetchMonthDays(moment(month).add(1, "month"));
     fetchMonthDays(moment(month).subtract(1, "month"));
     setLoading(true);
-    fetchMonthDays(month).then(days => setWeeks(getWeeks(days)))
+    fetchMonthDays(month)
+      .then((days) => setWeeks(getWeeks(days)))
       .finally(() => setLoading(false));
   }, [month]);
 
@@ -53,18 +56,14 @@ const ChooseDate = ({ close }) => {
 
   const calendarClass = clsx({
     [classes.calendar]: true,
-    [classes.loading]: loading
+    [classes.loading]: loading,
   });
 
   return (
     <Modal className={classes.modal} onCloseClick={close}>
       <div className={classes.header}>
         <p className={classes.title}>Schedule</p>
-        <Button
-          className={classes.buttonLeft}
-          variant="icon"
-          onClick={setPrevMonth}
-        >
+        <Button className={classes.buttonLeft} variant="icon" onClick={setPrevMonth}>
           <Arrow4 color="#fff" />
         </Button>
         <p className={classes.date}>{month.format("MMMM YYYY")}</p>
@@ -82,17 +81,14 @@ const ChooseDate = ({ close }) => {
           ))}
         </div>
         {loading && <Loader />}
-        {!loading && (
-          weeks.map((week, i) => (
-            <Week key={i} week={week}
-            />
-          ))
-        )}
+        {!loading && weeks.map((week, i) => <Week key={i} week={week} />)}
       </div>
       <div className={classes.buttons}>
-        <Button variant="text" onClick={handleBackClick}>
-          Back
-        </Button>
+        {withSessionType && (
+          <Button variant="text" onClick={handleBackClick}>
+            Back
+          </Button>
+        )}
         <Button variant="link" onClick={handleNextClick} disabled={nextDisabled}>
           Next
         </Button>
@@ -100,11 +96,11 @@ const ChooseDate = ({ close }) => {
     </Modal>
   );
 
-  function handleBackClick () {
+  function handleBackClick() {
     setStep("sessionType");
   }
 
-  function handleNextClick () {
+  function handleNextClick() {
     if (nextDisabled) {
       return;
     }
@@ -116,29 +112,29 @@ const ChooseDate = ({ close }) => {
     submitModal();
   }
 
-  function setPrevMonth () {
+  function setPrevMonth() {
     setMonth(moment(month.subtract(1, "month")));
   }
 
-  function setNextMonth () {
+  function setNextMonth() {
     setMonth(moment(month.add(1, "month")));
   }
 };
 
-function getWeeks (daysOfMonth) {
-  daysOfMonth.forEach(day => day.date = moment(day.date));
+function getWeeks(daysOfMonth) {
+  daysOfMonth.forEach((day) => (day.date = moment(day.date)));
   daysOfMonth = removeDuplicateDays(daysOfMonth);
   const today = moment();
-  daysOfMonth.forEach(function(day) {
+  daysOfMonth.forEach(function (day) {
     if (day.date.isBefore(today)) {
-      day.time.forEach(time => time.occupied = true);
+      day.time.forEach((time) => (time.occupied = true));
     }
-    if (day.time.every(time => time.occupied)) {
+    if (day.time.every((time) => time.occupied)) {
       day.occupied = true;
     }
   });
 
-  daysOfMonth.forEach(day => day.weekIndex = day.date.isoWeek());
+  daysOfMonth.forEach((day) => (day.weekIndex = day.date.isoWeek()));
   const weekToDays = _.groupBy(daysOfMonth, "weekIndex");
   const weekIndexes = _.keys(weekToDays).map(Number);
   const firstWeekIndex = Math.min(...weekIndexes);
@@ -149,10 +145,10 @@ function getWeeks (daysOfMonth) {
   return _.values(weekToDays);
 }
 
-function removeDuplicateDays (days) {
+function removeDuplicateDays(days) {
   const passedDays = {};
   const result = [];
-  days.forEach(day => {
+  days.forEach((day) => {
     if (passedDays[day.date.format("DD")]) return;
 
     result.push(day);
@@ -161,7 +157,7 @@ function removeDuplicateDays (days) {
   return result;
 }
 
-function padStartArray (array, targetLength, padValue) {
+function padStartArray(array, targetLength, padValue) {
   const currentLength = array.length;
   const padding = targetLength - currentLength;
 
@@ -172,7 +168,7 @@ function padStartArray (array, targetLength, padValue) {
   return array;
 }
 
-function padEndArray (array, targetLength, padValue) {
+function padEndArray(array, targetLength, padValue) {
   const currentLength = array.length;
   const padding = targetLength - currentLength;
 

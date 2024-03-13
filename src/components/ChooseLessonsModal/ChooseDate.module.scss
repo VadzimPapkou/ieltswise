@@ -186,8 +186,8 @@
 
 @media screen and (max-width: 600px) {
   .modal.modal {
-    --day-width: 44px;
-    --day-height: 44px;
+    --day-width: 50px;
+    --day-height: 50px;
     padding: 24px;
     background-color: #fff;
   }
@@ -212,8 +212,7 @@
   }
 
   .title {
-    width: 100%;
-    text-align: center;
+    display: none;
   }
 
   .selectDateAndTime {
