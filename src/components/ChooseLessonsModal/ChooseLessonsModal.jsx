@@ -9,7 +9,7 @@ import PropTypes from "prop-types";
 
 export const ModalContext = createContext({});
 
-const ChooseLessonsModal = ({ setShow, onSubmitModal, withEmail, withSessionType, defaultSessionType }) => {
+const ChooseLessonsModal = ({ setShow, onSubmitModal, withEmail, withSessionType = true, defaultSessionType }) => {
   const [step, setStep] = useState(withSessionType ? "sessionType" : "date");
 
   const stepToComponent = {
