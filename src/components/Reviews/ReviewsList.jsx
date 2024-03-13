@@ -4,6 +4,7 @@ import classes from "./Reviews.module.scss";
 import moment from "moment/moment";
 import React from "react";
 import { apiUrl } from "../../axiosClient";
+import { Review } from "./Review";
 
 export const ReviewsList = async () => {
   const reviews = await fetchReviews();
@@ -11,7 +12,7 @@ export const ReviewsList = async () => {
   return (
     <>
       {reviews.map((review) => (
-        <div className={classes.review}>
+        <Review review={review}>
           <div className={classes.reviewHeader}>
             <div className={classes.reviewAvatar}>{review.name[0].toUpperCase()}</div>
             <div className={classes.reviewText}>
@@ -20,7 +21,7 @@ export const ReviewsList = async () => {
             </div>
           </div>
           <p className={classes.reviewValue}>“{review.value}”</p>
-        </div>
+        </Review>
       ))}
     </>
   );

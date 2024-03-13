@@ -45,7 +45,7 @@
 
 .review {
   position: relative;
-  flex: 0 0 360px;
+  flex: 0 0 410px;
   height: 260px;
   padding: 24px;
   background-color: #fff;
@@ -53,14 +53,25 @@
   overflow: hidden;
 }
 
-.review:after {
-  content: "";
+.review.overflowing {
+  cursor: pointer;
+}
+
+.review.overflowing:after {
+  content: "...";
   position: absolute;
   bottom: 0;
   left: 0;
   right: 0;
-  height: 30px;
+  height: 40px;
+  padding-bottom: 10px;
   background: linear-gradient(0deg, rgba(255,255,255,1) 40%, rgba(0,0,0,0) 100%);
+
+  color: var(--primary-600);
+
+  display: flex;
+  justify-content: center;
+  align-items: end;
 }
 
 .reviewAvatar {
@@ -100,9 +111,8 @@
 }
 
 .reviewValue {
-  display: inline;
-  line-clamp: 6;
-  text-overflow: ellipsis;
+  @include m.p2;
+  width: 362px;
   margin-top: 12px;
 }
 
@@ -148,6 +158,11 @@
   padding: 32px;
 }
 
+.fullReview {
+  padding: 24px 32px 32px 32px;
+  width: 410px;
+}
+
 @media screen and (max-width: 600px) {
   .review {
     padding: 12px 16px;
@@ -160,8 +175,6 @@
 }
 
 @media screen and (max-width: 500px) {
-
-
   .review, .reviewTextArea {
     min-height: 200px;
   }
