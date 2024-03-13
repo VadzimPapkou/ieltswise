@@ -27,14 +27,20 @@ const UnderHeader = () => {
             The lessons take place online and are personalised to fit your needs. Lessons can be arranged to fit into
             your daily schedule: before work; after work; evenings and weekend slots are all available.
           </p>
-          <div className={classes.lessonInfo}>
-            <p className={classes.accent}>$15</p>
-            <p className={classes.accent}>1 hour</p>
-            <p className={classes.accent}>Google meet</p>
-            <p>Price</p>
-            <p>Duration</p>
-            <p>Platform</p>
-          </div>
+          <table className={classes.lessonInfo}>
+            <tbody>
+              <tr>
+                <td className={classes.price}>$15</td>
+                <td className={classes.duration}>1 hour</td>
+                <td className={classes.platform}>Google meet</td>
+              </tr>
+              <tr>
+                <th>Price</th>
+                <th>Duration</th>
+                <th>Platform</th>
+              </tr>
+            </tbody>
+          </table>
           <Button className={classes.chooseLessonButton} variant="primary" onClick={handleChooseLessonsClick}>
             Choose a Lesson
           </Button>
