@@ -59,7 +59,14 @@ const UnderHeader = () => {
             </div>
           </div>
           <div className={classes.focusedMan}>
-            <Image className={classes.focusedManImage} src="/focused-man.jpg" width={291} height={520} alt="" />
+            <Image
+              className={classes.focusedManImage}
+              src="/focused-man.jpg"
+              width={291}
+              height={520}
+              alt=""
+              quality={70}
+            />
           </div>
         </div>
         <Image
@@ -68,6 +75,7 @@ const UnderHeader = () => {
           height={233}
           alt="positive woman"
           className={classes.positiveWomanMobile}
+          quality={70}
         />
         <Button className={classes.chooseLessonButtonMobile} variant="primary" onClick={handleChooseLessonsClick}>
           Choose a Lesson

@@ -1,7 +1,7 @@
 "use client";
 
 import classes from "./FreeTrial.module.scss";
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import TextField from "../TextField/TextField";
 import clsx from "clsx";
 import Button from "../Button/Button";
@@ -10,6 +10,7 @@ import axiosClient from "../../axiosClient";
 import ChooseLessonsModal from "../ChooseLessonsModal";
 import moment from "moment";
 import BookStatusModal from "../BookStatusModal";
+import { CSSTransition } from "react-transition-group";
 
 const FreeTrial = ({}) => {
   const [showChooseLessonModal, setShowChooseLessonModal] = useState(false);
@@ -20,9 +21,17 @@ const FreeTrial = ({}) => {
 
   const disabled = !email || !email.match("^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$");
 
+  const nodeRef = useRef();
+
   return (
     <div className={classes.freeTrial}>
-      {showChooseLessonModal && <ChooseLessonsModal setShow={setShowChooseLessonModal} onSubmitModal={onSubmitModal} />}
+      <CSSTransition timeout={300} nodeRef={nodeRef} classNames={classes.transition}>
+        <div ref={nodeRef}>
+          {showChooseLessonModal && (
+            <ChooseLessonsModal setShow={setShowChooseLessonModal} onSubmitModal={onSubmitModal} />
+          )}
+        </div>
+      </CSSTransition>
       {showStatusModal && <BookStatusModal setShow={setShowStatusModal} response={bookResponse} />}
       <h2 className={clsx(classes.header)}>Book for a FREE 30 min trial session</h2>
       <form className={classes.bookTrialForm}>

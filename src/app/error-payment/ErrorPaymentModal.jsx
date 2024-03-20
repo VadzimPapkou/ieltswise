@@ -12,17 +12,13 @@ export function ErrorPaymentModal() {
 
   const close = () => setShowModal(false);
 
+  if (!showModal) return null;
+
   return (
     <ModalFade onClickOutside={close}>
       <Modal onCloseClick={close} className={classes.modal}>
         <div className={classes.header}>
-          <Image
-            className={classes.icon}
-            src="/error-payment-icon.svg"
-            alt=""
-            width={168}
-            height={168}
-          />
+          <Image className={classes.icon} src="/error-payment-icon.svg" alt="" width={168} height={168} />
           <h3 className={classes.title}>Payment Error:(</h3>
           <p className={classes.titleDescription}>
             Sorry, your transaction has failed. <br /> Please try again!

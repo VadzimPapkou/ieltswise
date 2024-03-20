@@ -130,3 +130,18 @@
     font-weight: 600;
   }
 }
+
+.transition-enter {
+  opacity: 0;
+}
+.transition-enter-active {
+  opacity: 1;
+  transition: opacity 200ms;
+}
+.transition-exit {
+  opacity: 1;
+}
+.transition-exit-active {
+  opacity: 0;
+  transition: opacity 200ms;
+}

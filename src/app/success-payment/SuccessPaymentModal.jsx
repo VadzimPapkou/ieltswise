@@ -33,8 +33,8 @@ export function SuccessPaymentModal() {
   if (typeof window === "undefined") return null;
 
   const [loading, setLoading] = useState(true);
-  const [show, setShow] = useState(true);
-  const close = () => setShow(false);
+  const [showModal, setShowModal] = useState(true);
+  const close = () => setShowModal(false);
 
   useEffect(() => {
     (async () => {
@@ -87,7 +87,7 @@ export function SuccessPaymentModal() {
 
   const serviceIconSrc = serviceToIcon[sessionType]?.iconSrc || "/service-icon-1.svg";
 
-  if (!show) return null;
+  if (!showModal) return null;
 
   return (
     <ModalFade onClickOutside={close}>
