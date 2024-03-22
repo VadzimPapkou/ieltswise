@@ -10,6 +10,7 @@ import { ColorRing, Oval } from "react-loader-spinner";
 import { primary } from "../../colors";
 import clsx from "clsx";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 
 const serviceToIcon = {
   "IELTS preparation": {
@@ -34,6 +35,7 @@ export function SuccessPaymentModal() {
 
   const [loading, setLoading] = useState(true);
   const [showModal, setShowModal] = useState(true);
+  const router = useRouter();
   const close = () => setShowModal(false);
 
   useEffect(() => {
@@ -63,6 +65,7 @@ export function SuccessPaymentModal() {
         console.error(e);
       } finally {
         setLoading(false);
+        router.push("/");
       }
     })();
   }, [window.location.href]);

@@ -6,11 +6,16 @@ import Modal from "../../components/Modal";
 import Image from "next/image";
 import Button from "../../components/Button/Button";
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 
 export function ErrorPaymentModal() {
   const [showModal, setShowModal] = useState(true);
+  const router = useRouter();
 
-  const close = () => setShowModal(false);
+  const close = () => {
+    router.push("/");
+    setShowModal(false);
+  };
 
   if (!showModal) return null;
 
@@ -24,7 +29,7 @@ export function ErrorPaymentModal() {
             Sorry, your transaction has failed. <br /> Please try again!
           </p>
         </div>
-        <Button className={classes.goHome} variant="primary">
+        <Button className={classes.goHome} variant="primary" onClick={close}>
           Back to Home Page
         </Button>
       </Modal>
