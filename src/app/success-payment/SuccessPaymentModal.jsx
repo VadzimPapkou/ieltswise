@@ -43,7 +43,7 @@ export function SuccessPaymentModal() {
       const studentEmail = url.searchParams.get("studentEmail");
       const datestampStartDate = +url.searchParams.get("date");
       const startDate = moment(datestampStartDate);
-      const endDate = moment(startDate).add(59, "minutes");
+      const endDate = moment(startDate).add(60, "minutes");
       const paymentId = url.searchParams.get("paymentId");
       const payerID = url.searchParams.get("PayerID");
       const sessionType = url.searchParams.get("sessionType");

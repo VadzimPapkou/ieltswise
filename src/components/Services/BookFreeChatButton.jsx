@@ -5,16 +5,26 @@ import Button from "../Button/Button";
 import moment from "moment";
 import axiosClient from "../../axiosClient";
 
-export function BookFreeChatButton ({setError, setLoading = () => {}, ...buttonProps}) {
+export function BookFreeChatButton({ setError, setLoading = () => {}, defaultSessionType, ...buttonProps }) {
   const [showLessonsModal, setShowLessonsModal] = useState(false);
   const [showBookModal, setShowBookModal] = useState(false);
   const [bookResponse, setBookResponse] = useState();
 
   return (
     <>
-      {showLessonsModal && <ChooseLessonsModal withEmail={true} setShow={setShowLessonsModal} onSubmitModal={handleSubmitModal}/>}
-      {showBookModal && <BookStatusModal response={bookResponse} setShow={setShowBookModal}/>}
-      <Button {...buttonProps} variant="primary" onClick={() => setShowLessonsModal(true)}>Book a Free Chat</Button>
+      {showLessonsModal && (
+        <ChooseLessonsModal
+          withEmail={true}
+          withSessionType={false}
+          defaultSessionType={defaultSessionType}
+          setShow={setShowLessonsModal}
+          onSubmitModal={handleSubmitModal}
+        />
+      )}
+      {showBookModal && <BookStatusModal response={bookResponse} setShow={setShowBookModal} />}
+      <Button {...buttonProps} variant="primary" onClick={() => setShowLessonsModal(true)}>
+        Book a Free Chat
+      </Button>
     </>
   );
 
@@ -30,7 +40,7 @@ export function BookFreeChatButton ({setError, setLoading = () => {}, ...buttonP
         studentEmail: email,
         studentName: name,
         startDate: startDate.toISOString(true),
-        endDate: endDate.toISOString(true)
+        endDate: endDate.toISOString(true),
       });
       setShowLessonsModal(false);
       setShowBookModal(true);
