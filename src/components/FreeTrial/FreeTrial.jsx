@@ -21,17 +21,9 @@ const FreeTrial = ({}) => {
 
   const disabled = !email || !email.match("^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$");
 
-  const nodeRef = useRef();
-
   return (
     <div className={classes.freeTrial}>
-      <CSSTransition timeout={300} nodeRef={nodeRef} classNames={classes.transition}>
-        <div ref={nodeRef}>
-          {showChooseLessonModal && (
-            <ChooseLessonsModal setShow={setShowChooseLessonModal} onSubmitModal={onSubmitModal} />
-          )}
-        </div>
-      </CSSTransition>
+      {showChooseLessonModal && <ChooseLessonsModal setShow={setShowChooseLessonModal} onSubmitModal={onSubmitModal} />}
       {showStatusModal && <BookStatusModal setShow={setShowStatusModal} response={bookResponse} />}
       <h2 className={clsx(classes.header)}>Book for a FREE 30 min trial session</h2>
       <form className={classes.bookTrialForm}>

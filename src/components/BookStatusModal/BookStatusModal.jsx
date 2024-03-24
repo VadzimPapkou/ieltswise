@@ -9,28 +9,28 @@ import Button from "../Button/Button";
 
 const serviceToIcon = {
   "IELTS preparation": {
-    iconSrc: "/service-icon-1.svg"
+    iconSrc: "/service-icon-1.svg",
   },
   "Functional English": {
-    iconSrc: "/service-icon-4.svg"
+    iconSrc: "/service-icon-4.svg",
   },
   "Conversational English": {
-    iconSrc: "/service-icon-5.svg"
+    iconSrc: "/service-icon-5.svg",
   },
   "Business English": {
-    iconSrc: "/service-icon-3.svg"
+    iconSrc: "/service-icon-3.svg",
   },
   "Improve English": {
-    iconSrc: "/service-icon-6.svg"
-  }
+    iconSrc: "/service-icon-6.svg",
+  },
 };
 
 const BookStatusModal = ({ setShow, response }) => {
   const statusToComponent = {
     success: SuccessModal,
-    error: ErrorModal
+    error: ErrorModal,
   };
-  console.log(response);
+
   let status;
   if (response.status === 200) {
     status = "success";
@@ -65,8 +65,8 @@ const SuccessModal = ({ response, setShow }) => {
       </div>
       <p className={classes.checkMail}>
         An invitation to the lesson has been sent to <b>{response.data.studentEmail}</b>. Please check your email and
-        confirm your lesson. if you change
-        your mind about coming to the online lesson, please cancel 24 hours in advance.
+        confirm your lesson. if you change your mind about coming to the online lesson, please cancel 24 hours in
+        advance.
       </p>
     </Modal>
   );
@@ -79,7 +79,9 @@ const ErrorModal = ({ setShow, response }) => (
       <h3 className={classes.errorTitle}>Oops:(</h3>
       <p className={classes.errorSubtitle}>You have already used the free lesson.</p>
     </div>
-    <Button className={classes.goHome} variant="primary">Back to Home Page</Button>
+    <Button className={classes.goHome} variant="primary">
+      Back to Home Page
+    </Button>
   </Modal>
 );
 

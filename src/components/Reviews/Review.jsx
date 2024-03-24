@@ -34,7 +34,11 @@ export function Review({ children, review }) {
     </Fragment>
   );
 
-  function handleClick() {
+  function handleClick(e) {
+    const rect = e.target.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    if (rect.height - y > 40) return;
     if (!isOverflowing) return;
     setShowFullReview(true);
   }

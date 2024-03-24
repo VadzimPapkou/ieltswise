@@ -60,7 +60,6 @@ export function SuccessPaymentModal() {
           payerID,
           requestedService: sessionType,
         });
-        console.log("data status", data, status);
       } catch (e) {
         console.error(e);
       } finally {

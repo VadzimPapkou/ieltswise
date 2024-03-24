@@ -11,6 +11,7 @@ export const ReviewsList = async () => {
 
   return (
     <>
+      <div className={classes.blank}></div>
       {reviews.map((review) => (
         <Review review={review}>
           <div className={classes.reviewHeader}>

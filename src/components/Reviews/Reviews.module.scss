@@ -37,11 +37,16 @@
 }
 
 .reviews {
-  width: 1348px;
+  width: 1440px;
+  margin-left: -92px;
   overflow-x: auto;
   display: flex;
   gap: 16px;
   margin-top: 24px;
+}
+
+.blank {
+  flex: 0 0 76px;
 }
 
 // Scrollbar
@@ -71,10 +76,6 @@
   overflow: hidden;
 }
 
-.review.overflowing {
-  cursor: pointer;
-}
-
 .review.overflowing:after {
   content: "...";
   position: absolute;
@@ -86,10 +87,11 @@
   background: linear-gradient(0deg, rgba(255,255,255,1) 40%, rgba(0,0,0,0) 100%);
 
   color: var(--primary-600);
+  cursor: pointer;
 
   display: flex;
   justify-content: center;
-  align-items: end;
+  align-items: flex-end;
 }
 
 .reviewAvatar {
@@ -132,6 +134,7 @@
   @include m.p2;
   width: 362px;
   margin-top: 12px;
+  user-select: none;
 }
 
 .newReview {
@@ -181,6 +184,33 @@
   width: 410px;
 }
 
+.controls {
+  display: flex;
+  gap: 24px;
+  justify-content: flex-end;
+}
+
+.controls button {
+  cursor: pointer;
+  background-color: var(--primary);
+  border-radius: 100px;
+  width: 36px;
+  aspect-ratio: 1;
+  border: none;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.arrowLeft {
+  transform: scale(0.66);
+}
+
+.arrowRight {
+  transform: rotate(180deg) scale(0.66);
+}
+
 @media screen and (max-width: 600px) {
   .review {
     padding: 12px 16px;
@@ -189,6 +219,16 @@
   .title {
     @include m.h4-like;
     font-weight: 600;
+  }
+}
+
+@media screen and (max-width: 1440px) {
+  .reviews {
+    width: 100%;
+    margin-left: 0;
+    .blank {
+      display: none;
+    }
   }
 }
 

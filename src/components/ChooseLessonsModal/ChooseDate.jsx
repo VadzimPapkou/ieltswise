@@ -141,7 +141,7 @@ function getWeeks(daysOfMonth) {
   const lastWeekIndex = Math.max(...weekIndexes);
   weekToDays[firstWeekIndex] = padStartArray(weekToDays[firstWeekIndex], 7, null);
   weekToDays[lastWeekIndex] = padEndArray(weekToDays[lastWeekIndex], 7, null);
-  console.log(weekToDays);
+
   return _.values(weekToDays);
 }
 
