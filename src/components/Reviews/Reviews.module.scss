@@ -43,6 +43,11 @@
   display: flex;
   gap: 16px;
   margin-top: 24px;
+  cursor: grab;
+}
+
+.reviews.swiping {
+  cursor: grabbing;
 }
 
 .blank {
@@ -74,6 +79,7 @@
   background-color: #fff;
   border-radius: 12px;
   overflow: hidden;
+  user-select: none;
 }
 
 .review.overflowing:after {

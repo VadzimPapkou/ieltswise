@@ -7,14 +7,12 @@ import { observer } from "mobx-react-lite";
 import axiosClient from "../../axiosClient";
 import { useRouter } from "next/navigation";
 import { NewReviewModal } from "./NewReviewModal";
-import ArrowRight from "../../icon-components/ArrowRight";
 import anime from "animejs";
-import Arrow2 from "../../icon-components/Arrow2/Arrow2";
 import Arrow3 from "../../icon-components/Arrow3";
 
 export const Reviews = observer(({ children }) => {
   const router = useRouter();
-  const [isPending, startTransition] = useTransition();
+  const [, startTransition] = useTransition();
   const [showNewReviewModal, setShowNewReviewModal] = useState(false);
   const reviewsRef = useRef(null);
 
@@ -66,15 +64,17 @@ export const Reviews = observer(({ children }) => {
     let clientX1 = null;
 
     $reviews.addEventListener("mousedown", handleMouseDown);
-    $reviews.addEventListener("mouseup", handleMouseUp);
+    document.addEventListener("mouseup", handleMouseUp);
 
     function handleMouseDown(e) {
-      $reviews.addEventListener("mousemove", handleMouseMove);
+      document.addEventListener("mousemove", handleMouseMove);
       clientX1 = e.clientX;
+      $reviews.classList.add(classes.swiping);
     }
 
     function handleMouseUp() {
-      $reviews.removeEventListener("mousemove", handleMouseMove);
+      document.removeEventListener("mousemove", handleMouseMove);
+      $reviews.classList.remove(classes.swiping);
     }
 
     function handleMouseMove(e) {
@@ -84,7 +84,7 @@ export const Reviews = observer(({ children }) => {
 
     return () => {
       $reviews.removeEventListener("mousedown", handleMouseDown);
-      $reviews.removeEventListener("mouseup", handleMouseUp);
+      document.removeEventListener("mouseup", handleMouseUp);
     };
   }
 
