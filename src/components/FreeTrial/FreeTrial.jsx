@@ -86,9 +86,11 @@ const FreeTrial = ({}) => {
       });
       setBookResponse(response);
       setShowStatusModal(true);
+      setShowChooseLessonModal(false);
     } catch (e) {
       setBookResponse(e.response);
       setShowStatusModal(true);
+      setShowChooseLessonModal(false);
     }
   }
 };

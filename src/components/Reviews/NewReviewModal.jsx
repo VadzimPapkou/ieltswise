@@ -10,6 +10,8 @@ export function NewReviewModal({ close, onSubmit }) {
   const [value, setValue] = useState("");
   const [error, setError] = useState("");
 
+  const [loading, setLoading] = useState(false);
+
   return (
     <ModalFade onClickOutside={close}>
       <Modal className={classes.modal} onCloseClick={close}>
@@ -22,6 +24,7 @@ export function NewReviewModal({ close, onSubmit }) {
           <TextField
             className={classes.reviewEmail}
             placeholder="email@example.com"
+            type="email"
             onChange={(e) => setEmail(e.target.value)}
           />
           <textarea
@@ -30,7 +33,7 @@ export function NewReviewModal({ close, onSubmit }) {
             onChange={(e) => setValue(e.target.value)}
           />
           {error && <p className={classes.error}>{error}</p>}
-          <Button className={classes.publishButton} variant="primary">
+          <Button className={classes.publishButton} variant="primary" disabled={loading}>
             Publish
           </Button>
         </form>
@@ -40,7 +43,12 @@ export function NewReviewModal({ close, onSubmit }) {
 
   async function handleSubmit(e) {
     e.preventDefault();
+    if (loading) return;
     try {
+      setLoading(true);
+      setTimeout(() => {
+        setLoading(false);
+      }, 1000);
       await onSubmit(email, value);
     } catch (e) {
       setError(e.message);

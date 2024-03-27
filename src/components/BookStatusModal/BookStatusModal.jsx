@@ -6,6 +6,7 @@ import Modal from "../Modal";
 import moment from "moment";
 import Image from "next/image";
 import Button from "../Button/Button";
+import Link from "next/link";
 
 const serviceToIcon = {
   "IELTS preparation": {
@@ -79,7 +80,7 @@ const ErrorModal = ({ setShow, response }) => (
       <h3 className={classes.errorTitle}>Oops:(</h3>
       <p className={classes.errorSubtitle}>You have already used the free lesson.</p>
     </div>
-    <Button className={classes.goHome} variant="primary">
+    <Button className={classes.goHome} variant="primary" onClick={() => setShow(false)}>
       Back to Home Page
     </Button>
   </Modal>
