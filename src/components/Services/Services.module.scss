@@ -1,18 +1,16 @@
 @use "src/app/mixins" as m;
 
 .services {
-  margin: 80px auto 0 auto;
+  margin: 160px auto 0 auto;
   max-width: 1256px;
 }
 
 .title {
   @include m.h2-like;
-  text-align: center;
   color: var(--primary-700);
 }
 
 .description {
-  text-align: center;
   margin-top: 4px;
 }
 
@@ -85,7 +83,7 @@
   width: 100%;
   border-radius: 24px;
   background-color: #fff;
-  padding: 40px 24px 40px 40px;
+  padding: 40px 95px;
 }
 
 .ieltsPreparation .iconDecoration {

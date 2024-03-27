@@ -3,13 +3,12 @@
 .about {
   max-width: 1256px;
   min-height: 456px;
-  margin: 80px auto 0 auto;
+  margin: 160px auto 0 auto;
 }
 
 .title {
   @include m.h2-like;
   color: var(--primary-700);
-  text-align: center;
 }
 
 .content {
@@ -118,6 +117,7 @@
 }
 
 .tutorDescription {
+  max-width: 900px;
   margin-top: 8px;
   text-align: justify;
 }

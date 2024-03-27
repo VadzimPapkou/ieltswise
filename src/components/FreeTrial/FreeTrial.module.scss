@@ -10,7 +10,8 @@
   border-radius: 24px;
   max-width: 1256px;
   padding: 50px 40px;
-  margin: 85px auto 0 auto;
+  margin: 56px auto 0 auto;
+  height: 258px;
   background: #fff;
 
   overflow: hidden;
@@ -103,6 +104,9 @@
   margin: -12px 0 0 16px;
 }
 
+.textField {
+  max-width: 358px;
+}
 @media screen and (max-width: 1100px) {
   .bubble1, .bubble2, .bubble3 {
     display: none;

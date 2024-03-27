@@ -90,6 +90,11 @@
   background-color: var(--primary-100);
 }
 
+.description2 .dots, .description3 .dots {
+  left: 24px;
+  right: unset;
+}
+
 .description3 p {
   @include m.p1;
   font-weight: 600;

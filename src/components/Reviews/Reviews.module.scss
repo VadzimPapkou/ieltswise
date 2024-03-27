@@ -1,18 +1,16 @@
 @use "src/app/mixins" as m;
 
 .wrapper {
-  margin: 80px auto 0 auto;
+  margin: 160px auto 0 auto;
   max-width: 1256px;
 }
 
 .title {
   @include m.h2-like;
-  text-align: center;
   color: var(--primary-700);
 }
 
 .titleDescription {
-  text-align: center;
   margin-top: 8px;
 }
 
@@ -191,6 +189,7 @@
 }
 
 .controls {
+  margin-top: 24px;
   display: flex;
   gap: 24px;
   justify-content: flex-end;
