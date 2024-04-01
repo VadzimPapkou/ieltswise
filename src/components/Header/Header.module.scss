@@ -1,3 +1,5 @@
+@use "src/app/mixins" as m;
+
 .headerWrapper {
   border-bottom: 1px solid var(--primary-100);
 }
@@ -35,7 +37,15 @@
 }
 
 .link {
+  @include m.p1;
   font-weight: 600;
+  border-radius: 12px;
+  transition: color 0.3s, background-color 0.3s;
+}
+
+.link:hover {
+  background-color: var(--primary-50);
+  color: var(--primary);
 }
 
 .tutorLink {

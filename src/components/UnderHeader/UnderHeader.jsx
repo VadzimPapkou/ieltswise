@@ -47,7 +47,14 @@ const UnderHeader = () => {
         </div>
         <div className={classes.imagesBlock}>
           <div className={classes.positiveWoman}>
-            <Image className={classes.positiveWomanImage} src="/positive-woman.jpg" width={384} height={520} alt="" />
+            <Image
+              className={classes.positiveWomanImage}
+              src="/positive-woman.jpg"
+              width={384}
+              height={520}
+              alt=""
+              quality={100}
+            />
             <div className={classes.discount}>
               <div className={classes.discountText}>
                 <p className={classes.discountTitle}>BOOK EVERY FIFTH SESSIONS</p>
@@ -65,7 +72,7 @@ const UnderHeader = () => {
               width={291}
               height={520}
               alt=""
-              quality={70}
+              quality={100}
             />
           </div>
         </div>
@@ -75,7 +82,7 @@ const UnderHeader = () => {
           height={233}
           alt="positive woman"
           className={classes.positiveWomanMobile}
-          quality={70}
+          quality={100}
         />
         <Button className={classes.chooseLessonButtonMobile} variant="primary" onClick={handleChooseLessonsClick}>
           Choose a Lesson
