@@ -149,6 +149,10 @@
   transform: translate(-50%, -50%);
 }
 
+.error {
+  color: var(--danger);
+}
+
 @media screen and (max-width: 600px) {
   .title {
     @include c.h4-like

@@ -51,7 +51,8 @@ export function NewReviewModal({ close, onSubmit }) {
       }, 1000);
       await onSubmit(email, value);
     } catch (e) {
-      setError(e.message);
+      const error = e?.response?.data || e.message;
+      setError(error);
     }
   }
 }

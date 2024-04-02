@@ -23,11 +23,13 @@ const ChooseDate = ({ close }) => {
   const loadedDataRef = useRef({});
 
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState();
 
   const { selectedTime, setStep, submitModal, withEmail, setSelectedDay, withSessionType } = useContext(ModalContext);
 
   useEffect(() => {
     const fetchMonthDays = async (month) => {
+      setError(null);
       try {
         const cachedData = loadedDataRef.current[month.format("YYYY/MM")];
         if (cachedData) {
@@ -41,6 +43,7 @@ const ChooseDate = ({ close }) => {
         }
       } catch (error) {
         console.error("Ошибка при загрузке данных месяца:", error);
+        setError(error);
       }
     };
 
@@ -81,6 +84,7 @@ const ChooseDate = ({ close }) => {
           ))}
         </div>
         {loading && <Loader />}
+        {error && <p className={classes.error}>{error.message}</p>}
         {!loading && weeks.map((week, i) => <Week key={i} week={week} />)}
       </div>
       <div className={classes.buttons}>
