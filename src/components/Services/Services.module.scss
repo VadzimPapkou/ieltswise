@@ -84,7 +84,6 @@
   border-radius: 24px;
   background-color: #fff;
   padding: 40px 95px;
-  animation: fade 0.5s;
 }
 
 .ieltsPreparation .iconDecoration {
@@ -180,14 +179,5 @@
   .tab {
     margin-top: 16px;
     padding: 24px 16px;
-  }
-}
-
-@keyframes fade {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
   }
 }
