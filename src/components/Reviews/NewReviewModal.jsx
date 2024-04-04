@@ -4,11 +4,17 @@ import classes from "./NewReviewModal.module.scss";
 import React, { useState } from "react";
 import TextField from "../TextField/TextField";
 import Button from "../Button/Button";
+import { useForm } from "react-hook-form";
+import { isEmail } from "../../common";
+import { TextArea } from "../TextArea/TextArea";
 
-export function NewReviewModal({ close, onSubmit }) {
-  const [email, setEmail] = useState("");
-  const [value, setValue] = useState("");
-  const [error, setError] = useState("");
+export function NewReviewModal({ close, submitReview }) {
+  const { register, handleSubmit, formState, setError } = useForm({
+    defaultValues: {
+      email: "",
+      value: "",
+    },
+  });
 
   const [loading, setLoading] = useState(false);
 
@@ -20,19 +26,37 @@ export function NewReviewModal({ close, onSubmit }) {
           Before writing a review, please fill out your email so we can understand that you actually attended our
           lesson.
         </p>
-        <form className={classes.form} onSubmit={handleSubmit}>
+        <form className={classes.form} onSubmit={handleSubmit(onSubmit)}>
           <TextField
             className={classes.reviewEmail}
             placeholder="email@example.com"
             type="email"
-            onChange={(e) => setEmail(e.target.value)}
+            register={() =>
+              register("email", {
+                required: { value: true, message: "Email is required." },
+                validate: {
+                  isEmail: (value) => isEmail(value) || "Please enter a valid email.",
+                },
+              })
+            }
+            validityState={formState.errors.email ? "invalid" : "default"}
+            validationMessage={formState.errors.email ? formState.errors.email.message : ""}
           />
-          <textarea
+          <TextArea
             className={classes.reviewTextArea}
             placeholder="Share some insights about Neil session. Tell us what the tutor helped you with, about his behavior, approach ect. "
-            onChange={(e) => setValue(e.target.value)}
+            register={() =>
+              register("value", {
+                required: { value: true, message: "Please enter your feedback." },
+                maxLength: { value: 1000, message: "Maximum review length is 1000" },
+              })
+            }
+            validityState={formState.errors.value ? "invalid" : "default"}
+            validationMessage={formState.errors.value ? formState.errors.value.message : ""}
           />
-          {error && <p className={classes.error}>{error}</p>}
+          {formState.errors?.root?.serverError && (
+            <p className={classes.error}>{formState.errors.root.serverError.message}</p>
+          )}
           <Button className={classes.publishButton} variant="primary" disabled={loading}>
             Publish
           </Button>
@@ -41,18 +65,17 @@ export function NewReviewModal({ close, onSubmit }) {
     </ModalFade>
   );
 
-  async function handleSubmit(e) {
-    e.preventDefault();
+  async function onSubmit(formData) {
     if (loading) return;
     try {
       setLoading(true);
       setTimeout(() => {
         setLoading(false);
       }, 1000);
-      await onSubmit(email, value);
+      await submitReview(formData);
     } catch (e) {
       const error = e?.response?.data || e.message;
-      setError(error);
+      setError("root.serverError", { type: "custom", message: error });
     }
   }
 }

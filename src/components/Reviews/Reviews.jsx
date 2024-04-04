@@ -20,7 +20,7 @@ export const Reviews = observer(({ children }) => {
 
   return (
     <div className={classes.wrapper}>
-      {showNewReviewModal && <NewReviewModal onSubmit={submitReview} close={() => setShowNewReviewModal(false)} />}
+      {showNewReviewModal && <NewReviewModal submitReview={submitReview} close={() => setShowNewReviewModal(false)} />}
       <h2 className={classes.title}>Reviews</h2>
       <p className={classes.titleDescription}>
         “I admire people who dare to take the language, English, and understand it and understand the melody” -{" "}
@@ -46,11 +46,8 @@ export const Reviews = observer(({ children }) => {
     </div>
   );
 
-  async function submitReview(email, value) {
-    await axiosClient.post("/comments", {
-      email,
-      value,
-    });
+  async function submitReview(review) {
+    await axiosClient.post("/comments", review);
 
     startTransition(() => {
       router.refresh();

@@ -7,7 +7,7 @@ import axiosClient from "../../axiosClient";
 import ModalFade from "../../components/ModalFade";
 import Modal from "../../components/Modal";
 import { ColorRing, Oval } from "react-loader-spinner";
-import { primary } from "../../colors";
+import { primary } from "../../common";
 import clsx from "clsx";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
