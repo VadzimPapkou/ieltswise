@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import classes from "./ChooseEmail.module.scss";
 import TextField from "../TextField/TextField";
 import Button from "../Button/Button";
@@ -7,18 +7,25 @@ import axiosClient, { apiUrl } from "../../axiosClient";
 import { ColorRing } from "react-loader-spinner";
 import clsx from "clsx";
 import Modal from "../Modal";
+import { useForm } from "react-hook-form";
+import { isEmail } from "../../common";
 
 const ChooseEmail = ({ close }) => {
   const { setStep, email, setEmail, selectedTime, sessionType, submitModal } = useContext(ModalContext);
 
   const [loading, setLoading] = useState(false);
 
-  const nextDisabled = !email || !email.match("^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$");
-
   const modalClass = clsx({
     [classes.modal]: true,
     [classes.modalLoading]: loading,
   });
+
+  const { register, handleSubmit, formState } = useForm();
+
+  useEffect(() => {
+    if (!email) return;
+    submitModal();
+  }, [email]);
 
   return (
     <Modal className={modalClass} onCloseClick={close}>
@@ -30,21 +37,27 @@ const ChooseEmail = ({ close }) => {
             Our lesson will be via Google Meet. Please enter your Email address to allow me to send you an invitation to
             the lesson.
           </p>
-          <div className={classes.form}>
+          <form className={classes.form} onSubmit={handleSubmit(onSubmit)}>
             <TextField
+              register={() =>
+                register("email", {
+                  required: { value: true, message: "Please enter your email." },
+                  validate: (value) => isEmail(value) || "Please enter a valid email.",
+                })
+              }
               className={classes.email}
               type="email"
               placeholder="email@example.com"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
+              validityState={formState.errors.email ? "invalid" : "default"}
+              validationMessage={formState.errors?.email?.message || ""}
             />
-            <Button variant="link" onClick={onNextClick}>
+            <Button variant="link" type="submit">
               Enroll
             </Button>
-            <Button variant="text" onClick={onBackClick}>
+            <Button variant="text" type="button" onClick={onBackClick}>
               Back
             </Button>
-          </div>
+          </form>
         </>
       )}
     </Modal>
@@ -54,10 +67,10 @@ const ChooseEmail = ({ close }) => {
     setStep("date");
   }
 
-  function onNextClick() {
-    if (nextDisabled) return;
+  function onSubmit({ email }) {
+    debugger;
     setLoading(true);
-    submitModal();
+    setEmail(email);
   }
 };
 

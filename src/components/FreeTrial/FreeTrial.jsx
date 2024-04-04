@@ -11,36 +11,35 @@ import ChooseLessonsModal from "../ChooseLessonsModal";
 import moment from "moment";
 import BookStatusModal from "../BookStatusModal";
 import { CSSTransition } from "react-transition-group";
+import { useForm } from "react-hook-form";
+import { isEmail } from "../../common";
 
 const FreeTrial = ({}) => {
   const [showChooseLessonModal, setShowChooseLessonModal] = useState(false);
   const [showStatusModal, setShowStatusModal] = useState(false);
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
+  const { register, handleSubmit, formState, getValues } = useForm();
   const [bookResponse, setBookResponse] = useState();
-
-  const disabled = !email || !email.match("^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$");
 
   return (
     <div className={classes.freeTrial}>
       {showChooseLessonModal && <ChooseLessonsModal setShow={setShowChooseLessonModal} onSubmitModal={onSubmitModal} />}
       {showStatusModal && <BookStatusModal setShow={setShowStatusModal} response={bookResponse} />}
       <h2 className={clsx(classes.header)}>Book for a FREE 30 min trial session</h2>
-      <form className={classes.bookTrialForm}>
+      <form className={classes.bookTrialForm} onSubmit={handleSubmit(onSubmit)}>
         <TextField
+          register={() => register("name", { required: { value: true, message: "Please enter your name." } })}
           placeholder="Name"
-          name="name"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
           className={classes.textField}
+          validityState={formState.errors.name ? "invalid" : "default"}
+          validationMessage={formState.errors?.name?.message || ""}
         />
         <TextField
+          register={() => register("email", { validate: (value) => isEmail(value) || "Please enter a valid email." })}
           className={classes.textField}
           placeholder="email@example.com"
-          name="email"
           type="email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
+          validityState={formState.errors.email ? "invalid" : "default"}
+          validationMessage={formState.errors?.email?.message || ""}
         />
         <p className={classes.agreeMobile}>
           By clicking “Book”, you agree to the processing of{" "}
@@ -48,7 +47,7 @@ const FreeTrial = ({}) => {
             Personal data.
           </Link>
         </p>
-        <Button variant="primary" type="submit" onClick={handleSubmit} className={classes.submitButton}>
+        <Button variant="primary" type="submit" className={classes.submitButton}>
           Book a Free Chat
         </Button>
       </form>
@@ -64,23 +63,21 @@ const FreeTrial = ({}) => {
     </div>
   );
 
-  function handleSubmit(e) {
-    e.preventDefault();
-    if (disabled) return;
-
+  function onSubmit() {
     setShowChooseLessonModal(true);
   }
 
   async function onSubmitModal({ selectedTime, sessionType }) {
     const startDate = moment(selectedTime);
     let endDate = moment(startDate).add(59, "minutes");
+    const [name, email] = getValues(["name", "email"]);
 
     try {
       const response = await axiosClient.post("/student/bookTrialSession", {
         requestedService: sessionType,
         tutorEmail: "test.tutor1.ieltswise67@gmail.com",
-        studentEmail: email,
         studentName: name,
+        studentEmail: email,
         startDate: startDate.toISOString(true),
         endDate: endDate.toISOString(true),
       });
