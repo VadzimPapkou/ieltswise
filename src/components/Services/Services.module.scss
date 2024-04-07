@@ -136,6 +136,16 @@
   color: #fff;
 }
 
+@media screen and (max-width: 1300px) {
+  .title {
+    margin-left: 16px;
+  }
+
+  .description {
+    margin-left: 16px;
+  }
+}
+
 @media screen and (max-width: 800px) {
   .tabSwitchers {
     justify-content: center;
@@ -165,6 +175,7 @@
   .title {
     @include m.h4-like;
     font-weight: 600;
+    text-align: center;
   }
 
   .tabSwitchers {
@@ -179,5 +190,13 @@
   .tab {
     margin-top: 16px;
     padding: 24px 16px;
+  }
+
+  .services {
+    margin-top: 60px;
+  }
+
+  .description {
+    text-align: center;
   }
 }
