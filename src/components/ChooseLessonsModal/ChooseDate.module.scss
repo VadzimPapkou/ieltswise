@@ -228,3 +228,21 @@
     justify-content: center;
   }
 }
+
+@media screen and (max-width: 400px) {
+  .modal.modal {
+    --day-width: 40px;
+    padding: 12px;
+  }
+
+  .time {
+    padding: 5px 3px;
+  }
+
+  .buttons {
+    justify-content: stretch;
+    > * {
+      flex: 1 1 0;
+    }
+  }
+}

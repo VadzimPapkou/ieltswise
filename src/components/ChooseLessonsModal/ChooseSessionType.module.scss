@@ -3,7 +3,7 @@
 .modal.modal {
   overflow-y: auto;
   position: relative;
-  width: 100vw;
+  width: 100%;
   max-width: 699px;
   padding: clamp(10px, 3vw, 50px);
   background-color: var(--neutral-100);
@@ -49,5 +49,17 @@
 @media screen and (max-width: 550px) {
   .sessions {
     grid-template-columns: 1fr;
+  }
+
+  .title.title {
+    @include c.h4-like;
+  }
+
+  .description {
+    text-align: start;
+  }
+
+  .session {
+    padding: 8px 4px;
   }
 }

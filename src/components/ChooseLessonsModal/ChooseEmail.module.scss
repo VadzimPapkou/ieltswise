@@ -39,4 +39,16 @@
   .form {
     flex-wrap: wrap;
   }
+
+  .modal {
+    padding: 16px;
+  }
+
+  .email {
+    max-width: unset;
+  }
+
+  .title {
+    @include m.h4-like;
+  }
 }

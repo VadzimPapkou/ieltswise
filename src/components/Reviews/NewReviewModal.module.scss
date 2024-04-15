@@ -51,3 +51,18 @@
 .error {
   color: var(--danger);
 }
+
+@media screen and (max-width: 500px) {
+  .modal {
+    padding: 16px;
+  }
+
+  .title {
+    @include m.h4-like;
+    font-weight: 600;
+  }
+
+  .publishButton {
+    margin-top: 16px;
+  }
+}

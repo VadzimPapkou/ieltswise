@@ -57,7 +57,6 @@ const ChooseLessonsModal = ({ setShow, onSubmitModal, withEmail, withSessionType
   }
 
   async function submitModal() {
-    debugger;
     await onSubmitModal({ selectedTime, email, sessionType });
   }
 };
