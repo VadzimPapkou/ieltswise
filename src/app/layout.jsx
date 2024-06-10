@@ -18,6 +18,7 @@ export default function RootLayout({ children }) {
         />
         <title>Ieltswise</title>
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800" rel="stylesheet" />
+        <link rel="icon" href="/icon.svg?<generated>" type="image/<generated>" sizes="<generated>" />
       </head>
       <body>
         <div className={classes.wrapper}>
