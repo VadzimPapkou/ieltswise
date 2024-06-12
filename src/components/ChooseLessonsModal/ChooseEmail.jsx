@@ -8,7 +8,7 @@ import { ColorRing } from "react-loader-spinner";
 import clsx from "clsx";
 import Modal from "../Modal";
 import { useForm } from "react-hook-form";
-import { isEmail } from "../../common";
+import { isEmail, isGmail } from "../../common";
 
 const ChooseEmail = ({ close }) => {
   const { setStep, email, setEmail, selectedTime, sessionType, submitModal } = useContext(ModalContext);
@@ -41,13 +41,13 @@ const ChooseEmail = ({ close }) => {
             <TextField
               register={() =>
                 register("email", {
-                  required: { value: true, message: "Please enter your email." },
-                  validate: (value) => isEmail(value) || "Please enter a valid email.",
+                  required: { value: true, message: "Please enter your gmail." },
+                  validate: (value) => isGmail(value) || "Please enter a valid gmail.",
                 })
               }
               className={classes.email}
               type="email"
-              placeholder="email@example.com"
+              placeholder="example@gmail.com"
               validityState={formState.errors.email ? "invalid" : "default"}
               validationMessage={formState.errors?.email?.message || ""}
             />

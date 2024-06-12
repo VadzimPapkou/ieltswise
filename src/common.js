@@ -11,6 +11,10 @@ export function isEmail(string) {
   return !!string.match("^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$");
 }
 
+export function isGmail(string) {
+  return !!string.match("^[\\w-\\.]+@gmail.com$");
+}
+
 export const validityIconsPaths = {
   valid: "./valid.svg",
   warning: "./warning.svg",

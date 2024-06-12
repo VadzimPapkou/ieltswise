@@ -5,7 +5,7 @@ import React, { useState } from "react";
 import TextField from "../TextField/TextField";
 import Button from "../Button/Button";
 import { useForm } from "react-hook-form";
-import { isEmail } from "../../common";
+import { isEmail, isGmail } from "../../common";
 import { TextArea } from "../TextArea/TextArea";
 
 export function NewReviewModal({ close, submitReview }) {
@@ -29,13 +29,13 @@ export function NewReviewModal({ close, submitReview }) {
         <form className={classes.form} onSubmit={handleSubmit(onSubmit)}>
           <TextField
             className={classes.reviewEmail}
-            placeholder="email@example.com"
+            placeholder="example@gmail.com"
             type="email"
             register={() =>
               register("email", {
                 required: { value: true, message: "Email is required." },
                 validate: {
-                  isEmail: (value) => isEmail(value) || "Please enter a valid email.",
+                  isEmail: (value) => isGmail(value) || "Please enter a valid gmail.",
                 },
               })
             }

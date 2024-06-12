@@ -12,7 +12,7 @@ import moment from "moment";
 import BookStatusModal from "../BookStatusModal";
 import { CSSTransition } from "react-transition-group";
 import { useForm } from "react-hook-form";
-import { isEmail } from "../../common";
+import { isEmail, isGmail } from "../../common";
 
 const FreeTrial = ({}) => {
   const [showChooseLessonModal, setShowChooseLessonModal] = useState(false);
@@ -34,9 +34,9 @@ const FreeTrial = ({}) => {
           validationMessage={formState.errors?.name?.message || ""}
         />
         <TextField
-          register={() => register("email", { validate: (value) => isEmail(value) || "Please enter a valid email." })}
+          register={() => register("email", { validate: (value) => isGmail(value) || "Please enter a valid gmail." })}
           className={classes.textField}
-          placeholder="email@example.com"
+          placeholder="example@gmail.com"
           type="email"
           validityState={formState.errors.email ? "invalid" : "default"}
           validationMessage={formState.errors?.email?.message || ""}
