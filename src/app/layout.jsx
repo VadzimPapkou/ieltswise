@@ -4,8 +4,9 @@ import Header from "../components/Header/Header";
 import Footer from "../components/Footer";
 
 export const metadata = {
-  title: "Ieltswise",
-  description: "English for international opportunity",
+  title: "IELTSwise - Your Path to Success with Professional IELTS Tutors",
+  description:
+    "Get top scores in the IELTS exam with IELTSwise's personalized tutoring. Our experienced tutors offer customized study plans and one-on-one sessions to ensure you excel. Start improving your English skills with us today!",
 };
 
 export default function RootLayout({ children }) {
@@ -16,7 +17,6 @@ export default function RootLayout({ children }) {
           name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
         />
-        <title>Ieltswise</title>
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800" rel="stylesheet" />
         <link rel="icon" href="/icon.svg?<generated>" type="image/<generated>" sizes="<generated>" />
       </head>
