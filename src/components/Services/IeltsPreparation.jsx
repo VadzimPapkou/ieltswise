@@ -13,15 +13,14 @@ const IeltsPreparation = () => {
 
   return (
     <Tab title="Get closer to your target IELTS band score">
-      {chooseLessonModal.show && (
-        <ChooseLessonsModal
-          withSessionType={false}
-          withEmail={true}
-          defaultSessionType={chooseLessonModal.sessionType}
-          onSubmitModal={handleSubmitLessons}
-          setShow={(show) => setChooseLessonModal({ show, sessionType: chooseLessonModal.sessionType })}
-        />
-      )}
+      <ChooseLessonsModal
+        withSessionType={false}
+        withEmail={true}
+        defaultSessionType={chooseLessonModal.sessionType}
+        onSubmitModal={handleSubmitLessons}
+        show={chooseLessonModal.show}
+        setShow={(show) => setChooseLessonModal({ show, sessionType: chooseLessonModal.sessionType })}
+      />
       <ul className={classes.ieltsList}>
         <li className="p1">Prepare for Academic or General Training IELTS</li>
         <li className="p1">

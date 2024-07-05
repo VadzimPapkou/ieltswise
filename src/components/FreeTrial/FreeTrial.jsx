@@ -1,7 +1,7 @@
 "use client";
 
 import classes from "./FreeTrial.module.scss";
-import React, { useRef, useState } from "react";
+import React, { useState } from "react";
 import TextField from "../TextField/TextField";
 import clsx from "clsx";
 import Button from "../Button/Button";
@@ -10,19 +10,18 @@ import axiosClient from "../../axiosClient";
 import ChooseLessonsModal from "../ChooseLessonsModal";
 import moment from "moment";
 import BookStatusModal from "../BookStatusModal";
-import { CSSTransition } from "react-transition-group";
 import { useForm } from "react-hook-form";
-import { isEmail, isGmail } from "../../common";
+import { isGmail } from "../../common";
 
 const FreeTrial = ({}) => {
-  const [showChooseLessonModal, setShowChooseLessonModal] = useState(false);
+  const [showLessonModal, setShowLessonModal] = useState(false);
   const [showStatusModal, setShowStatusModal] = useState(false);
   const { register, handleSubmit, formState, getValues } = useForm();
   const [bookResponse, setBookResponse] = useState();
 
   return (
     <div className={classes.freeTrial}>
-      {showChooseLessonModal && <ChooseLessonsModal setShow={setShowChooseLessonModal} onSubmitModal={onSubmitModal} />}
+      <ChooseLessonsModal show={showLessonModal} setShow={setShowLessonModal} onSubmitModal={onSubmitModal} />
       {showStatusModal && <BookStatusModal setShow={setShowStatusModal} response={bookResponse} />}
       <h2 className={clsx(classes.header)}>Book for a FREE 30 min trial session</h2>
       <form className={classes.bookTrialForm} onSubmit={handleSubmit(onSubmit)}>
@@ -64,7 +63,7 @@ const FreeTrial = ({}) => {
   );
 
   function onSubmit() {
-    setShowChooseLessonModal(true);
+    setShowLessonModal(true);
   }
 
   async function onSubmitModal({ selectedTime, sessionType }) {
@@ -83,11 +82,11 @@ const FreeTrial = ({}) => {
       });
       setBookResponse(response);
       setShowStatusModal(true);
-      setShowChooseLessonModal(false);
+      setShowLessonModal(false);
     } catch (e) {
       setBookResponse(e.response);
       setShowStatusModal(true);
-      setShowChooseLessonModal(false);
+      setShowLessonModal(false);
     }
   }
 };

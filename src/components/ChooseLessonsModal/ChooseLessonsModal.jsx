@@ -1,4 +1,4 @@
-import React, { createContext, useState } from "react";
+import React, { createContext, createRef, useState } from "react";
 import classes from "./ChooseLessonsModal.module.scss";
 import ModalFade from "../ModalFade";
 import ChooseSessionType from "./ChooseSessionType";
@@ -10,7 +10,23 @@ import { CSSTransition } from "react-transition-group";
 
 export const ModalContext = createContext({});
 
-const ChooseLessonsModal = ({ setShow, onSubmitModal, withEmail, withSessionType = true, defaultSessionType }) => {
+const transitionClassNames = {
+  enter: classes.enter,
+  enterActive: classes.enterActive,
+  enterDone: classes.enterDone,
+  exit: classes.exit,
+  exitActive: classes.exitActive,
+  exitDone: classes.exitDone,
+};
+
+const ChooseLessonsModal = ({
+  show,
+  setShow,
+  onSubmitModal,
+  withEmail,
+  withSessionType = true,
+  defaultSessionType,
+}) => {
   const [step, setStep] = useState(withSessionType ? "sessionType" : "date");
 
   const stepToComponent = {
@@ -42,9 +58,15 @@ const ChooseLessonsModal = ({ setShow, onSubmitModal, withEmail, withSessionType
 
   const CurrentStep = stepToComponent[step];
 
+  const ref = createRef();
+
   return (
     <ModalContext.Provider value={modalData}>
-      <CurrentStep />
+      <CSSTransition in={show} timeout={300} unmountOnExit nodeRef={ref} classNames={transitionClassNames}>
+        <ModalFade onClickOutside={() => setShow(false)} ref={ref}>
+          <CurrentStep />
+        </ModalFade>
+      </CSSTransition>
     </ModalContext.Provider>
   );
 

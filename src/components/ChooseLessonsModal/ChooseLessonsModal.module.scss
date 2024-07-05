@@ -8,3 +8,21 @@
   border: none;
   cursor: pointer;
 }
+
+.enterActive {
+  animation: appear 0.3s forwards;
+}
+
+.exitActive {
+  animation: appear 0.3s reverse forwards;
+}
+
+@keyframes appear {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}

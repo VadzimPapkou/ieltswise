@@ -3,13 +3,11 @@ import classes from "./ChooseEmail.module.scss";
 import TextField from "../TextField/TextField";
 import Button from "../Button/Button";
 import { ModalContext } from "./ChooseLessonsModal";
-import axiosClient, { apiUrl } from "../../axiosClient";
 import { ColorRing } from "react-loader-spinner";
 import clsx from "clsx";
 import Modal from "../Modal";
 import { useForm } from "react-hook-form";
-import { isEmail, isGmail } from "../../common";
-import ModalFade from "../ModalFade";
+import { isGmail } from "../../common";
 
 const ChooseEmail = () => {
   const { setStep, email, setEmail, selectedTime, sessionType, submitModal, setShowModal } = useContext(ModalContext);
@@ -33,43 +31,39 @@ const ChooseEmail = () => {
   }, [email]);
 
   return (
-    <ModalFade onClickOutside={closeModal}>
-      <Modal className={modalClass} onCloseClick={closeModal}>
-        {loading && (
-          <ColorRing height="80" width="80" colors={["#e15b64", "#f47e60", "#f8b26a", "#abbd81", "#849b87"]} />
-        )}
-        {!loading && (
-          <>
-            <h3 className={classes.title}>Start Learning</h3>
-            <p className={classes.enterEmail}>
-              Our lesson will be via Google Meet. Please enter your Email address to allow me to send you an invitation
-              to the lesson.
-            </p>
-            <form className={classes.form} onSubmit={handleSubmit(onSubmit)}>
-              <TextField
-                register={() =>
-                  register("email", {
-                    required: { value: true, message: "Please enter your gmail." },
-                    validate: (value) => isGmail(value) || "Please enter a valid gmail.",
-                  })
-                }
-                className={classes.email}
-                type="email"
-                placeholder="example@gmail.com"
-                validityState={formState.errors.email ? "invalid" : "default"}
-                validationMessage={formState.errors?.email?.message || ""}
-              />
-              <Button variant="link" type="submit">
-                Enroll
-              </Button>
-              <Button variant="text" type="button" onClick={onBackClick}>
-                Back
-              </Button>
-            </form>
-          </>
-        )}
-      </Modal>
-    </ModalFade>
+    <Modal className={modalClass} onCloseClick={closeModal}>
+      {loading && <ColorRing height="80" width="80" colors={["#e15b64", "#f47e60", "#f8b26a", "#abbd81", "#849b87"]} />}
+      {!loading && (
+        <>
+          <h3 className={classes.title}>Start Learning</h3>
+          <p className={classes.enterEmail}>
+            Our lesson will be via Google Meet. Please enter your Email address to allow me to send you an invitation to
+            the lesson.
+          </p>
+          <form className={classes.form} onSubmit={handleSubmit(onSubmit)}>
+            <TextField
+              register={() =>
+                register("email", {
+                  required: { value: true, message: "Please enter your gmail." },
+                  validate: (value) => isGmail(value) || "Please enter a valid gmail.",
+                })
+              }
+              className={classes.email}
+              type="email"
+              placeholder="example@gmail.com"
+              validityState={formState.errors.email ? "invalid" : "default"}
+              validationMessage={formState.errors?.email?.message || ""}
+            />
+            <Button variant="link" type="submit">
+              Enroll
+            </Button>
+            <Button variant="text" type="button" onClick={onBackClick}>
+              Back
+            </Button>
+          </form>
+        </>
+      )}
+    </Modal>
   );
 
   function onBackClick() {
@@ -77,7 +71,6 @@ const ChooseEmail = () => {
   }
 
   function onSubmit({ email }) {
-    debugger;
     setLoading(true);
     setEmail(email);
   }

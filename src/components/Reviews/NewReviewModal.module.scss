@@ -52,6 +52,24 @@
   color: var(--danger);
 }
 
+.enterActive {
+  animation: appear 0.3s forwards;
+}
+
+.exitActive {
+  animation: appear 0.3s reverse forwards;
+}
+
+@keyframes appear {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
 @media screen and (max-width: 500px) {
   .modal {
     padding: 16px;
@@ -66,3 +84,4 @@
     margin-top: 16px;
   }
 }
+

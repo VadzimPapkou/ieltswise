@@ -10,9 +10,12 @@ const GetStarted = ({}) => {
 
   return (
     <div className={classes.getStarted}>
-      {showLessonsModal && (
-        <ChooseLessonsModal setShow={setShowLessonsModal} onSubmitModal={handleSubmitLessons} withEmail={true} />
-      )}
+      <ChooseLessonsModal
+        show={showLessonsModal}
+        setShow={setShowLessonsModal}
+        onSubmitModal={handleSubmitLessons}
+        withEmail={true}
+      />
       <h2 className={classes.title}>Let me help you reach your goal!</h2>
       <p className={classes.description}>
         Explore my sessions that will help you succeed and overcome any difficulties you may encounter.

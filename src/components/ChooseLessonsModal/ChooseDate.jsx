@@ -1,6 +1,5 @@
 import classes from "./ChooseDate.module.scss";
 import Button from "../Button/Button";
-import Arrow3 from "../../icon-components/Arrow3";
 import React, { useContext, useEffect, useRef, useState } from "react";
 import Week from "./Week";
 import moment from "moment";
@@ -10,10 +9,7 @@ import { ModalContext } from "./ChooseLessonsModal";
 import Modal from "../Modal";
 import { ColorRing } from "react-loader-spinner";
 import clsx from "clsx";
-import ArrowRight from "../../icon-components/ArrowRight";
-import Arrow2 from "../../icon-components/Arrow2/Arrow2";
 import Arrow4 from "../../icon-components/Arrow4";
-import ModalFade from "../ModalFade";
 
 const days = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
 const tomorrow = moment(new Date()).add(1, "day");
@@ -70,43 +66,41 @@ const ChooseDate = () => {
   });
 
   return (
-    <ModalFade onClickOutside={closeModal}>
-      <Modal className={classes.modal} onCloseClick={closeModal}>
-        <div className={classes.header}>
-          <p className={classes.title}>Schedule</p>
-          <Button className={classes.buttonLeft} variant="icon" onClick={setPrevMonth}>
-            <Arrow4 color="#fff" />
-          </Button>
-          <p className={classes.date}>{month.format("MMMM YYYY")}</p>
-          <Button variant="icon" onClick={setNextMonth} className={classes.buttonRight}>
-            <Arrow4 color="#fff" />
-          </Button>
+    <Modal className={classes.modal} onCloseClick={closeModal}>
+      <div className={classes.header}>
+        <p className={classes.title}>Schedule</p>
+        <Button className={classes.buttonLeft} variant="icon" onClick={setPrevMonth}>
+          <Arrow4 color="#fff" />
+        </Button>
+        <p className={classes.date}>{month.format("MMMM YYYY")}</p>
+        <Button variant="icon" onClick={setNextMonth} className={classes.buttonRight}>
+          <Arrow4 color="#fff" />
+        </Button>
+      </div>
+      <p className={classes.selectDateAndTime}>Select a date and time for a lesson.</p>
+      <div className={calendarClass}>
+        <div className={classes.row}>
+          {days.map((day) => (
+            <p key={day} className={classes.dayOfWeek}>
+              {day}
+            </p>
+          ))}
         </div>
-        <p className={classes.selectDateAndTime}>Select a date and time for a lesson.</p>
-        <div className={calendarClass}>
-          <div className={classes.row}>
-            {days.map((day) => (
-              <p key={day} className={classes.dayOfWeek}>
-                {day}
-              </p>
-            ))}
-          </div>
-          {loading && <Loader />}
-          {error && <p className={classes.error}>{error.message}</p>}
-          {!loading && weeks.map((week, i) => <Week key={i} week={week} />)}
-        </div>
-        <div className={classes.buttons}>
-          {withSessionType && (
-            <Button variant="text" onClick={handleBackClick}>
-              Back
-            </Button>
-          )}
-          <Button variant="link" onClick={handleNextClick} disabled={nextDisabled}>
-            Next
+        {loading && <Loader />}
+        {error && <p className={classes.error}>{error.message}</p>}
+        {!loading && weeks.map((week, i) => <Week key={i} week={week} />)}
+      </div>
+      <div className={classes.buttons}>
+        {withSessionType && (
+          <Button variant="text" onClick={handleBackClick}>
+            Back
           </Button>
-        </div>
-      </Modal>
-    </ModalFade>
+        )}
+        <Button variant="link" onClick={handleNextClick} disabled={nextDisabled}>
+          Next
+        </Button>
+      </div>
+    </Modal>
   );
 
   function handleBackClick() {

@@ -20,7 +20,11 @@ export const Reviews = observer(({ children }) => {
 
   return (
     <div className={classes.wrapper}>
-      {showNewReviewModal && <NewReviewModal submitReview={submitReview} close={() => setShowNewReviewModal(false)} />}
+      <NewReviewModal
+        show={showNewReviewModal}
+        submitReview={submitReview}
+        close={() => setShowNewReviewModal(false)}
+      />
       <h2 className={classes.title}>Reviews</h2>
       <p className={classes.titleDescription}>
         “I admire people who dare to take the language, English, and understand it and understand the melody” -{" "}

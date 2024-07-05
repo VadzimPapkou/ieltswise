@@ -6,17 +6,19 @@ import Button from "../Button/Button";
 import ChooseLessonsModal from "../ChooseLessonsModal";
 import { processPayment } from "../../processPayment";
 import Image from "next/image";
-import { useWindowSize } from "../../hooks/useWindowSize";
 
 const UnderHeader = () => {
   const [showLessonsModal, setShowLessonsModal] = useState(false);
-  const { width } = useWindowSize();
 
   return (
     <div className={classes.wrapper}>
-      {showLessonsModal && (
-        <ChooseLessonsModal setShow={setShowLessonsModal} onSubmitModal={handleSubmitLessons} withEmail={true} />
-      )}
+      <ChooseLessonsModal
+        show={showLessonsModal}
+        setShow={setShowLessonsModal}
+        onSubmitModal={handleSubmitLessons}
+        withEmail={true}
+      />
+
       <div className={classes.underHeader}>
         <div className={classes.textBlock}>
           <p className={classes.ieltswiseEducation}>IELTSWISE Education</p>

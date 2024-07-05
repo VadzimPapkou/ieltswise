@@ -12,15 +12,14 @@ export function BookFreeChatButton({ setError, setLoading = () => {}, defaultSes
 
   return (
     <>
-      {showLessonsModal && (
-        <ChooseLessonsModal
-          withEmail={true}
-          withSessionType={false}
-          defaultSessionType={defaultSessionType}
-          setShow={setShowLessonsModal}
-          onSubmitModal={handleSubmitModal}
-        />
-      )}
+      <ChooseLessonsModal
+        withEmail={true}
+        withSessionType={false}
+        defaultSessionType={defaultSessionType}
+        show={showLessonsModal}
+        setShow={setShowLessonsModal}
+        onSubmitModal={handleSubmitModal}
+      />
       {showBookModal && <BookStatusModal response={bookResponse} setShow={setShowBookModal} />}
       <Button {...buttonProps} variant="primary" onClick={() => setShowLessonsModal(true)}>
         Book a Free Chat
