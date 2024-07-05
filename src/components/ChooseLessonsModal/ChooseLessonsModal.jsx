@@ -6,6 +6,7 @@ import ChooseDate from "./ChooseDate";
 import ChooseEmailModal from "./ChooseEmail";
 import moment from "moment";
 import PropTypes from "prop-types";
+import { CSSTransition } from "react-transition-group";
 
 export const ModalContext = createContext({});
 
@@ -42,19 +43,10 @@ const ChooseLessonsModal = ({ setShow, onSubmitModal, withEmail, withSessionType
   const CurrentStep = stepToComponent[step];
 
   return (
-    <ModalFade onClickOutside={closeModal}>
-      <button className={classes.closeModal} onClick={closeModal}>
-        &#x2715;
-      </button>
-      <ModalContext.Provider value={modalData}>
-        <CurrentStep close={closeModal} />
-      </ModalContext.Provider>
-    </ModalFade>
+    <ModalContext.Provider value={modalData}>
+      <CurrentStep />
+    </ModalContext.Provider>
   );
-
-  function closeModal() {
-    setShow(false);
-  }
 
   async function submitModal() {
     await onSubmitModal({ selectedTime, email, sessionType });
