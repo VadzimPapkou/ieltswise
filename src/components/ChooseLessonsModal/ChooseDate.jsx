@@ -10,6 +10,7 @@ import Modal from "../Modal";
 import { ColorRing } from "react-loader-spinner";
 import clsx from "clsx";
 import Arrow4 from "../../icon-components/Arrow4";
+import { getWeeks } from "./getWeeks";
 
 const days = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
 const tomorrow = moment(new Date()).add(1, "day");
@@ -127,64 +128,6 @@ const ChooseDate = () => {
     setMonth(moment(month.add(1, "month")));
   }
 };
-
-function getWeeks(daysOfMonth) {
-  daysOfMonth.forEach((day) => (day.date = moment(day.date)));
-  daysOfMonth = removeDuplicateDays(daysOfMonth);
-  const today = moment();
-  daysOfMonth.forEach(function (day) {
-    if (day.date.isBefore(today)) {
-      day.time.forEach((time) => (time.occupied = true));
-    }
-    if (day.time.every((time) => time.occupied)) {
-      day.occupied = true;
-    }
-  });
-
-  daysOfMonth.forEach((day) => (day.weekIndex = day.date.isoWeek()));
-  const weekToDays = _.groupBy(daysOfMonth, "weekIndex");
-  const weekIndexes = _.keys(weekToDays).map(Number);
-  const firstWeekIndex = Math.min(...weekIndexes);
-  const lastWeekIndex = Math.max(...weekIndexes);
-  weekToDays[firstWeekIndex] = padStartArray(weekToDays[firstWeekIndex], 7, null);
-  weekToDays[lastWeekIndex] = padEndArray(weekToDays[lastWeekIndex], 7, null);
-
-  return _.values(weekToDays);
-}
-
-function removeDuplicateDays(days) {
-  const passedDays = {};
-  const result = [];
-  days.forEach((day) => {
-    if (passedDays[day.date.format("DD")]) return;
-
-    result.push(day);
-    passedDays[day.date.format("DD")] = 1;
-  });
-  return result;
-}
-
-function padStartArray(array, targetLength, padValue) {
-  const currentLength = array.length;
-  const padding = targetLength - currentLength;
-
-  if (padding > 0) {
-    return [..._.fill(Array(padding), padValue), ...array];
-  }
-
-  return array;
-}
-
-function padEndArray(array, targetLength, padValue) {
-  const currentLength = array.length;
-  const padding = targetLength - currentLength;
-
-  if (padding > 0) {
-    return [...array, ..._.fill(Array(padding), padValue)];
-  }
-
-  return array;
-}
 
 const Loader = () => (
   <ColorRing

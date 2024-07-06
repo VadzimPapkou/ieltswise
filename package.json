@@ -33,6 +33,7 @@
     "typescript": "5.1.3"
   },
   "devDependencies": {
+    "@types/lodash": "^4.17.6",
     "eslint-plugin-prettier": "^5.0.0",
     "generate-template-files": "^3.2.1",
     "prettier": "3.0.0",
