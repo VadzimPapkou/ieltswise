@@ -4,6 +4,7 @@ import BookStatusModal from "../BookStatusModal";
 import Button from "../Button/Button";
 import moment from "moment";
 import axiosClient from "../../axiosClient";
+import { tutorGmail } from "../../common";
 
 export function BookFreeChatButton({ setError, setLoading = () => {}, defaultSessionType, ...buttonProps }) {
   const [showLessonsModal, setShowLessonsModal] = useState(false);
@@ -35,7 +36,7 @@ export function BookFreeChatButton({ setError, setLoading = () => {}, defaultSes
       setLoading(true);
       const response = await axiosClient.post("/student/bookTrialSession", {
         requestedService: sessionType,
-        tutorEmail: "test.tutor1.ieltswise67@gmail.com",
+        tutorEmail: tutorGmail,
         studentEmail: email,
         studentName: name,
         startDate: startDate.toISOString(true),

@@ -11,7 +11,7 @@ import ChooseLessonsModal from "../ChooseLessonsModal";
 import moment from "moment";
 import BookStatusModal from "../BookStatusModal";
 import { useForm } from "react-hook-form";
-import { isGmail } from "../../common";
+import { isGmail, tutorGmail } from "../../common";
 
 const FreeTrial = ({}) => {
   const [showLessonModal, setShowLessonModal] = useState(false);
@@ -74,7 +74,7 @@ const FreeTrial = ({}) => {
     try {
       const response = await axiosClient.post("/student/bookTrialSession", {
         requestedService: sessionType,
-        tutorEmail: "test.tutor1.ieltswise67@gmail.com",
+        tutorEmail: tutorGmail,
         studentName: name,
         studentEmail: email,
         startDate: startDate.toISOString(true),

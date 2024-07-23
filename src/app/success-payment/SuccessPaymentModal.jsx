@@ -7,7 +7,7 @@ import axiosClient from "../../axiosClient";
 import ModalFade from "../../components/ModalFade";
 import Modal from "../../components/Modal";
 import { ColorRing, Oval } from "react-loader-spinner";
-import { primary } from "../../common";
+import { primary, tutorGmail } from "../../common";
 import clsx from "clsx";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
@@ -55,7 +55,7 @@ export function SuccessPaymentModal() {
 
       try {
         const { data, status } = await axiosClient.post("/student/bookRegularSession", {
-          tutorEmail: "test.tutor1.ieltswise67@gmail.com",
+          tutorEmail: tutorGmail,
           studentEmail,
           startDate: startDate.toISOString(true),
           endDate: endDate.toISOString(true),

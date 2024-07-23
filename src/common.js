@@ -20,3 +20,6 @@ export const validityIconsPaths = {
   warning: "./warning.svg",
   invalid: "./invalid.svg",
 };
+
+export const isProduction = process.env.NEXT_PUBLIC_SITE_NAME === "production";
+export const tutorGmail = isProduction ? "ieltswise67@gmail.com" : "test.tutor1.ieltswise67@gmail.com";
