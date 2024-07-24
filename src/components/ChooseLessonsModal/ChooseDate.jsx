@@ -67,7 +67,7 @@ const ChooseDate = () => {
   });
 
   return (
-    <Modal className={classes.modal} onCloseClick={closeModal}>
+    <Modal className={classes.modal} wrapperClass={classes.modalWrapper} onCloseClick={closeModal}>
       <div className={classes.header}>
         <p className={classes.title}>Schedule</p>
         <Button className={classes.buttonLeft} variant="icon" onClick={setPrevMonth}>

@@ -62,7 +62,14 @@ const ChooseLessonsModal = ({
 
   return (
     <ModalContext.Provider value={modalData}>
-      <CSSTransition in={show} timeout={300} unmountOnExit nodeRef={ref} classNames={transitionClassNames}>
+      <CSSTransition
+        in={show}
+        timeout={300}
+        unmountOnExit
+        nodeRef={ref}
+        classNames={transitionClassNames}
+        onExited={resetModal}
+      >
         <ModalFade onClickOutside={() => setShow(false)} ref={ref}>
           <CurrentStep />
         </ModalFade>
@@ -72,6 +79,14 @@ const ChooseLessonsModal = ({
 
   async function submitModal() {
     await onSubmitModal({ selectedTime, email, sessionType });
+  }
+
+  function resetModal() {
+    setStep(withSessionType ? "sessionType" : "date");
+    setSessionType(undefined);
+    setSelectedDay(moment());
+    setSelectedTime(null);
+    setEmail("");
   }
 };
 
