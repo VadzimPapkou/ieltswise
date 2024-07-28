@@ -11,6 +11,7 @@ import { ColorRing } from "react-loader-spinner";
 import clsx from "clsx";
 import Arrow4 from "../../icon-components/Arrow4";
 import { getWeeks } from "./getWeeks";
+import { tutorGmail } from "@/common";
 
 const days = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
 const tomorrow = moment(new Date()).add(1, "day");
@@ -39,9 +40,7 @@ const ChooseDate = () => {
         if (cachedData) {
           return cachedData;
         } else {
-          const { data } = await axiosClient.get(
-            `/tutor/events/test.tutor1.ieltswise67@gmail.com/${month.format("YYYY/MM")}`
-          );
+          const { data } = await axiosClient.get(`/tutor/events/${tutorGmail}/${month.format("YYYY/MM")}`);
           loadedDataRef.current[month.format("YYYY/MM")] = data;
           return data;
         }
