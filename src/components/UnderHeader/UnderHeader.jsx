@@ -32,7 +32,7 @@ const UnderHeader = () => {
           <table className={classes.lessonInfo}>
             <tbody>
               <tr>
-                <td className={classes.price}>$15</td>
+                <td className={classes.price}>$15.99</td>
                 <td className={classes.duration}>1 hour</td>
                 <td className={classes.platform}>Google meet</td>
               </tr>

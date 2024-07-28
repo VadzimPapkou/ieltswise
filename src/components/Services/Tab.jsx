@@ -10,7 +10,7 @@ const Tab = ({ title, children }) => {
         <h3 className={clsx("h3-like")}>{title}</h3>
         <div className={classes.tabInfo}>
           <span className="p1">
-            <b>$15</b>
+            <b>$15.99</b>
           </span>
           <span className="p1">
             <b>1 hour</b>
