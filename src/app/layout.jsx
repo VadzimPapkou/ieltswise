@@ -8,6 +8,13 @@ export const metadata = {
   title: "IELTSwise - Your Path to Success with Professional IELTS Tutors",
   description:
     "Get top scores in the IELTS exam with IELTSwise's personalized tutoring. Our experienced tutors offer customized study plans and one-on-one sessions to ensure you excel. Start improving your English skills with us today!",
+  icons: {
+    icon: {
+      url: "/favicon.png",
+      type: "image/png",
+    },
+    shortcut: { url: "/favicon.png", type: "image/png" },
+  },
 };
 
 if (!isProduction) {
@@ -26,7 +33,6 @@ export default function RootLayout({ children }) {
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
         />
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800" rel="stylesheet" />
-        <link rel="icon" href="/icon.svg?<generated>" type="image/<generated>" sizes="<generated>" />
       </head>
       <body>
         <div className={classes.wrapper}>
