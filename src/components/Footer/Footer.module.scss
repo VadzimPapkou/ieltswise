@@ -1,6 +1,7 @@
 .footer {
-  margin: 80px auto 0 auto;
+  margin: auto auto 0 auto;
   max-width: 1256px;
+  width: 100%;
 
   display: flex;
   flex-wrap: wrap;
@@ -19,7 +20,8 @@
   text-decoration: none;
 }
 
-.textLink, .copyright {
+.textLink,
+.copyright {
   color: var(--secondary-text);
 }
 
@@ -112,5 +114,4 @@
       width: 40%;
     }
   }
-
 }

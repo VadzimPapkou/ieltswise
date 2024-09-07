@@ -50,12 +50,13 @@ const FreeTrial = ({}) => {
           Book a Free Chat
         </Button>
       </form>
-      <p className={classes.agree}>
+      {/*TODO:*/}
+      {/* <p className={classes.agree}>
         By clicking “Book”, you agree to the processing of{" "}
         <Link href="" className={classes.personalData}>
           Personal data.
         </Link>
-      </p>
+      </p> */}
       <div className={classes.bubble1}></div>
       <div className={classes.bubble2}></div>
       <div className={classes.bubble3}></div>

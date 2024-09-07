@@ -2,12 +2,20 @@ import "./_global.scss";
 import classes from "./layout.module.css";
 import Header from "../components/Header/Header";
 import Footer from "../components/Footer";
+import { isProduction } from "@/common";
 
 export const metadata = {
   title: "IELTSwise - Your Path to Success with Professional IELTS Tutors",
   description:
     "Get top scores in the IELTS exam with IELTSwise's personalized tutoring. Our experienced tutors offer customized study plans and one-on-one sessions to ensure you excel. Start improving your English skills with us today!",
 };
+
+if (!isProduction) {
+  metadata.robots = {
+    index: false,
+    follow: false,
+  };
+}
 
 export default function RootLayout({ children }) {
   return (

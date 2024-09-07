@@ -78,6 +78,7 @@ const ChooseDate = () => {
         </Button>
       </div>
       <p className={classes.selectDateAndTime}>Select a date and time for a lesson.</p>
+      <p className={classes.timeNote}>Note: Time is displayed in UTC +1.</p>
       <div className={calendarClass}>
         <div className={classes.row}>
           {days.map((day) => (
