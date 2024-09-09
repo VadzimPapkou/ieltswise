@@ -4,11 +4,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
   return [
     {
       url: 'https://ieltswise67.vercel.app/',
-      lastModified: new Date(),
+      lastModified: "2024-09-09",
     },
     {
       url: 'https://ieltswise67.vercel.app/tutors/neil-wood',
-      lastModified: new Date(),
-    }
+      lastModified: "2024-09-09",
+    },
   ]
 }

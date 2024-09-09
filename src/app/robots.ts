@@ -4,7 +4,11 @@ import { isProduction } from "../common";
 export default function robots(): MetadataRoute.Robots {
   if (isProduction)
     return {
-      rules: {},
+      rules: {
+        userAgent: "*",
+        
+      },
+      sitemap: "https://ieltswise67.vercel.app/sitemap.xml"
     };
   return {
     rules: {
