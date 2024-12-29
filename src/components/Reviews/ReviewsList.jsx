@@ -29,7 +29,11 @@ export const ReviewsList = async () => {
 };
 
 async function fetchReviews() {
-  return fetch(apiUrl + "/comments", { cache: "no-cache" })
-    .then((response) => response.json())
-    .then((reviews) => reviews.sort((a, b) => (a.id > b.id ? -1 : 1)));
+  const response = await fetch(apiUrl + "/comments", { cache: "no-cache" });
+  if(response.ok) {
+    const reviews = await response.json();
+    return reviews.sort((a, b) => (a.id > b.id ? -1 : 1));
+  } else {
+    return [];
+  }
 }
